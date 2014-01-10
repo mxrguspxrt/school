@@ -2,7 +2,6 @@
 
 int button_number_get();
 void display_number_set(int number);
-void run_sleep(int milliseconds);
 void run_program();
 
 int button_number_get(){
@@ -31,12 +30,6 @@ void display_number_set(int number){
   // .-10000000-128
   int numbers[] = {128,6,91,79,102,109,125,7,127,111};
   P1 = 255 ^ numbers[number];
-}
-
-void run_sleep(int milliseconds){
-  int i;
-  for(i=0; i<milliseconds; i++){
-  }
 }
 
 void run_program(){
