@@ -1,5 +1,7 @@
 #include <8051.h>
 
+// Author: mxrguspxrt 2014 - School homework for Embed Systems
+
 int button_number_get();
 void display_number_set(int number);
 void run_program();
