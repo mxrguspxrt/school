@@ -6,13 +6,6 @@ int car_is_entering();
 int car_is_leaving();
 void display_value_set(int value);
 void run();
-void sleep(int milliseconds);
-
-void sleep(int milliseconds){
-  int i = milliseconds*20;
-  for(;0<=i;i--){
-  }
-}
 
 int car_is_entering(){
   return P0_0 == 0;
