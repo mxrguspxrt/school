@@ -77,7 +77,7 @@ namespace Trips
             return true;
         }
 
-        public bool hasFinished()
+        public int[] getWinningRow()
         {
             foreach (int[] winningRow in winningRows)
             {
@@ -85,10 +85,15 @@ namespace Trips
                 bool areEqual = allAreEqualAndNotNulls(selectionValues);
                 if (areEqual)
                 {
-                    return true;
+                    return winningRow;
                 }
             }
-            return false;
+            return null;
+        }
+
+        public bool hasFinished()
+        {
+            return getWinningRow() != null;
         }
 
     }

@@ -23,7 +23,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\Trips.exe">
       <PackagePath>Trips.exe</PackagePath>
-      <Modified>2014-01-28T23:13:27.881</Modified>
+      <Modified>2014-01-28T23:19:49.419</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
