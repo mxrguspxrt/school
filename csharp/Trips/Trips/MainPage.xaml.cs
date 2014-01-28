@@ -33,8 +33,17 @@ namespace Trips
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            ResetGame();
+        }
+
+        void ResetGame()
+        {
             gameplay = new Gameplay();
             this.DataContext = gameplay;
+            Button[] slots = new Button[]{slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8};
+            foreach(Button slotButton in slots){
+                slotButton.Content = "";
+            }
         }
 
         private void gameButton_Click(int slot, object sender)
@@ -97,7 +106,7 @@ namespace Trips
         
         private void reset_Click(object sender, RoutedEventArgs e)
         {
-
+            ResetGame();
         }
     }
 }
