@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>LOVEGUEST</Machine>
+    <WindowsUser>dte</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>857d804f-66b8-41c5-b58f-4ee0e4647a7e</PackageIdentityName>
+    <RegisteredManifestChecksum>031A514E7F856A6FED59EF9AABA8EE688499DE915E92E2398BBEE0BB74E9F735</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>857d804f-66b8-41c5-b58f-4ee0e4647a7e_1.0.0.0_neutral__1dajkkfwsth0p</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>857d804f-66b8-41c5-b58f-4ee0e4647a7e_1dajkkfwsth0p!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>857d804f-66b8-41c5-b58f-4ee0e4647a7e</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=dte</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-01-28T20:36:46.756</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\Trips.exe">
+      <PackagePath>Trips.exe</PackagePath>
+      <Modified>2014-01-28T22:00:54.568</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-07-23T04:01:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-07-23T04:01:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-07-23T04:01:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-07-23T04:01:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2014-01-28T22:00:54.388</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2014-01-28T22:00:54.389</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2014-01-28T20:36:46.621</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
