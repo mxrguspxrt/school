@@ -23,7 +23,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\Trips.exe">
       <PackagePath>Trips.exe</PackagePath>
-      <Modified>2014-01-28T22:10:38.797</Modified>
+      <Modified>2014-01-28T23:13:27.881</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -47,11 +47,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2014-01-28T22:00:54.388</Modified>
+      <Modified>2014-01-28T22:13:55.720</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-01-28T22:00:54.389</Modified>
+      <Modified>2014-01-28T22:13:55.723</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
