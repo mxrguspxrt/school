@@ -7,20 +7,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Black">
-        <GridView HorizontalAlignment="Left" Margin="100,200,0,0">
-            <Button x:Name="reset" Content="Reset" Click="reset_Click"></Button>
-        </GridView>
-        <GridView HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="180" Height="180">
-            <Button x:Name="slot0" Style="{StaticResource GameButton}" Click="slot0_Click"/>
-            <Button x:Name="slot1" Style="{StaticResource GameButton}" Click="slot1_Click"/>
-            <Button x:Name="slot2" Style="{StaticResource GameButton}" Click="slot2_Click"/>
-            <Button x:Name="slot3" Style="{StaticResource GameButton}" Click="slot3_Click"/>
-            <Button x:Name="slot4" Style="{StaticResource GameButton}" Click="slot4_Click"/>
-            <Button x:Name="slot5" Style="{StaticResource GameButton}" Click="slot5_Click"/>
-            <Button x:Name="slot6" Style="{StaticResource GameButton}" Click="slot6_Click"/>
-            <Button x:Name="slot7" Style="{StaticResource GameButton}" Click="slot7_Click"/>
-            <Button x:Name="slot8" Style="{StaticResource GameButton}" Click="slot8_Click"/>
-        </GridView>
-    </Grid>
+    <Viewbox>
+        <Grid Background="Black">
+            <GridView HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Height="180" Margin="6,0,0,0" SelectionMode="None">
+                <Button x:Name="slot0" Style="{StaticResource GameButton}" Click="slot0_Click"/>
+                <Button x:Name="slot1" Style="{StaticResource GameButton}" Click="slot1_Click"/>
+                <Button x:Name="slot2" Style="{StaticResource GameButton}" Click="slot2_Click"/>
+                <Button x:Name="slot3" Style="{StaticResource GameButton}" Click="slot3_Click"/>
+                <Button x:Name="slot4" Style="{StaticResource GameButton}" Click="slot4_Click"/>
+                <Button x:Name="slot5" Style="{StaticResource GameButton}" Click="slot5_Click"/>
+                <Button x:Name="slot6" Style="{StaticResource GameButton}" Click="slot6_Click"/>
+                <Button x:Name="slot7" Style="{StaticResource GameButton}" Click="slot7_Click"/>
+                <Button x:Name="slot8" Style="{StaticResource GameButton}" Click="slot8_Click"/>
+            </GridView>
+            <GridView HorizontalAlignment="Left" Margin="6,170,0,0" SelectionMode="None">
+                <Button x:Name="reset" Content="Reset" Click="reset_Click"></Button>
+            </GridView>
+
+        </Grid>
+    </Viewbox>
 </Page>

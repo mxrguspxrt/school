@@ -23,7 +23,7 @@ namespace Trips
             winningRows.Add(new int[]{0,1,2});
             winningRows.Add(new int[]{3,4,5});
             winningRows.Add(new int[]{6,7,8});
-            winningRows.Add(new int[]{0,3,5});
+            winningRows.Add(new int[]{0,3,6});
             winningRows.Add(new int[]{1,4,7});
             winningRows.Add(new int[]{2,5,8});
             winningRows.Add(new int[]{0,4,8});
