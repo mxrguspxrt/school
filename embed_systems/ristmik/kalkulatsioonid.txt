@@ -1,0 +1,30 @@
+ARENDUSTÖÖ
+
+Arendustöö + testimine + puhver: 
+
+20h*200e + 20h*200e + 10h*200e = 10000e
+
+
+RIISTVARA
+
+Riistvara komponendid + kokkupanek + testimine + puhver:
+
+1x33e
+Microcontroller'51, sram, 512b, interface, can2.0a,uart, plcc68
+http://www.oomipood.ee/en/product/tme_p80c592ffa/microcontroller-51-sram-512b-interface-can2-0a-uart-plcc68
+
+4x2e
+Jumbo led green diffused 20mm 34mcd
+http://www.oomipood.ee/en/product/dlc2-6sgd/jumbo-led-green-diffused-20mm-34mcd
+
+2x2e
+Jumbo led yellow diffused 20mm 34mcd
+http://www.oomipood.ee/en/product/dlc2-6sgd/jumbo-led-green-diffused-20mm-34mcd
+
+4x2e
+Jumbo led reddiffused 20mm 34mcd
+http://www.oomipood.ee/en/product/dlc2-6sgd/jumbo-led-green-diffused-20mm-34mcd
+
+53e + 20h*200e + 20h*200e + 10h*200e = 10053e
+
+
