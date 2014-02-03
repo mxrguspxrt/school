@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,6 +24,7 @@ namespace Trips
     public sealed partial class MainPage : Page
     {
 
+        public Button[] buttons;
         public Gameplay gameplay;
 
         public MainPage()
@@ -33,6 +35,7 @@ namespace Trips
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            this.buttons = new Button[] { slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8 };
             ResetGame();
         }
 
@@ -40,16 +43,30 @@ namespace Trips
         {
             gameplay = new Gameplay();
             this.DataContext = gameplay;
-            Button[] slots = new Button[]{slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8};
-            foreach(Button slotButton in slots){
-                slotButton.Content = "";
+            foreach(Button button in this.buttons){
+                button.Content = "";
+                button.Background = null;
             }
         }
 
-        private void gameButton_Click(int slot, object sender)
+        private bool gameButton_Click(int slot, object sender)
         {
+            if(gameplay.hasFinished())
+            {
+                return false;
+            }
+            
             gameplay.selectSlot(slot);
             ((Button)sender).Content = gameplay.selections[slot];
+
+            if(gameplay.hasFinished())
+            {
+                foreach (int winningElement in gameplay.getWinningRow())
+                {
+                    this.buttons[winningElement].Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 255));
+                }
+            }
+            return true;
         }
 
 

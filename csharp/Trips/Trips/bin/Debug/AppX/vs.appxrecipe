@@ -6,7 +6,7 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>857d804f-66b8-41c5-b58f-4ee0e4647a7e</PackageIdentityName>
-    <RegisteredManifestChecksum>031A514E7F856A6FED59EF9AABA8EE688499DE915E92E2398BBEE0BB74E9F735</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>0AFBEF925FBFD82ECD847648791E8064FE20C753C3689836FADF47E070949C1B</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>857d804f-66b8-41c5-b58f-4ee0e4647a7e_1.0.0.0_neutral__1dajkkfwsth0p</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>857d804f-66b8-41c5-b58f-4ee0e4647a7e_1dajkkfwsth0p!App</RegisteredUserModeAppID>
     <RegisteredPackageID>857d804f-66b8-41c5-b58f-4ee0e4647a7e</RegisteredPackageID>
@@ -17,13 +17,13 @@
     <AppXManifest Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-01-28T20:36:46.756</Modified>
+      <Modified>2014-02-03T12:41:59.336</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\Trips.exe">
       <PackagePath>Trips.exe</PackagePath>
-      <Modified>2014-01-30T09:35:43.016</Modified>
+      <Modified>2014-02-03T12:50:06.007</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -51,11 +51,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-01-30T09:35:42.829</Modified>
+      <Modified>2014-02-03T12:45:59.550</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-01-28T20:36:46.621</Modified>
+      <Modified>2014-02-03T12:41:59.209</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

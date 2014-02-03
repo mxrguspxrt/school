@@ -32,13 +32,19 @@ namespace Trips
 
         public bool selectSlot(int position)
         {
-            if (selections[position] == null && !hasFinished())
+            if(hasFinished())
+            {
+                return false;
+            }
+            if (selections[position] == null)
             {
                 selections[position] = toggleSelection();
                 Debug.WriteLine("Chose " + position + " " + selections[position]);
                 return true;
-            } else
+            } 
+            else
             {
+                Debug.WriteLine("Could not choose " + position + " " + selections[position]);
                 return false;
             }
         }
@@ -93,7 +99,9 @@ namespace Trips
 
         public bool hasFinished()
         {
-            return getWinningRow() != null;
+            bool finished = getWinningRow() != null;
+            Debug.WriteLine("Finished: " + finished);
+            return finished;
         }
 
     }
