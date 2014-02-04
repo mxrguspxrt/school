@@ -12,12 +12,20 @@ namespace Server.Models
     public class GamePlay : BaseModel
     {
         int _connectionId;
+        List<GamePlayMove> _gamePlayMoves;
 
         [DataMember]
         public int ConnectionId
         {
             get { return this._connectionId; }
             set { this._connectionId = value; }
+        }
+
+        [DataMember]
+        public List<GamePlayMove> GamePlayMoves
+        {
+            get { return this._gamePlayMoves; }
+            set { this._gamePlayMoves = value; }
         }
 
         public GamePlay()
@@ -29,6 +37,7 @@ namespace Server.Models
         {
             this.ConnectionId = u.ConnectionId;
             this.Id = u.Id;
+            this.GamePlayMoves = Models.GamePlayMove.FindForPlay(this.Id);
         }
 
         public static GamePlay Find(int id)

@@ -56,8 +56,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Position" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="PlayId" Type="int" Nullable="false" />
     <Property Name="Play_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="CallerUserConnection">
@@ -193,10 +194,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Position" Type="String" Nullable="false" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Trips.PlayMoveUser" FromRole="PlayMove" ToRole="User" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Play" Relationship="Trips.PlayMovePlay" FromRole="PlayMove" ToRole="Play" />
+          <Property Name="PlayId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="PlayMoveUser">
           <End Type="Trips.PlayMove" Role="PlayMove" Multiplicity="*" />
@@ -253,6 +255,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Position" ColumnName="Position" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PlayId" ColumnName="PlayId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

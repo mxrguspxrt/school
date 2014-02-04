@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/04/2014 10:16:59
+-- Date Created: 02/04/2014 11:31:00
 -- Generated from EDMX file: C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\DBA\Trips.edmx
 -- --------------------------------------------------
 
@@ -78,8 +78,9 @@ GO
 -- Creating table 'PlayMoveSet'
 CREATE TABLE [dbo].[PlayMoveSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Position] nvarchar(max)  NOT NULL,
+    [Position] int  NOT NULL,
     [UserId] int  NOT NULL,
+    [PlayId] int  NOT NULL,
     [Play_Id] int  NOT NULL
 );
 GO
