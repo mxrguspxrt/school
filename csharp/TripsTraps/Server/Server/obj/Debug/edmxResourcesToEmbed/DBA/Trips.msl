@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TripsStoreContainer" CdmEntityContainer="TripsContainer">
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Waiting" ColumnName="Waiting" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlaySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.Play)">
+        <MappingFragment StoreEntitySet="PlaySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConnectionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.Connection)">
+        <MappingFragment StoreEntitySet="ConnectionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CallerUserId" ColumnName="CallerUserId" />
+          <ScalarProperty Name="CalledUserId" ColumnName="CalledUserId" />
+          <ScalarProperty Name="CurrentPlayId" ColumnName="CurrentPlayId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayMoveSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.PlayMove)">
+        <MappingFragment StoreEntitySet="PlayMoveSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PlayMovePlay" TypeName="Trips.PlayMovePlay" StoreEntitySet="PlayMoveSet">
+      <EndProperty Name="Play">
+        <ScalarProperty Name="Id" ColumnName="Play_Id" />
+      </EndProperty>
+      <EndProperty Name="PlayMove">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

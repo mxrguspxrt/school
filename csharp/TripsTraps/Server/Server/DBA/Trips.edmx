@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Trips.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="TripsStoreContainer">
+    <EntitySet Name="UserSet" EntityType="Trips.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlaySet" EntityType="Trips.Store.PlaySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConnectionSet" EntityType="Trips.Store.ConnectionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlayMoveSet" EntityType="Trips.Store.PlayMoveSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CallerUserConnection" Association="Trips.Store.CallerUserConnection">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Connection" EntitySet="ConnectionSet" />
+    </AssociationSet>
+    <AssociationSet Name="ConnectionGame" Association="Trips.Store.ConnectionGame">
+      <End Role="Connection" EntitySet="ConnectionSet" />
+      <End Role="Game" EntitySet="PlaySet" />
+    </AssociationSet>
+    <AssociationSet Name="PlayMoveUser" Association="Trips.Store.PlayMoveUser">
+      <End Role="PlayMove" EntitySet="PlayMoveSet" />
+      <End Role="User" EntitySet="UserSet" />
+    </AssociationSet>
+    <AssociationSet Name="PlayMovePlay" Association="Trips.Store.PlayMovePlay">
+      <End Role="PlayMove" EntitySet="PlayMoveSet" />
+      <End Role="Play" EntitySet="PlaySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Waiting" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlaySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConnectionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConnectionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CallerUserId" Type="int" Nullable="false" />
+    <Property Name="CalledUserId" Type="int" Nullable="true" />
+    <Property Name="CurrentPlayId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PlayMoveSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Play_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CallerUserConnection">
+    <End Role="User" Type="Trips.Store.UserSet" Multiplicity="1" />
+    <End Role="Connection" Type="Trips.Store.ConnectionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Connection">
+        <PropertyRef Name="CallerUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ConnectionGame">
+    <End Role="Connection" Type="Trips.Store.ConnectionSet" Multiplicity="1" />
+    <End Role="Game" Type="Trips.Store.PlaySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Connection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="ConnectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayMoveUser">
+    <End Role="PlayMove" Type="Trips.Store.PlayMoveSet" Multiplicity="*" />
+    <End Role="User" Type="Trips.Store.UserSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayMove">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayMovePlay">
+    <End Role="PlayMove" Type="Trips.Store.PlayMoveSet" Multiplicity="*" />
+    <End Role="Play" Type="Trips.Store.PlaySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Play">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayMove">
+        <PropertyRef Name="Play_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Trips" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="TripsContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserSet" EntityType="Trips.User" />
+          <EntitySet Name="PlaySet" EntityType="Trips.Play" />
+          <EntitySet Name="ConnectionSet" EntityType="Trips.Connection" />
+          <AssociationSet Name="CallerUserConnection" Association="Trips.CallerUserConnection">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="Connection" EntitySet="ConnectionSet" />
+          </AssociationSet>
+          <AssociationSet Name="ConnectionGame" Association="Trips.ConnectionGame">
+            <End Role="Connection" EntitySet="ConnectionSet" />
+            <End Role="Game" EntitySet="PlaySet" />
+          </AssociationSet>
+          <EntitySet Name="PlayMoveSet" EntityType="Trips.PlayMove" />
+          <AssociationSet Name="PlayMoveUser" Association="Trips.PlayMoveUser">
+            <End Role="PlayMove" EntitySet="PlayMoveSet" />
+            <End Role="User" EntitySet="UserSet" />
+          </AssociationSet>
+          <AssociationSet Name="PlayMovePlay" Association="Trips.PlayMovePlay">
+            <End Role="PlayMove" EntitySet="PlayMoveSet" />
+            <End Role="Play" EntitySet="PlaySet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="CallerConnections" Relationship="Trips.CallerUserConnection" FromRole="User" ToRole="Connection" />
+          <Property Name="Waiting" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PlayMove" Relationship="Trips.PlayMoveUser" FromRole="User" ToRole="PlayMove" />
+        </EntityType>
+        <EntityType Name="Play">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Connection" Relationship="Trips.ConnectionGame" FromRole="Game" ToRole="Connection" />
+          <Property Name="ConnectionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PlayMove" Relationship="Trips.PlayMovePlay" FromRole="Play" ToRole="PlayMove" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CallerUser" Relationship="Trips.CallerUserConnection" FromRole="Connection" ToRole="User" />
+          <Property Name="CallerUserId" Type="Int32" Nullable="false" />
+          <Property Name="CalledUserId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Game" Relationship="Trips.ConnectionGame" FromRole="Connection" ToRole="Game" />
+          <Property Name="CurrentPlayId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="CallerUserConnection">
+          <End Type="Trips.User" Role="User" Multiplicity="1" />
+          <End Type="Trips.Connection" Role="Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Connection">
+              <PropertyRef Name="CallerUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConnectionGame">
+          <End Type="Trips.Connection" Role="Connection" Multiplicity="1" />
+          <End Type="Trips.Play" Role="Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connection">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="ConnectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PlayMove">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Position" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Trips.PlayMoveUser" FromRole="PlayMove" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Play" Relationship="Trips.PlayMovePlay" FromRole="PlayMove" ToRole="Play" />
+        </EntityType>
+        <Association Name="PlayMoveUser">
+          <End Type="Trips.PlayMove" Role="PlayMove" Multiplicity="*" />
+          <End Type="Trips.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayMove">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PlayMovePlay">
+          <End Type="Trips.PlayMove" Role="PlayMove" Multiplicity="*" />
+          <End Type="Trips.Play" Role="Play" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TripsStoreContainer" CdmEntityContainer="TripsContainer">
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Waiting" ColumnName="Waiting" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlaySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.Play)">
+        <MappingFragment StoreEntitySet="PlaySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConnectionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.Connection)">
+        <MappingFragment StoreEntitySet="ConnectionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CallerUserId" ColumnName="CallerUserId" />
+          <ScalarProperty Name="CalledUserId" ColumnName="CalledUserId" />
+          <ScalarProperty Name="CurrentPlayId" ColumnName="CurrentPlayId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayMoveSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Trips.PlayMove)">
+        <MappingFragment StoreEntitySet="PlayMoveSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PlayMovePlay" TypeName="Trips.PlayMovePlay" StoreEntitySet="PlayMoveSet">
+      <EndProperty Name="Play">
+        <ScalarProperty Name="Id" ColumnName="Play_Id" />
+      </EndProperty>
+      <EndProperty Name="PlayMove">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

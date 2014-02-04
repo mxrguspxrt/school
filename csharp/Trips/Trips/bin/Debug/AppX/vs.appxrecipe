@@ -17,13 +17,13 @@
     <AppXManifest Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-02-03T12:41:59.336</Modified>
+      <Modified>2014-02-03T13:45:19.732</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\Trips.exe">
       <PackagePath>Trips.exe</PackagePath>
-      <Modified>2014-02-03T12:50:06.007</Modified>
+      <Modified>2014-02-03T13:45:19.565</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -47,15 +47,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2014-01-28T22:13:55.720</Modified>
+      <Modified>2014-02-03T13:45:19.386</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-02-03T12:45:59.550</Modified>
+      <Modified>2014-02-03T13:45:19.386</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dte\Documents\Visual Studio 2013\Projects\Trips\Trips\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-02-03T12:41:59.209</Modified>
+      <Modified>2014-02-03T13:45:19.627</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

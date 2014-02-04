@@ -1,0 +1,8 @@
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\bin\Debug\Server.dll.config
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\bin\Debug\Server.dll
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\bin\Debug\Server.pdb
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\obj\Debug\Server.dll
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\obj\Debug\Server.pdb
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\bin\Debug\EntityFramework.dll
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\bin\Debug\EntityFramework.xml

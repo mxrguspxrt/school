@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Trips.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="TripsStoreContainer">
+    <EntitySet Name="UserSet" EntityType="Trips.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlaySet" EntityType="Trips.Store.PlaySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConnectionSet" EntityType="Trips.Store.ConnectionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlayMoveSet" EntityType="Trips.Store.PlayMoveSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CallerUserConnection" Association="Trips.Store.CallerUserConnection">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Connection" EntitySet="ConnectionSet" />
+    </AssociationSet>
+    <AssociationSet Name="ConnectionGame" Association="Trips.Store.ConnectionGame">
+      <End Role="Connection" EntitySet="ConnectionSet" />
+      <End Role="Game" EntitySet="PlaySet" />
+    </AssociationSet>
+    <AssociationSet Name="PlayMoveUser" Association="Trips.Store.PlayMoveUser">
+      <End Role="PlayMove" EntitySet="PlayMoveSet" />
+      <End Role="User" EntitySet="UserSet" />
+    </AssociationSet>
+    <AssociationSet Name="PlayMovePlay" Association="Trips.Store.PlayMovePlay">
+      <End Role="PlayMove" EntitySet="PlayMoveSet" />
+      <End Role="Play" EntitySet="PlaySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Waiting" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlaySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConnectionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConnectionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CallerUserId" Type="int" Nullable="false" />
+    <Property Name="CalledUserId" Type="int" Nullable="true" />
+    <Property Name="CurrentPlayId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PlayMoveSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Play_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CallerUserConnection">
+    <End Role="User" Type="Trips.Store.UserSet" Multiplicity="1" />
+    <End Role="Connection" Type="Trips.Store.ConnectionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Connection">
+        <PropertyRef Name="CallerUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ConnectionGame">
+    <End Role="Connection" Type="Trips.Store.ConnectionSet" Multiplicity="1" />
+    <End Role="Game" Type="Trips.Store.PlaySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Connection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="ConnectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayMoveUser">
+    <End Role="PlayMove" Type="Trips.Store.PlayMoveSet" Multiplicity="*" />
+    <End Role="User" Type="Trips.Store.UserSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayMove">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayMovePlay">
+    <End Role="PlayMove" Type="Trips.Store.PlayMoveSet" Multiplicity="*" />
+    <End Role="Play" Type="Trips.Store.PlaySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Play">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayMove">
+        <PropertyRef Name="Play_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
