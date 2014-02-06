@@ -12,14 +12,14 @@ namespace Server.DBA
     using System;
     using System.Collections.Generic;
     
-    public partial class PlayMove
+    public partial class Move
     {
         public int Id { get; set; }
         public int Position { get; set; }
-        public int UserId { get; set; }
         public int PlayId { get; set; }
+        public int UserId { get; set; }
     
-        public virtual User User { get; set; }
         public virtual Play Play { get; set; }
+        public virtual User User { get; set; }
     }
 }

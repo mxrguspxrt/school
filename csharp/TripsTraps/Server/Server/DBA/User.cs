@@ -16,15 +16,14 @@ namespace Server.DBA
     {
         public User()
         {
-            this.CallerConnections = new HashSet<Connection>();
-            this.PlayMove = new HashSet<PlayMove>();
+            this.Move = new HashSet<Move>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool Waiting { get; set; }
+        public int CurrentPlayId { get; set; }
+        public bool Active { get; set; }
     
-        public virtual ICollection<Connection> CallerConnections { get; set; }
-        public virtual ICollection<PlayMove> PlayMove { get; set; }
+        public virtual ICollection<Move> Move { get; set; }
     }
 }

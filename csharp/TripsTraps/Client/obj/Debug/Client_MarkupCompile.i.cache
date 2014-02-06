@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\App.xaml
-11151548125
+21210096880
 
-9-1525383367
+121391542946
 14-105585256
-MainWindow.xaml;
+Views\LoginWindow.xaml;Views\WaitWindow.xaml;
 
 False
 

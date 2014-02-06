@@ -59,13 +59,10 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBA\Connection.cs">
+    <Compile Include="DBA\Move.cs">
       <DependentUpon>Trips.tt</DependentUpon>
     </Compile>
     <Compile Include="DBA\Play.cs">
-      <DependentUpon>Trips.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBA\PlayMove.cs">
       <DependentUpon>Trips.tt</DependentUpon>
     </Compile>
     <Compile Include="DBA\Trips.Context.cs">
@@ -86,15 +83,13 @@
     <Compile Include="DBA\User.cs">
       <DependentUpon>Trips.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GameConnection.cs" />
     <Compile Include="Models\GamePlay.cs" />
-    <Compile Include="Services\GameConnectionsService.cs" />
-    <Compile Include="Services\IGameConnectionsService.cs" />
-    <Compile Include="Services\IGameUsersService.cs" />
+    <Compile Include="Models\GameMove.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\GameUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\GameUsersService.cs" />
+    <Compile Include="Services\ITripsService.cs" />
+    <Compile Include="Services\TripsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

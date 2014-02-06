@@ -1,0 +1,15 @@
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\bin\Debug\Client.exe.config
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\bin\Debug\Client.exe
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\bin\Debug\Client.pdb
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\App.g.cs
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client.g.resources
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client.exe
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client.pdb
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\LoginWindow.baml
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\LoginWindow.g.cs
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\WaitWindow.baml
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\WaitWindow.g.cs

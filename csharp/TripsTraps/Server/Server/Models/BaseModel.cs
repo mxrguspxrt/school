@@ -10,13 +10,13 @@ namespace Server.Models
     [DataContract]
     public class BaseModel
     {
-        int _id;
+        int _Id;
 
         [DataMember]
         public int Id
         {
-            get { return this._id; }
-            set { this._id = value;  }
+            get { return this._Id; }
+            set { this._Id = value; }
         }
 
         public static DBA.TripsContainer getDBConnection()

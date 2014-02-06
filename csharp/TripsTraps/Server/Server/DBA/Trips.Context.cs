@@ -27,7 +27,6 @@ namespace Server.DBA
     
         public DbSet<User> UserSet { get; set; }
         public DbSet<Play> PlaySet { get; set; }
-        public DbSet<Connection> ConnectionSet { get; set; }
-        public DbSet<PlayMove> PlayMoveSet { get; set; }
+        public DbSet<Move> MoveSet { get; set; }
     }
 }

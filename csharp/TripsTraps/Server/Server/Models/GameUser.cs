@@ -11,21 +11,29 @@ namespace Server.Models
     [DataContract]
     public class GameUser : BaseModel
     {
-        string _name;
-        bool _waiting;
+        string _Name;
+        int _CurrentPlayId;
+        bool _Active;
 
         [DataMember]
         public string Name
         {
-            get { return this._name; }
-            set { this._name = value; }
+            get { return this._Name; }
+            set { this._Name = value; }
         }
 
         [DataMember]
-        public bool Waiting
+        public int CurrentPlayId
         {
-            get { return this._waiting; }
-            set { this._waiting = value; }
+            get { return this._CurrentPlayId; }
+            set { this._CurrentPlayId = value; }
+        }
+
+        [DataMember]
+        public bool Active
+        {
+            get { return this._Active; }
+            set { this._Active = value; }
         }
 
         public GameUser()
@@ -35,8 +43,10 @@ namespace Server.Models
 
         public GameUser(DBA.User u)
         {
-            this.Name = u.Name;
             this.Id = u.Id;
+            this.Name = u.Name;
+            this.CurrentPlayId = u.CurrentPlayId;
+            this.Active = u.Active;
         }
 
         public static GameUser Find(int id)
@@ -48,12 +58,11 @@ namespace Server.Models
             }
         }
 
-        // TODO smart ask if not playing but online
-        public static List<GameUser> Waiters()
+        public static List<GameUser> FindForPlay(int id)
         {
             using (var db = getDBConnection())
             {
-                var query = (from x in db.UserSet where x.Waiting==true select x).ToList();
+                var query = (from x in db.UserSet where x.CurrentPlayId == id select x).ToList();
                 return query.Select(x => new GameUser(x)).ToList();
             }
         }
@@ -62,12 +71,24 @@ namespace Server.Models
         {
             using (var db = getDBConnection())
             {
-                DBA.User u = new DBA.User();
-                u.Id = this.Id;
-                u.Name = this.Name;
-                db.UserSet.Add(u);
-                db.SaveChanges();
-                this.Id = u.Id;
+                if(Id==0)
+                {
+                    DBA.User i = new DBA.User();
+                    i.Name = this.Name;
+                    i.CurrentPlayId = this.CurrentPlayId;
+                    i.Active = this.Active;
+                    db.UserSet.Add(i);
+                    db.SaveChanges();
+                    this.Id = i.Id;
+                }
+                else
+                {
+                    DBA.User i = db.UserSet.Find(Id);
+                    i.Name = this.Name;
+                    i.CurrentPlayId = this.CurrentPlayId;
+                    i.Active = this.Active;
+                    db.SaveChanges();
+                }
                 return true;
             }
         }

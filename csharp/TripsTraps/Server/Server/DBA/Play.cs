@@ -16,13 +16,13 @@ namespace Server.DBA
     {
         public Play()
         {
-            this.PlayMove = new HashSet<PlayMove>();
+            this.Move = new HashSet<Move>();
         }
     
         public int Id { get; set; }
-        public int ConnectionId { get; set; }
+        public string State { get; set; }
+        public int MoverUserId { get; set; }
     
-        public virtual Connection Connection { get; set; }
-        public virtual ICollection<PlayMove> PlayMove { get; set; }
+        public virtual ICollection<Move> Move { get; set; }
     }
 }

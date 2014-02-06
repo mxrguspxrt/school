@@ -1,0 +1,15 @@
+﻿<Window x:Class="Client.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login" Height="500" Width="500">
+    <Viewbox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Height="40" Width="300" Margin="5" x:Name="textUserName" Text="Player" />
+            <Button Grid.Row="1" Height="40" Width="300"  Margin="5" x:Name="buttonPlay" Content="Play" Click="buttonPlay_Click"/>
+        </Grid>
+    </Viewbox>
+</Window>
