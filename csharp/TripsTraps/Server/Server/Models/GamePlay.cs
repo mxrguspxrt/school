@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using System.Diagnostics;
 
 namespace Server.Models
 {
@@ -11,7 +12,17 @@ namespace Server.Models
     [DataContract]
     public class GamePlay : BaseModel
     {
-
+        static int[,] WinningCombinations = {
+            { 0, 1, 2 },
+            { 3, 4, 5 },
+            { 6, 7, 8 },
+            { 0, 3, 6 },
+            { 1, 4, 7 },
+            { 2, 5, 8 },
+            { 0, 4, 8 },
+            { 0, 4, 8 },
+            { 2, 4, 6 }
+        };
         string _State;
         int _MoverUserId;
 
@@ -41,26 +52,48 @@ namespace Server.Models
             get { return Models.GameUser.FindForPlay(this.Id);  }
         }
 
-        public static List<int[]> WinningRows()
+        [DataMember]
+        public int[] GameTable
         {
-            List<int[]> winningRows = new List<int[]>();
-            winningRows.Add(new int[] { 0, 1, 2 });
-            winningRows.Add(new int[] { 3, 4, 5 });
-            winningRows.Add(new int[] { 6, 7, 8 });
-            winningRows.Add(new int[] { 0, 3, 6 });
-            winningRows.Add(new int[] { 1, 4, 7 });
-            winningRows.Add(new int[] { 2, 5, 8 });
-            winningRows.Add(new int[] { 0, 4, 8 });
-            winningRows.Add(new int[] { 2, 4, 6 });
-            return winningRows;
+            get 
+            {
+                int[] gameTable = new int[9];
+                foreach(GameMove gameMove in this.GameMoves)
+                {
+                    gameTable[gameMove.Position] = gameMove.UserId;
+                }
+                return gameTable;
+            }
         }
 
         [DataMember]
-        public int[] WinningRow
+        public int[] WinningCombination
         {
             get
             {
+                for (int i = 0; i < WinningCombinations.GetLength(0); i++)
+                {
+                    int x = this.GameTable[WinningCombinations[i, 0]];
+                    int y = this.GameTable[WinningCombinations[i, 1]];
+                    int z = this.GameTable[WinningCombinations[i, 2]];
+                    if(x!=0 && x==y && y==z)
+                    {
+                        return new int[3] { 
+                            WinningCombinations[i, 0],
+                            WinningCombinations[i, 1],
+                            WinningCombinations[i, 2]
+                        };
+                    }
+                }
+                return null;
+            }
+        }
 
+        public bool CanMakeNewMoves
+        {
+            get 
+            {
+                return (WinningCombination == null) && (this.GameMoves.Count < 10);
             }
         }
 
@@ -153,7 +186,7 @@ namespace Server.Models
             };
             move.Save();
 
-            if(this.CanMakeNewMoves())
+            if(this.CanMakeNewMoves)
             {
                 this.MoverUserId = GameUsers.FirstOrDefault(e => e.Id != this.MoverUserId).Id;
                 this.Save();
@@ -165,11 +198,6 @@ namespace Server.Models
             }
 
             return true;
-        }
-
-        public bool CanMakeNewMoves()
-        {
-            return (WinningRow == null) && (this.GameMoves.Count<10);
         }
 
     }
