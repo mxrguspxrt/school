@@ -28,6 +28,7 @@ namespace Client.Views
 
         void GameWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            this.DataContext = ViewManagers.GameViewManager.Current;
         }
 
     }

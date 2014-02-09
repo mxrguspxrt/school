@@ -26,13 +26,18 @@ namespace Client.Views
 
         private void buttonSubmit_Click(object sender, RoutedEventArgs e)
         {
+            string gameUserName = textboxPlayerName.Text;
+
             ViewManagers.GameViewManager gameViewManager = new ViewManagers.GameViewManager();
-            gameViewManager.Start(textboxPlayerName.Text);
+            gameViewManager.CreateGameUser(gameUserName);
+            gameViewManager.CreateGamePlay();
             ViewManagers.GameViewManager.Current = gameViewManager;
+            
             this.DataContext = ViewManagers.GameViewManager.Current;
 
+            this.Hide();
             new WaitingWindow().Show();
-            this.Close();
         }
+
     }
 }

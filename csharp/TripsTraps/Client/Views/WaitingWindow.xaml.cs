@@ -22,6 +22,22 @@ namespace Client.Views
         public WaitingWindow()
         {
             InitializeComponent();
+            this.Loaded += WaitingWindow_Loaded;
         }
+
+        void WaitingWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = ViewManagers.GameViewManager.Current;
+            WaitForOtherPlayer(); 
+
+            this.Hide();
+            new GameWindow().Show();
+        }
+
+        async void WaitForOtherPlayer()
+        {
+            await ViewManagers.GameViewManager.Current.WaitForOtherPlayer();
+        }
+
     }
 }

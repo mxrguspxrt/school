@@ -15,6 +15,7 @@ namespace Client.Models
         public int[] GameTable;
         public int[] WinningCombination;
         public bool CanMakeNewMoves;
+        public DateTime LastReloadTime;
 
         public bool SetValuesFrom(TripsService.GamePlay gamePlay)
         {
@@ -24,6 +25,7 @@ namespace Client.Models
             this.GameTable = gamePlay.GameTable;
             this.WinningCombination = gamePlay.WinningCombination;
             this.CanMakeNewMoves = gamePlay.CanMakeNewMoves;
+            this.LastReloadTime = DateTime.Now;
             return true;
         }
 
@@ -53,6 +55,12 @@ namespace Client.Models
             TripsService.GamePlay resource = link.GamePlay_Show(this.Id);
             System.Diagnostics.Debug.WriteLine("Reloaded GamePlay " + this.Id);
             return this.SetValuesFrom(resource);
+        }
+
+        public string Inspect()
+        {
+            return String.Format("Id {0}, State {1}, MoverUserId {2}, CanMakeNewMoves {3}, LastReloadTime {4}", 
+                Id, State, MoverUserId, CanMakeNewMoves, LastReloadTime);
         }
 
     }

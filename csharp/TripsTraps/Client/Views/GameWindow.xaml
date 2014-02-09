@@ -1,10 +1,10 @@
 ﻿<Window x:Class="Client.Views.GameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="GameWindow" Height="300" Width="300">
+        Title="GameWindow" Height="600" Width="600">
     <Viewbox>
-        <Grid>    
-            <Label x:Name="otherGameUserName" Content="{Binding otherGameUserName}"></Label>
+        <Grid>
+            <Label Content="{Binding CurrentGamePlayInfo}"></Label>
         </Grid>
     </Viewbox>
 </Window>
