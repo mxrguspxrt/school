@@ -89,6 +89,7 @@ namespace Server.Models
             }
         }
 
+        [DataMember]
         public bool CanMakeNewMoves
         {
             get 

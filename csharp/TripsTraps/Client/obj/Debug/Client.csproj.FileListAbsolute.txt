@@ -11,5 +11,7 @@ C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\C
 C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Client.pdb
 C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\LoginWindow.baml
 C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\LoginWindow.g.cs
-C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\WaitWindow.baml
-C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\WaitWindow.g.cs
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\WaitingWindow.baml
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\WaitingWindow.g.cs
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\GameWindow.baml
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\GameWindow.g.cs

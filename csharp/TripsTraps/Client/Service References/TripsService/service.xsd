@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Server.Models" />
+  <xs:element name="GameUser_Register">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GameUser_RegisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Server.Models" minOccurs="0" name="GameUser_RegisterResult" nillable="true" type="q1:GameUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GameUser_Unregister">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GameUser_UnregisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Server.Models" minOccurs="0" name="GameUser_UnregisterResult" nillable="true" type="q2:GameUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GamePlay_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GamePlay_RequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Server.Models" minOccurs="0" name="GamePlay_RequestResult" nillable="true" type="q3:GamePlay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GamePlay_Show">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="gamePlayId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GamePlay_ShowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Server.Models" minOccurs="0" name="GamePlay_ShowResult" nillable="true" type="q4:GamePlay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GamePlay_Move">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="gamePlayId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="position" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GamePlay_MoveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Server.Models" minOccurs="0" name="GamePlay_MoveResult" nillable="true" type="q5:GamePlay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

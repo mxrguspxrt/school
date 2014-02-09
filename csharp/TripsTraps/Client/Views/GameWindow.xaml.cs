@@ -15,21 +15,13 @@ using System.Windows.Shapes;
 namespace Client.Views
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for GameWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class GameWindow : Window
     {
-        public LoginWindow()
+        public GameWindow()
         {
             InitializeComponent();
-        }
-
-        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
-        {
-            Models.GamePlay.Current = new Models.GamePlay();
-            Models.GamePlay.Current.Start(textboxPlayerName.Text);
-            new WaitingWindow().Show();
-            this.Close();
         }
     }
 }

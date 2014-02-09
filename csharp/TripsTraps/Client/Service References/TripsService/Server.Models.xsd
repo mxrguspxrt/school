@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Server.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Server.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="GameUser">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CurrentPlayId" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GameUser" nillable="true" type="tns:GameUser" />
+  <xs:complexType name="BaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseModel" nillable="true" type="tns:BaseModel" />
+  <xs:complexType name="GamePlay">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CanMakeNewMoves" type="xs:boolean" />
+          <xs:element minOccurs="0" name="GameMoves" nillable="true" type="tns:ArrayOfGameMove" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GameTable" nillable="true" type="q1:ArrayOfint" />
+          <xs:element minOccurs="0" name="GameUsers" nillable="true" type="tns:ArrayOfGameUser" />
+          <xs:element minOccurs="0" name="MoverUserId" type="xs:int" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WinningCombination" nillable="true" type="q2:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GamePlay" nillable="true" type="tns:GamePlay" />
+  <xs:complexType name="ArrayOfGameMove">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GameMove" nillable="true" type="tns:GameMove" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGameMove" nillable="true" type="tns:ArrayOfGameMove" />
+  <xs:complexType name="GameMove">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PlayId" type="xs:int" />
+          <xs:element minOccurs="0" name="Position" type="xs:int" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GameMove" nillable="true" type="tns:GameMove" />
+  <xs:complexType name="ArrayOfGameUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GameUser" nillable="true" type="tns:GameUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGameUser" nillable="true" type="tns:ArrayOfGameUser" />
+</xs:schema>
