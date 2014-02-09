@@ -9,7 +9,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" x:Name="yoText" Content="Please wait for game"></Label>
+            <Label Grid.Row="0" Content="Please wait for game"></Label>
             <Label Grid.Row="1" Content=""></Label>
         </Grid>
     </Viewbox>

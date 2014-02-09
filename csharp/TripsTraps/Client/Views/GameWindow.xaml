@@ -3,8 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="GameWindow" Height="600" Width="600">
     <Viewbox>
-        <Grid>
-            <Label Content="{Binding CurrentGamePlayInfo}"></Label>
+
+        <Grid Background="Gray">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" x:Name="slot0" Style="{StaticResource GameButton}" Click="slot0_Click"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="slot1" Style="{StaticResource GameButton}" Click="slot1_Click"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="slot2" Style="{StaticResource GameButton}" Click="slot2_Click"/>
+            <Button Grid.Row="1" Grid.Column="0" x:Name="slot3" Style="{StaticResource GameButton}" Click="slot3_Click"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="slot4" Style="{StaticResource GameButton}" Click="slot4_Click"/>
+            <Button Grid.Row="1" Grid.Column="2" x:Name="slot5" Style="{StaticResource GameButton}" Click="slot5_Click"/>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="slot6" Style="{StaticResource GameButton}" Click="slot6_Click"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="slot7" Style="{StaticResource GameButton}" Click="slot7_Click"/>
+            <Button Grid.Row="2" Grid.Column="2" x:Name="slot8" Style="{StaticResource GameButton}" Click="slot8_Click"/>
+
         </Grid>
     </Viewbox>
 </Window>

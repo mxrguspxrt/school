@@ -63,5 +63,18 @@ namespace Client.Models
                 Id, State, MoverUserId, CanMakeNewMoves, LastReloadTime);
         }
 
+        public bool Move(int gameUserId, int position)
+        {
+            if (!this.CanMakeNewMoves) return false;
+            if (this.MoverUserId != gameUserId) return false;
+            if (this.GameTable[position] != 0) return false;
+            
+            TripsService.TripsServiceClient link = new TripsService.TripsServiceClient();
+            TripsService.GamePlay resource = link.GamePlay_Move(this.Id, gameUserId, position);
+            System.Diagnostics.Debug.WriteLine("Made move " + this.Id + " " + gameUserId + " " + position);
+            System.Diagnostics.Debug.WriteLine("Reloaded GamePlay " + this.Id);
+            return this.SetValuesFrom(resource);
+        }
+
     }
 }

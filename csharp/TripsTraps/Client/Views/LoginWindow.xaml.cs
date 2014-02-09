@@ -37,6 +37,7 @@ namespace Client.Views
 
             this.Hide();
             new WaitingWindow().Show();
+            this.Close();
         }
 
     }

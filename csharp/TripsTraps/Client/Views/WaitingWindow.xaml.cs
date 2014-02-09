@@ -25,18 +25,19 @@ namespace Client.Views
             this.Loaded += WaitingWindow_Loaded;
         }
 
-        void WaitingWindow_Loaded(object sender, RoutedEventArgs e)
+        async void WaitingWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = ViewManagers.GameViewManager.Current;
-            WaitForOtherPlayer(); 
+            await WaitForOtherPlayer();
 
             this.Hide();
             new GameWindow().Show();
+            this.Close();
         }
 
-        async void WaitForOtherPlayer()
+        async Task<bool> WaitForOtherPlayer()
         {
-            await ViewManagers.GameViewManager.Current.WaitForOtherPlayer();
+            return await ViewManagers.GameViewManager.Current.WaitForOtherPlayer();
         }
 
     }

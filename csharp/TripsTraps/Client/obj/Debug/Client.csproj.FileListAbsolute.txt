@@ -15,3 +15,4 @@ C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\V
 C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\WaitingWindow.g.cs
 C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\GameWindow.baml
 C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\Views\GameWindow.g.cs
+C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Client\obj\Debug\App.baml

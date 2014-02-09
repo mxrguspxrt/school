@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Login" Height="600" Width="600">
     <Viewbox>
-        <Grid>
+        <Grid Background="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
