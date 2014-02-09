@@ -40,9 +40,10 @@ namespace Client.Models
 
         private bool Create()
         {
-            TripsService.TripsServiceClient resource = new TripsService.TripsServiceClient();
-            TripsService.GameUser gameUser = resource.GameUser_Register(this.Name);
-            this.SetValuesFrom(gameUser);
+            TripsService.TripsServiceClient link = new TripsService.TripsServiceClient();
+            TripsService.GameUser resource = link.GameUser_Register(this.Name);
+            this.SetValuesFrom(resource);
+            System.Diagnostics.Debug.WriteLine("Created GameUser " + this.Name);
             return true;
         }
 

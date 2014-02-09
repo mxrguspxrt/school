@@ -9,19 +9,12 @@ namespace Client.Models
 {
     class GamePlay
     {
-        
-        static public GamePlay Current;
-
-        public GameUser GameUser;
         public int Id;
-        public int CurrentUserId;
         public string State;
         public int MoverUserId;
         public int[] GameTable;
         public int[] WinningCombination;
         public bool CanMakeNewMoves;
-
-        Thread _UpdateThread;
 
         public bool SetValuesFrom(TripsService.GamePlay gamePlay)
         {
@@ -31,7 +24,6 @@ namespace Client.Models
             this.GameTable = gamePlay.GameTable;
             this.WinningCombination = gamePlay.WinningCombination;
             this.CanMakeNewMoves = gamePlay.CanMakeNewMoves;
-            this.CurrentUserId = GameUser.Id;
             return true;
         }
 
@@ -45,55 +37,22 @@ namespace Client.Models
             this.SetValuesFrom(gamePlay);
         }
 
-        public bool Start(string gameUserName)
+        public static GamePlay FindForGameUser(int gameUserId)
         {
-            this.GameUser = new GameUser()
-            {
-                Name = gameUserName
-            };
-            this.GameUser.Save();
-
-            this.StartUpdatingValues();
-
-            return true;
+            TripsService.TripsServiceClient link = new TripsService.TripsServiceClient();
+            TripsService.GamePlay resource = link.GamePlay_Request(gameUserId);
+            GamePlay gamePlay = new GamePlay();
+            gamePlay.SetValuesFrom(resource);
+            System.Diagnostics.Debug.WriteLine("Found GamePlay " + gamePlay.Id);
+            return gamePlay;
         }
 
-        public bool End()
+        public bool Reload()
         {
-            return this.EndUpdatingValues();
-        }
-
-        public bool Save()
-        {
-            return Create();
-        }
-
-        public bool Create()
-        {
-            TripsService.TripsServiceClient resource = new TripsService.TripsServiceClient();
-            TripsService.GamePlay gamePlay = resource.GamePlay_Request(CurrentUserId);
-            this.SetValuesFrom(gamePlay);
-            return true;
-        }
-
-
-        public void Reload()
-        {
-            TripsService.TripsServiceClient resource = new TripsService.TripsServiceClient();
-            TripsService.GamePlay gamePlay = resource.GamePlay_Show(this.Id);
-            this.SetValuesFrom(gamePlay);
-        }
-
-        public bool StartUpdatingValues()
-        {
-            this._UpdateThread = new Thread(new ThreadStart(this.Reload));
-            return true;
-        }
-
-        public bool EndUpdatingValues()
-        {
-            this._UpdateThread.Abort();
-            return true;
+            TripsService.TripsServiceClient link = new TripsService.TripsServiceClient();
+            TripsService.GamePlay resource = link.GamePlay_Show(this.Id);
+            System.Diagnostics.Debug.WriteLine("Reloaded GamePlay " + this.Id);
+            return this.SetValuesFrom(resource);
         }
 
     }

@@ -92,7 +92,9 @@
     <Compile Include="Services\TripsService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="DBA\Trips.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Trips.Designer.cs</LastGenOutput>

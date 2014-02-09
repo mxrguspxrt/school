@@ -96,6 +96,10 @@ namespace Server.Models
             {
                 return (WinningCombination == null) && (this.GameMoves.Count < 10);
             }
+            set
+            {
+
+            }
         }
 
         public GamePlay()

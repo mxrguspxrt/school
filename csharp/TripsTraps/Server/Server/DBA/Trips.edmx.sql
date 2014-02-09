@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/06/2014 19:28:43
+-- Date Created: 02/09/2014 17:06:56
 -- Generated from EDMX file: C:\Users\dte\Documents\Visual Studio 2013\Projects\TripsTraps\Server\Server\DBA\Trips.edmx
 -- --------------------------------------------------
 
@@ -17,6 +17,12 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_PlayMove]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MoveSet] DROP CONSTRAINT [FK_PlayMove];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserMove]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MoveSet] DROP CONSTRAINT [FK_UserMove];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -27,6 +33,9 @@ IF OBJECT_ID(N'[dbo].[UserSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[PlaySet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PlaySet];
+GO
+IF OBJECT_ID(N'[dbo].[MoveSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MoveSet];
 GO
 
 -- --------------------------------------------------

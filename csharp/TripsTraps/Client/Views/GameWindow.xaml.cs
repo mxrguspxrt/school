@@ -19,9 +19,16 @@ namespace Client.Views
     /// </summary>
     public partial class GameWindow : Window
     {
+
         public GameWindow()
         {
             InitializeComponent();
+            this.Loaded += GameWindow_Loaded;
         }
+
+        void GameWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+        }
+
     }
 }

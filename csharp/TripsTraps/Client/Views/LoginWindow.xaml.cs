@@ -26,8 +26,11 @@ namespace Client.Views
 
         private void buttonSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Models.GamePlay.Current = new Models.GamePlay();
-            Models.GamePlay.Current.Start(textboxPlayerName.Text);
+            ViewManagers.GameViewManager gameViewManager = new ViewManagers.GameViewManager();
+            gameViewManager.Start(textboxPlayerName.Text);
+            ViewManagers.GameViewManager.Current = gameViewManager;
+            this.DataContext = ViewManagers.GameViewManager.Current;
+
             new WaitingWindow().Show();
             this.Close();
         }
