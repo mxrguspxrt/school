@@ -46,7 +46,7 @@ namespace Client.ViewManagers
 
         public async Task<bool> RefreshGamePlayData()
         {
-            return this.CurrentGamePlay.Reload();
+            return await Task.Run(() => this.CurrentGamePlay.Reload());
         }
 
     }

@@ -56,6 +56,15 @@ namespace Client.Views
                 this.UpdateGamePlayView();
                 await Task.Delay(1000);
             }
+            this.UpdateGamePlayView();
+            if(this.CurrentGamePlay.WinningCombination!=null)
+            {
+                foreach(int index in this.CurrentGamePlay.WinningCombination)
+                {
+                    this.Slots[index].Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 255));
+                }
+                await Task.Delay(2000);
+            }
             return true;
         }
 
@@ -84,6 +93,7 @@ namespace Client.Views
                 text = "o";
             }
             this.Slots[index].Content = text;
+            this.Slots[index].Background = null;
         }
 
         private bool gameButton_Click(int slot, object sender)
