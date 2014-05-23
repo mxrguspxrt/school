@@ -1,0 +1,863 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+	<TITLE>Labor 3</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.1  (Win32)">
+	<STYLE TYPE="text/css">
+BODY {color: black; background: white }
+div.osa1 {background-color: #CCFFFF}
+div.osa2 {background-color: #CCFFCC}
+div.osa3 {background-color: #FFCCCC}
+	</STYLE>
+	<link href="/itk_base.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+<H1 >Järjestikliides ja võrgu parameetrid.</H1>
+<P>Avo Ots, Indrek Rokk, Marika Kulmar 
+</P>
+<P>Labor 3 juhend  IT Kolledži õppeaines "I241 Sidevõrgud" kevadsemestril 2014.</P>
+<H2>1 T&Ouml;&Ouml; EESM&Auml;RK 
+</H2>
+<P>&Otilde;ppida tundma terminaliliidest RS-232 ja terminalide
+&uuml;hendusviise vahetult RS-232 liidesesignaale &uuml;le kandes
+ning telefonikaabli kaudu signaalide &uuml;lekannet modemite
+vahendusel. 
+</P>
+<H2 >2 T&Ouml;&Ouml;S KASUTATAVAD VAHENDID 
+</H2>
+<P>Laboratoorne t&ouml;&ouml; tehakse sidelaboratooriumis. T&ouml;&ouml;
+objektiks antud laboratoorses t&ouml;&ouml;s on RS-232C-liides ja
+NOKIA modemid. Signaalide kuju j&auml;lgimiseks ja salvestamiseks on
+kasutusel ostsillograaf Tektronix TDS 2012B. M&otilde;&otilde;tmiste
+tulemused saab salvestada USB pulgale. Kasutusel on RS-232C
+&uuml;henduskaabel koos liidese maketiga. 
+</P>
+<H2 >3 T&Ouml;&Ouml; K&Auml;IK 
+</H2>
+<div class="osa1">
+<FORM action="/labreg/aruanne_RS_itk.pl" enctype="application/x-www-form-urlencoded" method="post"  target="_blank">
+<TABLE BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<TR>
+<td>Töö tegijate nimed:</td>
+</TR>
+<TR>
+<td><INPUT type="text" name="data_0_0" size="50"></td>
+</TR>
+<TR>
+<td><INPUT type="text" name="data_0_1" size="50"></td>
+</TR>
+</TABLE>
+<P>Kontrollida, et arvuti j&auml;rjestikliidesesse oleks &uuml;hendatud
+pikenduskaabel (kaabli &uuml;hes otsas pistik DB9F, teises DB25M). 
+</P>
+
+<H3 >3.1 S&uuml;mboli edastamine RS-232C liidesel 
+</H3>
+<P>&Uuml;hendada arvuti j&auml;rjestikliidese v&auml;ljundisse
+&uuml;hendatud pikenduskaabli k&uuml;lge liidese maketi plaadi k&uuml;ljes
+olev kaabel. Juhul kui makettplaadil on k&uuml;ljes ka teine kaabel,
+siis see j&auml;&auml;b vabaks ja sinna midagi ei &uuml;hendata.
+Maketil oleval klemmliistul &uuml;hendada juhtmega oma-vahel <B>RxD</B>
+ja <B>TxD</B> t&auml;histusega klemmid. 
+</P>
+<P>Arvutis k&auml;ivitada programm <I>Tera Term</I> ja veenduda, et
+klaviatuuril tr&uuml;kitu ilmub programmi <I>Tera Term</I> aknasse. 
+<br>Programmis <I>Tera Term</I> seadistada j&auml;rjestikpordi seaded
+(men&uuml;&uuml; <I>Setup</I> --&gt; <I>Serial Port</I>) selliselt,
+et edastuskiirus oleks <B>300 bit/s</B>, andmebittide arv <B>7</B>,
+paarsuskontroll <I><B>Even</B></I>, stopp-bittide arv <B>2</B>.
+</P>
+
+<P>&Uuml;hendada ostsillograafi m&otilde;&otilde;teotsik klemmliistu
+<B>TxD</B> klemmil oleva m&otilde;&otilde;tepunkti (juhtme jupp)
+k&uuml;lge. Ostsillograafi maandusjuhe (&bdquo;krokodill&rdquo;)
+&uuml;hendada klemmliistu <B>GND</B> klemmil oleva m&otilde;&otilde;tepunkti
+k&uuml;lge. 
+</P>
+<P>Peale ostsillograafi sissel&uuml;litamist vajutada &quot;<I>Default
+setup</I>&quot; nuppu. Kasutada m&otilde;&otilde;teotsikul
+pingejagurit 1:10 (<B>kontrollida, et l&uuml;liti asend m&otilde;&otilde;teotsikul
+oleks 10x ja &quot;</B><I><B>CH1 menu</B></I><B>&quot; men&uuml;&uuml;s
+n&auml;itaks &quot;</B><I><B>Probe 10x Voltage</B></I><B>&quot;</B>).
+</P>
+<P>Ekraanipildi saamiseks vajutada nuppu RUN/STOP. 
+</P>
+<P>Ostsillograafil seadistada, et m&otilde;&otilde;detaks
+alalispinget (&quot;<I><B>CH1 menu</B></I>&quot; ja &quot;<I><B>Coupling
+DC</B></I>&quot; ning vertikaal 1 ruut = 5 V, horisontaal 1 ruut = 10
+ms.) 
+</P>
+<P>NB! Ostsillograafi ekraani lugemisel tuleb meeles pidada, et seal
+n&auml;idatakse RS-232C liidese liinisignaale. Joonisel 1 on n&auml;ha
+millisel nivool asub signaali &bdquo;0&rdquo; ja millisel &bdquo;1&rdquo;.
+</P>
+<P><IMG SRC="side_labor_RS_pilt1.png" alt="pilt1" ></P>
+<P>Joonis 1. T&auml;he <B>A</B> koodi esitus TTL nivoode (&uuml;leval)
+ja RS-232 liidese liinisignaalidena (all)
+
+<P><b>M&otilde;&otilde;tmised: </b>
+</P>
+
+<P>1. Iga brigaadi liige valib <a href="#lisa">Lisa 1</a> olevast ASCII tabelist s&uuml;mboli
+(t&auml;he), mille ASCII kahendkoodis oleks &uuml;htede arv paaris. 
+Edastatud sümbolil mõõta ära signaali „1” ja „0” nivood ning sümboli edastamiseks kulunud aeg.
+<br>
+Ostsillograafi kasutades salvestada selle sümboli edastus liidesel. 
+</P>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<tr>
+<td>Liikme nimi</td>
+<td><INPUT type="text" name="data_0_2" size="10"></td>
+<td><INPUT type="text" name="data_0_3" size="10"></td>
+</tr>
+<tr>
+<td>Valitud sümbol</td>
+<td><INPUT type="text" name="data_1_0" size="10"></td>
+<td><INPUT type="text" name="data_1_1" size="10"></td>
+</tr>
+<tr>
+<td>Sümboli ASCII kahendkood</td>
+<td><INPUT type="text" name="data_1_2" size="10"></td>
+<td><INPUT type="text" name="data_1_3" size="10"></td>
+</tr>
+<tr>
+<td>signaali "1" nivoo</td>
+<td colspan=2 align=center><INPUT type="text" name="data_2_0" size="10"></td>
+</tr>
+<tr>
+<td>signaali "0" nivoo</td>
+<td colspan=2 align=center><INPUT type="text" name="data_2_1" size="10"></td>
+</tr>
+<tr>
+<td>sümboli edastamiseks kulunud aeg</td>
+<td><INPUT type="text" name="data_2_2" size="10"></td>
+<td><INPUT type="text" name="data_9_0" size="10"></td>
+</tr>
+<tr>
+<td>mitu bitti selle aja jooksul edastati</td>
+<td><INPUT type="text" name="data_9_1" size="10"></td>
+<td><INPUT type="text" name="data_9_2" size="10"></td>
+</tr>
+<tr>
+<td>signaali pilt</td>
+<td>(lisa signaali kuju pilt)</td>
+<td>(lisa signaali kuju pilt)</td>
+</tr>
+</table>
+<br>
+Arvutada sümbolite edastuskiirus (ühikuks bit/s).
+
+<br>
+<P>2. Teha kindlaks, mis muutub &uuml;he s&uuml;mboli edastamisel,
+kui <I>Tera Term&rsquo;i</I> j&auml;rjestikpordi seadetes muuta
+paarsuskontrolli viisiks <I><B>Even</B></I> asemel <I><B>Odd</B></I>.
+Salvestada s&uuml;mboli edastus. Paarsuskontrolli viisidest
+arusaamiseks on m&otilde;istlik kasutada Interneti otsimootorites
+fraasi &bdquo;rs-232 parity&ldquo;. 
+</P>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<tr>
+<td>Mis muutus, kui paarsuskontrolli viisiks seada Odd</td>
+<td><INPUT type="text" name="data_2_3" size="50"></td>
+<td>(lisa signaali kuju pilt)</td>
+</tr>
+</table>
+
+
+<P></P>
+<H3 >3.2 Andmevahetus arvutite vahel nullmodemi abil 
+</H3>
+<P>Antud t&ouml;&ouml; punkti teevad naaberbrigaadid koos. Selleks
+&uuml;hendatakse &uuml;he brigaadi makettplaadi teine kaabel
+naaberbrigaadi arvutiga. Vajadusel kasutada &uuml;hendamiseks laboris
+olevat pikenduskaablit. Makettplaadil koostada nullmodemi &uuml;hendus
+(vt joonis 2). 
+</P>
+<P><IMG SRC="side_labor_RS_pilt2.png" alt="pilt2">
+</P>
+<P>Joonis 2. Laboratoorses t&ouml;&ouml;s kasutatava
+liidese maketi kontaktv&auml;ljade t&auml;histus ja &uuml;hendus
+nullmodemi korral.</P>
+<P>J&auml;rjestikliidese puhul on andmevahetuse k&auml;ivitamiseks
+vaja lisaks <B>TxD-RxD</B> kokku-&uuml;hendamisele sobitada
+andme&uuml;lekande parameetrid saatjas-vastuv&otilde;tjas
+(&uuml;lekandekiirus, bittide arv, paarsuskontroll). Vastavalt labori
+juhendaja &ouml;eldud variandi numbrile valitakse <a href="#tabel">Tabelist 1</a> need
+parameetrid. N&auml;iteks, kui number on 1, siis aknas Tera Term --&gt;
+Setup --&gt; Serial Port edastuskiiruseks 19 200 boodi, andmebittide
+arv 8, paarsuskontroll odd (paaritu), stoppbittide arv 1.</P>
+<P >Selleks, et teha kindlaks, kas
+kahe arvuti vahel on olemas &uuml;hendus, edastada m&otilde;lemast
+arvutist s&uuml;mbolite jada. 
+</P>
+<P><B>NB!</B> Tekst, mida sisestatakse klaviatuurilt, ilmub teise
+arvuti <I>Tera Term</I> aknasse. 
+</P>
+<P>Liidese maketil j&auml;tta ostsillograafi m&otilde;&otilde;teotsikud
+samasse kohta, kus nad olid eelmise punkti (3.1) m&otilde;&otilde;tmistel.
+Kasutades ostsillograafil olevat SEC/DIV nuppu seadistada
+laotusperiood selliselt, et ekraanil oleks n&auml;ha kogu s&uuml;mboli
+edastus. Eelmises punktis seadistatud horisontaal 1 ruut = 10 ms v&otilde;ib
+olla liiga suur. 
+</P>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<tr>
+<td>Seadistuse variant nr</td>
+<td><INPUT type="text" name="data_3_0" size="10"></td>
+</tr>
+<tr>
+<td>Edastuskiirus</td>
+<td><INPUT type="text" name="data_3_1" size="10"></td>
+</tr>
+<tr>
+<td>Andmebittide arv</td>
+<td><INPUT type="text" name="data_3_2" size="10"></td>
+</tr>
+<tr>
+<td>Paarsuskontroll</td>
+<td><INPUT type="text" name="data_3_3" size="10"></td>
+</tr>
+<tr>
+<td>Stoppbittide arv</td>
+<td><INPUT type="text" name="data_4_0" size="10"></td>
+</tr>
+</table>
+<P>M&otilde;&otilde;tmised: 
+</P>
+<P>Edastada naabritele üks s&uuml;mbol, mille
+valik s&otilde;ltub kasutusel olevast paarsuskontrollist. 
+Kasutades ostsillograafi, salvestada
+valitud s&uuml;mboli edastus liidesel ja m&otilde;&otilde;ta &auml;ra
+s&uuml;mboli edastamiseks kulunud aeg. 
+</P>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<tr>
+<td>Paarsuskontroll ja edastatava sümboli valik</td>
+<td>Valitud sümbol ja sümboli ASCII kahendkood</td>
+<td>Sümboli edastamiseks kulunud aeg</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><INPUT type="radio" name="data_4_1" value="even"><I><B>Even</B></I>, sümbolis "1" arv paaris</td>
+<td><INPUT type="text" name="data_4_2" size="10"></td>
+<td><INPUT type="text" name="data_4_3" size="10"></td>
+<td>(lisa signaali kuju pilt)</td>
+</tr>
+<tr>
+<td><INPUT type="radio" name="data_4_1" value="odd"><I><B>Odd</B></I>, sümbolis "1" arv paaritu</td>
+<td><INPUT type="text" name="data_5_0" size="10"></td>
+<td><INPUT type="text" name="data_5_1" size="10"></td>
+<td>(lisa signaali kuju pilt)</td>
+</tr>
+<tr>
+<td><INPUT type="radio" name="data_4_1" value="none"><I><B>None</B></I>, sümbolis "1" arv paaritu</td>
+<td><INPUT type="text" name="data_5_2" size="10"></td>
+<td><INPUT type="text" name="data_5_3" size="10"></td>
+<td>(lisa signaali kuju pilt)</td>
+</tr>
+</table>
+
+<P></P>
+
+<H3 >3.3 Modem&uuml;hendus arvutite vahel 
+</H3>
+<P>Antud t&ouml;&ouml; punkti teevad
+naaberbrigaadid koos. Teha j&auml;rgmised tegevused: 
+</P>
+<ol>
+<li>&Uuml;hendada arvuti k&uuml;ljes
+olev pikenduskaabel liidese maketi k&uuml;ljest lahti ning t&ouml;&ouml;s
+kasutatava modemi RS-liidese k&uuml;lge<p></li> 
+<li>Veenduda, et modemi liinikaabel
+oleks &uuml;hendatud telefoniliini k&uuml;lge. <p>
+<li>&Uuml;hendada ostsillograafi
+m&otilde;&otilde;teotsik telefoniliini otste k&uuml;lge.<p> 
+<li>&Uuml;hendada modemid vooluv&otilde;rku.
+Kontrollida, et &uuml;ks modemitest oleks A modem ja teine B modem
+(vastavad klahvid peavad olema alla vajutatud modemi esipaneelil).
+Panna kirja, millise poole modem on &uuml;hendatud brigaadi poolt
+kasutatava arvuti k&uuml;lge. Modemite vaheline side on loodud, kui
+esipaneelil on s&uuml;ttinud k&otilde;ik kolm signaallampi.<p> 
+<li>Programmis Tera Term seadistada
+j&auml;rjestikpordi seaded (men&uuml;&uuml; Setup --&gt; Serial Port)
+selliselt, et edastuskiirus oleks 300 bit/s, andmebittide arv 7,
+paarsuskontroll Even, stop-bittide arv 2. Kontrollida andmeside
+toimimist arvutite vahel. <p>
+<li>Panna ostsillograaf t&ouml;&ouml;le
+spektrianal&uuml;saatori režiimi. Punasest nupust MATH MENU,
+Operation=FFT, 1 ruut 250Hz. <p>
+<li>Fikseerida liinis kulgeva signaali
+v&otilde;imsusspekter kui andmeedastust ei toimu ja kui edastatakse
+m&otilde;lemalt poolt s&uuml;mbolit @. M&auml;&auml;rata
+spektripiltidel iseloomulike k&uuml;hmude (2 v&otilde;i 4) sagedused
+ja salvestada pildid. Abiks on joonis 3.<p>
+</ol>
+<P><IMG SRC="side_labor_RS_pilt3.gif" alt="pilt3">
+</P>
+<P>Joonis 3. Omavahel suhtlevate V.21 modemite liinis
+kulgeva signaali spekter</P>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<tr>
+<td>A modem või B modem</td>
+<td COLSPAN=4><INPUT type="text" name="data_7_0" size="10"></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Andmeedastust ei toimu, <br>
+2 kühmu sagedused</td>
+<td COLSPAN=2><INPUT type="text" name="data_7_1" size="10"></td>
+<td COLSPAN=2><INPUT type="text" name="data_7_2" size="10"></td>
+<td>(lisa spektri pilt)</td>
+</tr>
+<tr>
+<td>Edastatakse mõlemalt poolt sümbolit @,<br> 
+4 kühmu sagedused</td>
+<td><INPUT type="text" name="data_8_0" size="10"></td>
+<td><INPUT type="text" name="data_8_1" size="10"></td>
+<td><INPUT type="text" name="data_8_2" size="10"></td>
+<td><INPUT type="text" name="data_8_3" size="10"></td>
+<td>(lisa spektri pilt)</td>
+</tr>
+</table>
+<p>
+Lülitada välja ostsillograaf.
+<p>
+<h3>3.4 Faili edastus arvutite vahel modemühenduse abil.</h3>
+<p>
+Antud töö punkti teevad naaberbrigaadid koos. 
+Arvutite vahel on modemühendus (sama mis eelmises punktis).
+Salvestada arvutisse faili edastamise makro
+<a href="failisaatmine.ttl">failisaatmine.ttl</a>
+ja edastatav tekstifail
+<a href="pangram.txt">pangram.txt</a>.
+Kasutades makrot edastada tekstifail naaberarvutisse ning mõõta aeg saatjal (makro tulemus)
+ja mõõta aeg faili saatmise algusest kuni faili kohalejõudmise lõpuni teises arvutis. 
+<p>
+Tegevuskäik:
+<ol>
+<li>
+Programmis Tera Term seadistada
+järjestikpordi seaded (menüü Setup --&gt; Serial Port)
+selliselt, et edastuskiirus oleks 300 bit/s, andmebittide arv 7,
+paarsuskontroll Even, stop-bittide arv 2. Kontrollida andmeside
+toimimist arvutite vahel.
+<br><br><li>
+Makro käivitamiseks Tera Term menüüst Control --&gt; Macro, 
+avanenud aknas valida käivitatav makro ja vajutada Open, 
+siis avaneb aken, kus valida edastatav fail pangram.txt ja vajutada Open.
+<br>
+Mõõta aeg faili saatmise algusest kuni faili kohalejõudmise lõpuni teises arvutis.
+<br><br><li>
+Salvestada faili edastamise makro tulemus.
+<br>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<tr>
+<td>Edastuskiirus 300 bit/s (lisa makro tulemuste ekraanipilt)</td>
+<td><INPUT type="text" name="data_6_0" size="10"></td>
+</tr>
+<tr>
+<td>Mõõdetud aeg faili saatmise algusest kuni faili kohalejõudmise lõpuni teises arvutis</td>
+<td><INPUT type="text" name="data_6_1" size="10"></td>
+</tr>
+</table>
+<br><br><li>
+Programmis Tera Term seadistada
+järjestikpordi seaded (menüü Setup --&gt; Serial Port)
+selliselt, et edastuskiirus oleks 1200 bit/s, andmebittide arv 7,
+paarsuskontroll Even, stop-bittide arv 2. Kontrollida andmeside
+toimimist arvutite vahel.
+<br><br><li>
+Kasutades makrot edastada tekstifail naaberarvutisse ning mõõta aeg saatjal (makro tulemus)
+ja mõõta aeg faili saatmise algusest kuni faili kohalejõudmise lõpuni teises arvutis.
+<br><br><li>
+Salvestada faili edastamise makro tulemus.
+<br>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<tr>
+<td>Edastuskiirus 1200 bit/s (lisa makro tulemuste ekraanipilt)</td>
+<td><INPUT type="text" name="data_6_2" size="10"></td>
+</tr>
+<tr>
+<td>Mõõdetud aeg faili saatmise algusest kuni faili kohalejõudmise lõpuni teises arvutis</td>
+<td><INPUT type="text" name="data_6_3" size="10"></td>
+</tr>
+</table>
+</ol>
+<p>
+Aruande vormistamisel leida 1) bitikiirus faili edastamisel makro tulemustest ja 2)leida kiirus järjestikliidese ja modemite kaudu moodustatud faili ülekande kanalis.
+3) Arvutada antud faili suuruse andmehulga teoreetiline edastamise aeg edastuskiirustel 300 bit/s ja 1200 bit/s, kui andmebittide arv on 7, paarsuskontroll Even, stoppbittide arv on 2.
+Aruandes tuua ära lahenduskäik.
+<p>
+Lülitada välja modemid.
+<p>
+<INPUT type="submit" value="Kõik vajalikud mõõtmised tehtud, tee aruande fail">
+<INPUT type="reset">
+</FORM>
+
+</div>
+<br><br><br>
+<H2 >Aruandes esitada: 
+</H2>
+<P>1. J&auml;rjestikliidese RS-232C
+andme&uuml;lekande parameetrid ja &uuml;henduste skeem klemm-plaadil.
+</P>
+<P>2. Punktis 3.1 tehtud s&uuml;mbolite
+edastuste joonised koos selgitustega, mis s&uuml;mbolit joonisel
+edastati. &Uuml;hel joonisel n&auml;idata, kus asuvad bitijadas
+start-bitt, paarsusbitt, stopp-bitid ja infobitid. Kirjutada seletus
+selle kohta, mis muutus paarsusbitiga erinevate paarsus-kontrolli
+viiside korral. Teades s&uuml;mboli edastamiseks kulunud aega, leida
+s&uuml;mbolite edastuskiirus (&uuml;hikuks bit/s). 
+</P>
+<P>3. Nullmodemi &uuml;henduste skeem ja
+punktis 3.2 kasutatud andme&uuml;lekande parameetrid. Panna kirja
+v&auml;ljavalitud s&uuml;mbol ja selle edastamisel saadud joonis.
+Teades s&uuml;mboli edastamiseks kulunud aega, leida s&uuml;mbolite
+edastuskiirus (&uuml;hikuks bit/s). 
+</P>
+<P>4. Punktis 3.3 tehtud joonised koos
+selgitustega. V&otilde;rrelda m&otilde;&otilde;detud tulemusi joonisel 3 toodud sagedustega. 
+</P>
+<P>5. Punktis 3.4 tulemused ja lahenduskäik. 
+</P>
+<P>6. Kokkuv&otilde;te tehtud t&ouml;&ouml;st
+ja j&auml;reldused. 
+</P>
+<h3><a name="tabel">Tabel 1</a>. RS-232C liidese andme&uuml;lekande parameetrid<BR>
+</h3>
+<TABLE  BORDER=1 CELLPADDING=4 CELLSPACING=0>
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<COL >
+	<TR VALIGN=TOP align=center>
+		<TD  >
+			<P>			Matrikli viimane number 
+			</P>
+		</TD>
+		<TD >
+			<P>0 
+			</P>
+		</TD>
+		<TD >
+			<P>1 
+			</P>
+		</TD>
+		<TD >
+			<P>2 
+			</P>
+		</TD>
+		<TD >
+			<P>3 
+			</P>
+		</TD>
+		<TD >
+			<P>4 
+			</P>
+		</TD>
+		<TD >
+			<P>5 
+			</P>
+		</TD>
+		<TD >
+			<P>6 
+			</P>
+		</TD>
+		<TD >
+			<P>7 
+			</P>
+		</TD>
+		<TD >
+			<P>8 
+			</P>
+		</TD>
+		<TD >
+			<P>9 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD >
+			<P>Kiirus 
+			</P>
+			<P>(Baud rate) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>9600 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>19200 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>1200 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>38400 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>14400 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>300 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>2400 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>600 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>57600 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>14400 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD  >
+			<P>Andmebitte 
+			</P>
+			<P>(Data) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>7 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>8 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>7 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>8 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>7 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>7 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>8 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>8 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>8 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>7 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD  >
+			<P>Paarsusbitte 
+			</P>
+			<P>(Parity) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaritu 
+			</P>
+			<P>(odd) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaris 
+			</P>
+			<P>(even) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaris 
+			</P>
+			<P>(even) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaritu 
+			</P>
+			<P>(odd) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaritu 
+			</P>
+			<P>(odd) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaritu 
+			</P>
+			<P>(odd) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaris 
+			</P>
+			<P>(even) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Paaris 
+			</P>
+			<P>(even) 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD >
+			<P>Stopp-bitte 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>2 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>1 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>2 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>1 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>2 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>1 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>2 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>2 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>1 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>1 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD  >
+			<P>Voo juhtimine 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none) 
+			</P>
+		</TD>
+		<TD align=center>
+			<P>Puudub 
+			</P>
+			<P>(none)</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR>
+</P>
+<H2><a name="lisa">Lisa 1</a> ASCII tabel</H2>
+<P>NB! J&auml;lgige bittide j&auml;rjestust tabelis 
+</P>
+<P><FONT FACE="Courier New, Courier New, serif"><FONT SIZE=2 STYLE="font-size: 11pt">|---------------------------------------------------------------|
+
+<br>
+|&nbsp;&nbsp;B \ b7 -----&gt;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;| 
+<br>
+|&nbsp;&nbsp;&nbsp;I \&nbsp;&nbsp;b6 ---&gt;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;| 
+<br>
+|&nbsp;&nbsp;&nbsp; T \&nbsp;&nbsp; b5 -&gt;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;| 
+<br>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |-----------------------------------------------| 
+<br>
+|b4 |b3 |b2 |b1 |&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | 
+<br>
++---------------+-----------------------------------------------+
+
+<br>
+| 0 | 0 | 0 | 0 | NUL | DLE | SP&nbsp;&nbsp;|&nbsp;&nbsp;0&nbsp;&nbsp;|&nbsp;&nbsp;@&nbsp;&nbsp;|&nbsp;&nbsp;P&nbsp;&nbsp;|&nbsp;&nbsp;`&nbsp;&nbsp;|&nbsp;&nbsp;p&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 0 | 0 | 0 | 1 | SOH | DC1 |&nbsp;&nbsp;!&nbsp;&nbsp;|&nbsp;&nbsp;1&nbsp;&nbsp;|&nbsp;&nbsp;A&nbsp;&nbsp;|&nbsp;&nbsp;Q&nbsp;&nbsp;|&nbsp;&nbsp;a&nbsp;&nbsp;|&nbsp;&nbsp;q&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 0 | 0 | 1 | 0 | STX | DC2 |&nbsp;&nbsp;&quot;&nbsp;&nbsp;|&nbsp;&nbsp;2&nbsp;&nbsp;|&nbsp;&nbsp;B&nbsp;&nbsp;|&nbsp;&nbsp;R&nbsp;&nbsp;|&nbsp;&nbsp;b&nbsp;&nbsp;|&nbsp;&nbsp;r&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 0 | 0 | 1 | 1 | ETX | DC3 |&nbsp;&nbsp;#&nbsp;&nbsp;|&nbsp;&nbsp;3&nbsp;&nbsp;|&nbsp;&nbsp;C&nbsp;&nbsp;|&nbsp;&nbsp;S&nbsp;&nbsp;|&nbsp;&nbsp;c&nbsp;&nbsp;|&nbsp;&nbsp;s&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 0 | 1 | 0 | 0 | EOT | DC4 |&nbsp;&nbsp;$&nbsp;&nbsp;|&nbsp;&nbsp;4&nbsp;&nbsp;|&nbsp;&nbsp;D&nbsp;&nbsp;|&nbsp;&nbsp;T&nbsp;&nbsp;|&nbsp;&nbsp;d&nbsp;&nbsp;|&nbsp;&nbsp;t&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 0 | 1 | 0 | 1 | ENQ | NAK |&nbsp;&nbsp;%&nbsp;&nbsp;|&nbsp;&nbsp;5&nbsp;&nbsp;|&nbsp;&nbsp;E&nbsp;&nbsp;|&nbsp;&nbsp;U&nbsp;&nbsp;|&nbsp;&nbsp;e&nbsp;&nbsp;|&nbsp;&nbsp;u&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 0 | 1 | 1 | 0 | ACK | SYN |&nbsp;&nbsp;&amp;&nbsp;&nbsp;|&nbsp;&nbsp;6&nbsp;&nbsp;|&nbsp;&nbsp;F&nbsp;&nbsp;|&nbsp;&nbsp;V&nbsp;&nbsp;|&nbsp;&nbsp;f&nbsp;&nbsp;|&nbsp;&nbsp;v&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 0 | 1 | 1 | 1 | BEL | ETB |&nbsp;&nbsp;'&nbsp;&nbsp;|&nbsp;&nbsp;7&nbsp;&nbsp;|&nbsp;&nbsp;G&nbsp;&nbsp;|&nbsp;&nbsp;W&nbsp;&nbsp;|&nbsp;&nbsp;g&nbsp;&nbsp;|&nbsp;&nbsp;w&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 0 | 0 | 0 | BS&nbsp;&nbsp;| CAN |&nbsp;&nbsp;(&nbsp;&nbsp;|&nbsp;&nbsp;8&nbsp;&nbsp;|&nbsp;&nbsp;H&nbsp;&nbsp;|&nbsp;&nbsp;X&nbsp;&nbsp;|&nbsp;&nbsp;h&nbsp;&nbsp;|&nbsp;&nbsp;x&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 0 | 0 | 1 | HT&nbsp;&nbsp;| EM&nbsp;&nbsp;|&nbsp;&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;9&nbsp;&nbsp;|&nbsp;&nbsp;I&nbsp;&nbsp;|&nbsp;&nbsp;Y&nbsp;&nbsp;|&nbsp;&nbsp;i&nbsp;&nbsp;|&nbsp;&nbsp;y&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 0 | 1 | 0 | LF&nbsp;&nbsp;| SUB |&nbsp;&nbsp;*&nbsp;&nbsp;|&nbsp;&nbsp;:&nbsp;&nbsp;|&nbsp;&nbsp;J&nbsp;&nbsp;|&nbsp;&nbsp;Z&nbsp;&nbsp;|&nbsp;&nbsp;j&nbsp;&nbsp;|&nbsp;&nbsp;z&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 0 | 1 | 1 | VT&nbsp;&nbsp;| ESC |&nbsp;&nbsp;+&nbsp;&nbsp;|&nbsp;&nbsp;;&nbsp;&nbsp;|&nbsp;&nbsp;K&nbsp;&nbsp;|&nbsp;&nbsp;[&nbsp;&nbsp;|&nbsp;&nbsp;k&nbsp;&nbsp;|&nbsp;&nbsp;{&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 1 | 0 | 0 | FF&nbsp;&nbsp;| FS&nbsp;&nbsp;|&nbsp;&nbsp;,&nbsp;&nbsp;|&nbsp;&nbsp;&lt;&nbsp;&nbsp;|&nbsp;&nbsp;L&nbsp;&nbsp;|&nbsp;&nbsp;\&nbsp;&nbsp;|&nbsp;&nbsp;l&nbsp;&nbsp;|&nbsp;&nbsp;|&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 1 | 0 | 1 | CR&nbsp;&nbsp;| GS&nbsp;&nbsp;|&nbsp;&nbsp;-&nbsp;&nbsp;|&nbsp;&nbsp;=&nbsp;&nbsp;|&nbsp;&nbsp;M&nbsp;&nbsp;|&nbsp;&nbsp;]&nbsp;&nbsp;|&nbsp;&nbsp;m&nbsp;&nbsp;|&nbsp;&nbsp;}&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 1 | 1 | 0 | SO&nbsp;&nbsp;| RS&nbsp;&nbsp;|&nbsp;&nbsp;.&nbsp;&nbsp;|&nbsp;&nbsp;&gt;&nbsp;&nbsp;|&nbsp;&nbsp;N&nbsp;&nbsp;|&nbsp;&nbsp;^&nbsp;&nbsp;|&nbsp;&nbsp;n&nbsp;&nbsp;|&nbsp;&nbsp;~&nbsp;&nbsp;| 
+<br>
+|---|---|---|---|-----|-----|-----|-----|-----|-----|-----|-----|
+
+<br>
+| 1 | 1 | 1 | 1 | SI&nbsp;&nbsp;| US&nbsp;&nbsp;|&nbsp;&nbsp;/&nbsp;&nbsp;|&nbsp;&nbsp;?&nbsp;&nbsp;|&nbsp;&nbsp;O&nbsp;&nbsp;|&nbsp;&nbsp;_&nbsp;&nbsp;|&nbsp;&nbsp;o&nbsp;&nbsp;| DEL | 
+<br>
++---------------+-----------------------------------------------+</FONT></FONT></P>
+</BODY>
+</HTML>

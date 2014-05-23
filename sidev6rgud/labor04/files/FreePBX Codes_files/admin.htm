@@ -1,0 +1,1319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- should also validate ok with DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/xhtml1-transitional.dtd" -->
+<html><head>
+	<title>FreePBX Administration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<link href="admin_data/mstyle_autogen_1360092071.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		body {
+		background-image: url(images/shadow-side-background.png?load_version=2.9.0.12);
+		background-repeat: repeat-y;
+		background-position: left;
+		}
+	</style>
+	<link rel="shortcut icon" href="http://10.20.30.42/admin/images/favicon.ico">
+
+  <script type="text/javascript" src="admin_data/script.js"></script>
+  <script type="text/javascript" src="admin_data/libfreepbx.js" language="javascript"></script>
+	
+<!--[if IE]>
+    <style type="text/css">div.inyourface a{position:absolute;}</style>
+<![endif]-->
+</head>
+
+<body onload="body_loaded();">
+
+<!-- module process box, used by module admin (page.modules.php) - has to be here because of IE6's z-order stupidity -->
+<div id="moduleBox" style="display:none;"></div>
+
+<div id="page">
+	<div id="header">
+		<div id="freepbx"><a href="http://www.freepbx.org/" target="_blank" title="FreePBX"><img src="admin_data/freepbx_large.png" alt="FreePBX"></a></div>
+		<div id="version"><a href="http://www.freepbx.org/" target="_blank">FreePBX</a> 2.9.0.12 on <a href="http://10.20.30.42/">10.20.30.42</a></div>
+		<ul id="metanav">
+		<li class="first-current"><a href="http://10.20.30.42/admin/config.php">Admin</a></li>
+		<li class="noselect"><a href="http://10.20.30.42/admin/reports.php">Reports</a></li>
+		<li class="noselect"><a href="http://10.20.30.42/admin/panel.php">Panel</a></li>
+		<li class="noselect"><a target="ari" href="http://10.20.30.42/recordings/index.php">Recordings</a></li>
+		<li class="noselect"><a target="help" href="http://www.freepbx.org/freepbx-help-system?freepbx_version=2.9.0.12&amp;freepbx_menuitem=featurecodeadmin">Help</a></li>
+<li class="last"><a>&nbsp;</a></li>		</ul>
+		<div id="logo"><a href="http://www.freepbx.org/" target="_blank" title="FreePBX"><img src="admin_data/custom-logo.gif" alt="FreePBX"></a></div>
+	<div id="login_message">	</div>	</div>
+
+<div id="content">
+
+<!-- begin menu -->
+<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="nav">
+	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" id="nav-tabs">
+		<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#nav-setup"><span>Setup</span></a></li>
+		<li class="ui-state-default ui-corner-top"><a href="#nav-tool"><span>Tools</span></a></li>
+		<li class="last"><a><span>&nbsp;</span></a></li>
+	</ul>
+	<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="nav-setup"><ul>
+		<li title="click to expand/collapse section" id="setup-e3afed0047b08059d0fada10f400c1e5" class="category category-header toggle-minus">Admin</li>
+			<li class="menuitem id-setup-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=index">FreePBX System Status</a></li>
+			<li class="menuitem id-setup-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=modules">Module Admin</a></li>
+		<li title="click to expand/collapse section" id="setup-972e73b7a882d0802a4e3a16946a2f94" class="category category-header toggle-minus">Basic</li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=dahdi">DAHDi</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions">Extensions</a></li>
+			<li class="menuitem current id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=featurecodeadmin">Feature Codes</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=general">General Settings</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=routing">Outbound Routes</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=trunks">Trunks</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=voicemail">Voicemail Admin</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ampusers">Administrators</a></li>
+		<li title="click to expand/collapse section" id="setup-7eec029e6d0d83dcd40bc218cbc04e85" class="category category-header toggle-minus">Inbound Call Control</li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=did">Inbound Routes</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=zapchandids">Zap Channel DIDs</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=announcement">Announcements</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=blacklist">Blacklist</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=superfecta">CID Superfecta</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=daynight">Call Flow Control</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=cidlookup">CallerID Lookup Sources</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=findmefollow">Follow Me</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ivr">IVR</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=queueprio">Queue Priorities</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=queues">Queues</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ringgroups">Ring Groups</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=timeconditions">Time Conditions</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=timegroups">Time Groups</a></li>
+		<li title="click to expand/collapse section" id="setup-fcc42e3dc88422b722c17e20c26a39a1" class="category category-header toggle-minus">Internal Options &amp; Configuration</li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=callback">Callback</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=conferences">Conferences</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=disa">DISA</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=languages">Languages</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=miscapps">Misc Applications</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=miscdests">Misc Destinations</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=music">Music on Hold</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=pinsets">PIN Sets</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=paging">Paging and Intercom</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=parking">Parking Lot</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=restart">Phone Restart</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=recordings">System Recordings</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=vmblast">Voicemail Blasting</a></li>
+		<li title="click to expand/collapse section" id="setup-b988b61dd9ca7cbbea7d68b6b24d749f" class="category category-header toggle-minus">Third Party Addon</li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=customcontexts">Custom Contexts</a></li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=googlevoice">Google Voice</a></li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=setcid">Set CallerID</a></li>
+	</ul></div>
+	<div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="nav-tool"><ul>
+		<li title="click to expand/collapse section" id="tool-e3afed0047b08059d0fada10f400c1e5" class="category category-header toggle-minus">Admin</li>
+			<li class="menuitem id-tool-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=index">FreePBX System Status</a></li>
+			<li class="menuitem id-tool-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=modules">Module Admin</a></li>
+		<li title="click to expand/collapse section" id="tool-1c658793ae21708c581ed334ab1e2499" class="category category-header toggle-minus">Advanced Administration</li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=advancedsettings">Advanced Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=iaxsettings">Asterisk IAX Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=sipsettings">Asterisk SIP Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=bulkdids">Bulk DIDs</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=bulkextensions">Bulk Extensions</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customdests">Custom Destinations</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customextens">Custom Extensions</a></li>
+		<li title="click to expand/collapse section" id="tool-e56ae9acc1de553b5a7d70113790e3b9" class="category category-header toggle-minus">End Point Manager</li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_devices">End Point Device List</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_templates">End Point Template Manager</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_config">End Point Configuration</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_advanced">End Point Advanced Settings</a></li>
+		<li title="click to expand/collapse section" id="tool-10d0de28911c5f66463b9c8783f8148a" class="category category-header toggle-minus">Maintenance</li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=configedit">Config Edit</a></li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=sysinfo">Sys Info</a></li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpmyadmin">phpMyAdmin</a></li>
+		<li title="click to expand/collapse section" id="tool-db5eb84117d06047c97c9a0191b5fffe" class="category category-header toggle-minus">Support</li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=logfiles">Asterisk Logfiles</a></li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=irc">Online Support</a></li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://freepbx.org/" target="_blank">FreePBX Support</a></li>
+		<li title="click to expand/collapse section" id="tool-afde5a73d112b230adb0e3b203265409" class="category category-header toggle-minus">System Administration</li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=manager">Asterisk API</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=cli">Asterisk CLI</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=asteriskinfo">Asterisk Info</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phonebook">Asterisk Phonebook</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=backup">Backup &amp; Restore</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customcontextsadmin">Custom Contexts Admin</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=dundicheck">DUNDi Lookup</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=javassh">Java SSH</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpinfo">PHP Info</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpagiconf">PHPAGI Config</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=printextensions">Print Extensions</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=outroutemsg">Route Congestion Messages</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=weakpasswords">Weak Password Detection</a></li>
+		<li title="click to expand/collapse section" id="tool-b988b61dd9ca7cbbea7d68b6b24d749f" class="category category-header toggle-minus">Third Party Addon</li>
+			<li class="menuitem id-tool-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customerdb">Customer DB</a></li>
+			<li class="menuitem id-tool-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=inventorydb">Inventory</a></li>
+	</ul></div>
+</div>
+
+<!-- end menu -->
+
+<div id="wrapper"><div id="background-wrapper">
+
+<div id="left-corner"></div>
+<div id="right-corner"></div>
+
+
+<div id="language">
+	
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select onchange="javascript:changeLang(this.value)">
+		<option value="en_US" selected="selected">English</option>
+		<option value="bg_BG">Bulgarian</option>
+		<option value="zh_CN">Chinese</option>
+		<option value="de_DE">Deutsch</option>
+		<option value="es_ES">Español</option>
+		<option value="fr_FR">Français</option>
+		<option value="he_IL">Hebrew</option>
+		<option value="hu_HU">Hungarian</option>
+		<option value="it_IT">Italiano</option>
+		<option value="pt_PT">Portuguese</option>
+		<option value="pt_BR">Portuguese (Brasil)</option>
+		<option value="ro_RO">Romanian</option>
+		<option value="ru_RU">Russki</option>
+		<option value="sv_SE">Svenska</option>
+		</select>
+
+<script type="text/javascript">
+<!--
+function changeLang(lang) {
+	document.cookie='lang='+lang;
+	window.location.reload();
+}
+//-->
+</script>
+
+	</div>
+	
+	
+<div class="content">
+
+<noscript>
+	<div class="attention"></div>
+</noscript>
+
+<!-- begin generated page content  -->
+
+</div>
+
+<div class="content">
+	<form autocomplete="off" name="frmAdmin" action="" method="post" onsubmit="return frmAdmin_onsubmit();">
+	<input name="display" value="featurecodeadmin" type="hidden">
+	<input name="action" value="save" type="hidden">
+
+		<table>
+	<tbody><tr><td colspan="4"><h3>Feature Code Admin<hr></h3></td></tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+		<td align="center"><b>Use<br>Default?</b></td>
+		<td align="center"><b>Feature<br>Status</b></td>
+	</tr>
+				<tr>
+				<td colspan="4">
+					<h4>
+					Blacklist										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Blacklist a number			</td>
+			<td>
+				<input readonly="readonly" name="custom#blacklist#blacklist_add" value="*30" size="4" tabindex="1" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_blacklist#blacklist_add" checked="checked" type="checkbox">
+				<input name="default_blacklist#blacklist_add" value="*30" type="hidden">
+				<input name="origcustom_blacklist#blacklist_add" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#blacklist#blacklist_add">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Blacklist the last caller			</td>
+			<td>
+				<input readonly="readonly" name="custom#blacklist#blacklist_last" value="*32" size="4" tabindex="2" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_blacklist#blacklist_last" checked="checked" type="checkbox">
+				<input name="default_blacklist#blacklist_last" value="*32" type="hidden">
+				<input name="origcustom_blacklist#blacklist_last" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#blacklist#blacklist_last">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Remove a number from the blacklist			</td>
+			<td>
+				<input readonly="readonly" name="custom#blacklist#blacklist_remove" value="*31" size="4" tabindex="3" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_blacklist#blacklist_remove" checked="checked" type="checkbox">
+				<input name="default_blacklist#blacklist_remove" value="*31" type="hidden">
+				<input name="origcustom_blacklist#blacklist_remove" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#blacklist#blacklist_remove">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Call Forward										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Call Forward All Activate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfon" value="*72" size="4" tabindex="4" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfon" checked="checked" type="checkbox">
+				<input name="default_callforward#cfon" value="*72" type="hidden">
+				<input name="origcustom_callforward#cfon" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfon">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward All Deactivate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfoff" value="*73" size="4" tabindex="5" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfoff" checked="checked" type="checkbox">
+				<input name="default_callforward#cfoff" value="*73" type="hidden">
+				<input name="origcustom_callforward#cfoff" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfoff">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward All Prompting Deactivate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfoff_any" value="*74" size="4" tabindex="6" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfoff_any" checked="checked" type="checkbox">
+				<input name="default_callforward#cfoff_any" value="*74" type="hidden">
+				<input name="origcustom_callforward#cfoff_any" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfoff_any">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward Busy Activate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfbon" value="*90" size="4" tabindex="7" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfbon" checked="checked" type="checkbox">
+				<input name="default_callforward#cfbon" value="*90" type="hidden">
+				<input name="origcustom_callforward#cfbon" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfbon">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward Busy Deactivate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfboff" value="*91" size="4" tabindex="8" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfboff" checked="checked" type="checkbox">
+				<input name="default_callforward#cfboff" value="*91" type="hidden">
+				<input name="origcustom_callforward#cfboff" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfboff">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward Busy Prompting Deactivate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfboff_any" value="*92" size="4" tabindex="9" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfboff_any" checked="checked" type="checkbox">
+				<input name="default_callforward#cfboff_any" value="*92" type="hidden">
+				<input name="origcustom_callforward#cfboff_any" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfboff_any">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward No Answer/Unavailable Activate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfuon" value="*52" size="4" tabindex="10" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfuon" checked="checked" type="checkbox">
+				<input name="default_callforward#cfuon" value="*52" type="hidden">
+				<input name="origcustom_callforward#cfuon" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfuon">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward No Answer/Unavailable Deactivate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cfuoff" value="*53" size="4" tabindex="11" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cfuoff" checked="checked" type="checkbox">
+				<input name="default_callforward#cfuoff" value="*53" type="hidden">
+				<input name="origcustom_callforward#cfuoff" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cfuoff">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Forward Toggle			</td>
+			<td>
+				<input readonly="readonly" name="custom#callforward#cf_toggle" value="*740" size="4" tabindex="12" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callforward#cf_toggle" checked="checked" type="checkbox">
+				<input name="default_callforward#cf_toggle" value="*740" type="hidden">
+				<input name="origcustom_callforward#cf_toggle" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callforward#cf_toggle">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Call Waiting										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Call Waiting - Activate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callwaiting#cwon" value="*70" size="4" tabindex="13" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callwaiting#cwon" checked="checked" type="checkbox">
+				<input name="default_callwaiting#cwon" value="*70" type="hidden">
+				<input name="origcustom_callwaiting#cwon" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callwaiting#cwon">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Call Waiting - Deactivate			</td>
+			<td>
+				<input readonly="readonly" name="custom#callwaiting#cwoff" value="*71" size="4" tabindex="14" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_callwaiting#cwoff" checked="checked" type="checkbox">
+				<input name="default_callwaiting#cwoff" value="*71" type="hidden">
+				<input name="origcustom_callwaiting#cwoff" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#callwaiting#cwoff">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Core										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Asterisk General Call Pickup			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#pickupexten" value="*8" size="4" tabindex="15" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#pickupexten" checked="checked" type="checkbox">
+				<input name="default_core#pickupexten" value="*8" type="hidden">
+				<input name="origcustom_core#pickupexten" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#pickupexten">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				ChanSpy			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#chanspy" value="555" size="4" tabindex="16" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#chanspy" checked="checked" type="checkbox">
+				<input name="default_core#chanspy" value="555" type="hidden">
+				<input name="origcustom_core#chanspy" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#chanspy">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Directed Call Pickup			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#pickup" value="**" size="4" tabindex="17" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#pickup" checked="checked" type="checkbox">
+				<input name="default_core#pickup" value="**" type="hidden">
+				<input name="origcustom_core#pickup" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#pickup">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				In-Call Asterisk Attended Transfer			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#atxfer" value="*2" size="4" tabindex="18" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#atxfer" checked="checked" type="checkbox">
+				<input name="default_core#atxfer" value="*2" type="hidden">
+				<input name="origcustom_core#atxfer" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#atxfer">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				In-Call Asterisk Blind Transfer			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#blindxfer" value="##" size="4" tabindex="19" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#blindxfer" checked="checked" type="checkbox">
+				<input name="default_core#blindxfer" value="##" type="hidden">
+				<input name="origcustom_core#blindxfer" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#blindxfer">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				In-Call Asterisk Disconnect Code			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#disconnect" value="**" size="4" tabindex="20" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#disconnect" checked="checked" type="checkbox">
+				<input name="default_core#disconnect" value="**" type="hidden">
+				<input name="origcustom_core#disconnect" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#disconnect">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				In-Call Asterisk Toggle Call Recording			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#automon" value="*1" size="4" tabindex="21" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#automon" checked="checked" type="checkbox">
+				<input name="default_core#automon" value="*1" type="hidden">
+				<input name="origcustom_core#automon" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#automon">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Simulate Incoming Call			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#simu_pstn" value="7777" size="4" tabindex="22" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#simu_pstn" checked="checked" type="checkbox">
+				<input name="default_core#simu_pstn" value="7777" type="hidden">
+				<input name="origcustom_core#simu_pstn" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#simu_pstn">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				User Logoff			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#userlogoff" value="*12" size="4" tabindex="23" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#userlogoff" checked="checked" type="checkbox">
+				<input name="default_core#userlogoff" value="*12" type="hidden">
+				<input name="origcustom_core#userlogoff" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#userlogoff">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				User Logon			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#userlogon" value="*11" size="4" tabindex="24" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#userlogon" checked="checked" type="checkbox">
+				<input name="default_core#userlogon" value="*11" type="hidden">
+				<input name="origcustom_core#userlogon" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#userlogon">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				ZapBarge			</td>
+			<td>
+				<input readonly="readonly" name="custom#core#zapbarge" value="888" size="4" tabindex="25" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_core#zapbarge" checked="checked" type="checkbox">
+				<input name="default_core#zapbarge" value="888" type="hidden">
+				<input name="origcustom_core#zapbarge" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#core#zapbarge">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Dictation										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Email completed dictation			</td>
+			<td>
+				<input readonly="readonly" name="custom#dictate#senddictate" value="*35" size="4" tabindex="26" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_dictate#senddictate" checked="checked" type="checkbox">
+				<input name="default_dictate#senddictate" value="*35" type="hidden">
+				<input name="origcustom_dictate#senddictate" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#dictate#senddictate">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Perform dictation			</td>
+			<td>
+				<input readonly="readonly" name="custom#dictate#dodictate" value="*34" size="4" tabindex="27" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_dictate#dodictate" checked="checked" type="checkbox">
+				<input name="default_dictate#dodictate" value="*34" type="hidden">
+				<input name="origcustom_dictate#dodictate" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#dictate#dodictate">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Do-Not-Disturb (DND)										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				DND Activate			</td>
+			<td>
+				<input readonly="readonly" name="custom#donotdisturb#dnd_on" value="*78" size="4" tabindex="28" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_donotdisturb#dnd_on" checked="checked" type="checkbox">
+				<input name="default_donotdisturb#dnd_on" value="*78" type="hidden">
+				<input name="origcustom_donotdisturb#dnd_on" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#donotdisturb#dnd_on">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				DND Deactivate			</td>
+			<td>
+				<input readonly="readonly" name="custom#donotdisturb#dnd_off" value="*79" size="4" tabindex="29" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_donotdisturb#dnd_off" checked="checked" type="checkbox">
+				<input name="default_donotdisturb#dnd_off" value="*79" type="hidden">
+				<input name="origcustom_donotdisturb#dnd_off" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#donotdisturb#dnd_off">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				DND Toggle			</td>
+			<td>
+				<input readonly="readonly" name="custom#donotdisturb#dnd_toggle" value="*76" size="4" tabindex="30" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_donotdisturb#dnd_toggle" checked="checked" type="checkbox">
+				<input name="default_donotdisturb#dnd_toggle" value="*76" type="hidden">
+				<input name="origcustom_donotdisturb#dnd_toggle" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#donotdisturb#dnd_toggle">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Fax										<i>(Disabled)</i>
+										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Dial System FAX			</td>
+			<td>
+				<input readonly="readonly" name="custom#fax#simu_fax" value="666" size="4" tabindex="31" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_fax#simu_fax" checked="checked" type="checkbox">
+				<input name="default_fax#simu_fax" value="666" type="hidden">
+				<input name="origcustom_fax#simu_fax" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#fax#simu_fax">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Follow Me										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Findme Follow Toggle			</td>
+			<td>
+				<input readonly="readonly" name="custom#findmefollow#fmf_toggle" value="*21" size="4" tabindex="32" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_findmefollow#fmf_toggle" checked="checked" type="checkbox">
+				<input name="default_findmefollow#fmf_toggle" value="*21" type="hidden">
+				<input name="origcustom_findmefollow#fmf_toggle" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#findmefollow#fmf_toggle">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Info Services										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Call Trace			</td>
+			<td>
+				<input readonly="readonly" name="custom#infoservices#calltrace" value="*69" size="4" tabindex="33" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_infoservices#calltrace" checked="checked" type="checkbox">
+				<input name="default_infoservices#calltrace" value="*69" type="hidden">
+				<input name="origcustom_infoservices#calltrace" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#infoservices#calltrace">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Directory			</td>
+			<td>
+				<input readonly="readonly" name="custom#infoservices#directory" value="#" size="4" tabindex="34" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_infoservices#directory" checked="checked" type="checkbox">
+				<input name="default_infoservices#directory" value="#" type="hidden">
+				<input name="origcustom_infoservices#directory" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#infoservices#directory">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Echo Test			</td>
+			<td>
+				<input readonly="readonly" name="custom#infoservices#echotest" value="*43" size="4" tabindex="35" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_infoservices#echotest" checked="checked" type="checkbox">
+				<input name="default_infoservices#echotest" value="*43" type="hidden">
+				<input name="origcustom_infoservices#echotest" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#infoservices#echotest">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Speak Your Exten Number			</td>
+			<td>
+				<input readonly="readonly" name="custom#infoservices#speakextennum" value="*65" size="4" tabindex="36" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_infoservices#speakextennum" checked="checked" type="checkbox">
+				<input name="default_infoservices#speakextennum" value="*65" type="hidden">
+				<input name="origcustom_infoservices#speakextennum" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#infoservices#speakextennum">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Speaking Clock			</td>
+			<td>
+				<input readonly="readonly" name="custom#infoservices#speakingclock" value="*60" size="4" tabindex="37" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_infoservices#speakingclock" checked="checked" type="checkbox">
+				<input name="default_infoservices#speakingclock" value="*60" type="hidden">
+				<input name="origcustom_infoservices#speakingclock" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#infoservices#speakingclock">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Paging and Intercom										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Intercom prefix			</td>
+			<td>
+				<input readonly="readonly" name="custom#paging#intercom-prefix" value="*80" size="4" tabindex="38" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_paging#intercom-prefix" checked="checked" type="checkbox">
+				<input name="default_paging#intercom-prefix" value="*80" type="hidden">
+				<input name="origcustom_paging#intercom-prefix" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#paging#intercom-prefix">
+				<option value="1">Enabled</option>
+				<option selected="selected" value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				User Intercom Allow			</td>
+			<td>
+				<input readonly="readonly" name="custom#paging#intercom-on" value="*54" size="4" tabindex="39" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_paging#intercom-on" checked="checked" type="checkbox">
+				<input name="default_paging#intercom-on" value="*54" type="hidden">
+				<input name="origcustom_paging#intercom-on" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#paging#intercom-on">
+				<option value="1">Enabled</option>
+				<option selected="selected" value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				User Intercom Disallow			</td>
+			<td>
+				<input readonly="readonly" name="custom#paging#intercom-off" value="*55" size="4" tabindex="40" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_paging#intercom-off" checked="checked" type="checkbox">
+				<input name="default_paging#intercom-off" value="*55" type="hidden">
+				<input name="origcustom_paging#intercom-off" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#paging#intercom-off">
+				<option value="1">Enabled</option>
+				<option selected="selected" value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Parking Lot										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Pickup ParkedCall Any			</td>
+			<td>
+				<input readonly="readonly" name="custom#parking#parkedcall" value="*85" size="4" tabindex="41" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_parking#parkedcall" checked="checked" type="checkbox">
+				<input name="default_parking#parkedcall" value="*85" type="hidden">
+				<input name="origcustom_parking#parkedcall" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#parking#parkedcall">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Phonebook Directory										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Phonebook dial-by-name directory			</td>
+			<td>
+				<input readonly="readonly" name="custom#pbdirectory#app-pbdirectory" value="411" size="4" tabindex="42" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_pbdirectory#app-pbdirectory" checked="checked" type="checkbox">
+				<input name="default_pbdirectory#app-pbdirectory" value="411" type="hidden">
+				<input name="origcustom_pbdirectory#app-pbdirectory" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#pbdirectory#app-pbdirectory">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Queues										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Queue Toggle			</td>
+			<td>
+				<input readonly="readonly" name="custom#queues#que_toggle" value="*45" size="4" tabindex="43" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_queues#que_toggle" checked="checked" type="checkbox">
+				<input name="default_queues#que_toggle" value="*45" type="hidden">
+				<input name="origcustom_queues#que_toggle" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#queues#que_toggle">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Recordings										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Check Recording			</td>
+			<td>
+				<input readonly="readonly" name="custom#recordings#record_check" value="*99" size="4" tabindex="44" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_recordings#record_check" checked="checked" type="checkbox">
+				<input name="default_recordings#record_check" value="*99" type="hidden">
+				<input name="origcustom_recordings#record_check" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#recordings#record_check">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Save Recording			</td>
+			<td>
+				<input readonly="readonly" name="custom#recordings#record_save" value="*77" size="4" tabindex="45" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_recordings#record_save" checked="checked" type="checkbox">
+				<input name="default_recordings#record_save" value="*77" type="hidden">
+				<input name="origcustom_recordings#record_save" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#recordings#record_save">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Speed Dial Functions										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Set user speed dial			</td>
+			<td>
+				<input readonly="readonly" name="custom#speeddial#setspeeddial" value="*75" size="4" tabindex="46" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_speeddial#setspeeddial" checked="checked" type="checkbox">
+				<input name="default_speeddial#setspeeddial" value="*75" type="hidden">
+				<input name="origcustom_speeddial#setspeeddial" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#speeddial#setspeeddial">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				Speeddial prefix			</td>
+			<td>
+				<input readonly="readonly" name="custom#speeddial#callspeeddial" value="*0" size="4" tabindex="47" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_speeddial#callspeeddial" checked="checked" type="checkbox">
+				<input name="default_speeddial#callspeeddial" value="*0" type="hidden">
+				<input name="origcustom_speeddial#callspeeddial" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#speeddial#callspeeddial">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+					<tr>
+				<td colspan="4">
+					<h4>
+					Voicemail										</h4>
+				</td>
+			</tr>
+			 	
+		<tr>
+					<td> 
+				Dial Voicemail			</td>
+			<td>
+				<input readonly="readonly" name="custom#voicemail#dialvoicemail" value="*98" size="4" tabindex="48" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_voicemail#dialvoicemail" checked="checked" type="checkbox">
+				<input name="default_voicemail#dialvoicemail" value="*98" type="hidden">
+				<input name="origcustom_voicemail#dialvoicemail" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#voicemail#dialvoicemail">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+		 	
+		<tr>
+					<td> 
+				My Voicemail			</td>
+			<td>
+				<input readonly="readonly" name="custom#voicemail#myvoicemail" value="*97" size="4" tabindex="49" type="text">
+			</td>
+			<td align="center">
+				<input onclick="usedefault_onclick(this);" name="usedefault_voicemail#myvoicemail" checked="checked" type="checkbox">
+				<input name="default_voicemail#myvoicemail" value="*97" type="hidden">
+				<input name="origcustom_voicemail#myvoicemail" value="" type="hidden">
+			</td>
+			<td>
+				<select name="ena#voicemail#myvoicemail">
+				<option selected="selected" value="1">Enabled</option>
+				<option value="0">Disabled</option>
+				</select>
+			</td>
+		</tr>	
+			<tr>
+		<td colspan="4"><br><h6><input name="Submit" value="Submit Changes" type="submit"></h6></td>		
+	</tr>
+	</tbody></table>
+
+	<script language="javascript">
+	<!--
+	
+	var theForm = document.frmAdmin;
+	
+	callallusedefaults();
+	
+	// call the onclick function for all the Use Default boxes
+	function callallusedefaults() {
+		for (var i=0; i<theForm.elements.length; i++) {
+			var theFld = theForm.elements[i];
+			if (theFld.name.substring(0,11) == "usedefault_") {
+				usedefault_onclick(theFld);
+			}
+		}
+	}
+		
+	// disabled the custom code box if using default and also puts the default number in the box
+	function usedefault_onclick(chk) {
+		var featureid = chk.name.substring(11);
+		if (chk.checked) {
+			theForm.elements['origcustom_' + featureid].value = theForm.elements['custom#' + featureid].value;			
+			theForm.elements['custom#' + featureid].value = theForm.elements['default_' + featureid].value;
+		} else {
+			theForm.elements['custom#' + featureid].value = theForm.elements['origcustom_' + featureid].value;
+		}
+		theForm.elements['custom#' + featureid].readOnly = chk.checked;
+	}
+	
+	// form validation
+	function frmAdmin_onsubmit() {
+		var msgErrorMissingFC = "Please enter a Feature Code or check Use Default for all Enabled Feature Codes";
+		var msgErrorDuplicateFC = "Feature Codes have been duplicated";
+		var msgErrorProceedOK = "Are you sure you wish to proceed?";
+		
+		for (var i=0; i<theForm.elements.length; i++) {
+			var theFld = theForm.elements[i];
+			if (theFld.name.substring(0,7) == "custom#") {
+				var featureid = theFld.name.substring(7);
+				// check that every non default has a custom code
+				if (!theForm.elements['usedefault_' + featureid].checked) {
+					defaultEmptyOK = false;
+					if (!isDialDigits(theFld.value))
+						return warnInvalid(theFld, msgErrorMissingFC);
+						
+					if (isDuplicated(theFld.name, theFld.value))
+						return confirm(msgErrorDuplicateFC+".  "+msgErrorProceedOK);
+				}
+			}
+		}
+		
+		
+		return true;
+	}
+
+	function isDuplicated(firstfldname, firstfc) {
+		for (var i=0; i<theForm.elements.length; i++) {
+			var theFld = theForm.elements[i];
+			if (theFld.name.substring(0,7) == "custom#" && theFld.name != firstfldname) {
+				if (theFld.value == firstfc)
+					return true;
+			}
+		}
+	}
+	
+	//-->
+	</script>
+	
+	</form>
+<!-- end generated page content -->
+
+</div> <!-- .content -->
+
+<hr><div id="footer"><span class="footer-float-left"><a target="_blank" href="http://www.freepbx.org/"><img id="footer_logo" src="admin_data/freepbx_small.png" alt="FreePBX®"></a></span><span class="footer-float-left"><h3>Let Freedom Ring<sup>™</sup></h3>		<a href="http://www.freepbx.org/" target="_blank">FreePBX</a> is a registered trademark of <a href="http://www.freepbx.org/copyright.html" target="_blank">Bandwidth.com</a><br>
+		<a href="http://www.freepbx.org/" target="_blank">FreePBX 2.9.0.12</a> is licensed under <a href="http://www.gnu.org/copyleft/gpl.html" target="_blank">GPL</a><br></span></div></div> <!-- content -->
+</div> <!-- page -->
+
+
+</div></div></body></html>

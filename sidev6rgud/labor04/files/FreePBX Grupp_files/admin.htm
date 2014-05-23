@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- should also validate ok with DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/xhtml1-transitional.dtd" -->
+<html><head>
+	<title>FreePBX Administration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<link href="admin_data/mstyle_autogen_1360092071.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		body {
+		background-image: url(images/shadow-side-background.png?load_version=2.9.0.12);
+		background-repeat: repeat-y;
+		background-position: left;
+		}
+	</style>
+	<link rel="shortcut icon" href="http://10.20.30.42/admin/images/favicon.ico">
+
+  <script type="text/javascript" src="admin_data/script.js"></script>
+  <script type="text/javascript" src="admin_data/libfreepbx.js" language="javascript"></script>
+	
+<!--[if IE]>
+    <style type="text/css">div.inyourface a{position:absolute;}</style>
+<![endif]-->
+</head>
+
+<body onload="body_loaded();">
+
+<!-- module process box, used by module admin (page.modules.php) - has to be here because of IE6's z-order stupidity -->
+<div id="moduleBox" style="display:none;"></div>
+
+<div id="page">
+	<div id="header">
+		<div id="freepbx"><a href="http://www.freepbx.org/" target="_blank" title="FreePBX"><img src="admin_data/freepbx_large.png" alt="FreePBX"></a></div>
+		<div id="version"><a href="http://www.freepbx.org/" target="_blank">FreePBX</a> 2.9.0.12 on <a href="http://10.20.30.42/">10.20.30.42</a></div>
+		<ul id="metanav">
+		<li class="first-current"><a href="http://10.20.30.42/admin/config.php">Admin</a></li>
+		<li class="noselect"><a href="http://10.20.30.42/admin/reports.php">Reports</a></li>
+		<li class="noselect"><a href="http://10.20.30.42/admin/panel.php">Panel</a></li>
+		<li class="noselect"><a target="ari" href="http://10.20.30.42/recordings/index.php">Recordings</a></li>
+		<li class="noselect"><a target="help" href="http://www.freepbx.org/freepbx-help-system?freepbx_version=2.9.0.12&amp;freepbx_menuitem=ringgroups">Help</a></li>
+<li class="last"><a>&nbsp;</a></li>		</ul>
+		<div id="logo"><a href="http://www.freepbx.org/" target="_blank" title="FreePBX"><img src="admin_data/custom-logo.gif" alt="FreePBX"></a></div>
+	<div id="login_message">	</div>	</div>
+
+<div id="content">
+
+<!-- begin menu -->
+<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="nav">
+	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" id="nav-tabs">
+		<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#nav-setup"><span>Setup</span></a></li>
+		<li class="ui-state-default ui-corner-top"><a href="#nav-tool"><span>Tools</span></a></li>
+		<li class="last"><a><span>&nbsp;</span></a></li>
+	</ul>
+	<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="nav-setup"><ul>
+		<li title="click to expand/collapse section" id="setup-e3afed0047b08059d0fada10f400c1e5" class="category category-header toggle-minus">Admin</li>
+			<li class="menuitem id-setup-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=index">FreePBX System Status</a></li>
+			<li class="menuitem id-setup-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=modules">Module Admin</a></li>
+		<li title="click to expand/collapse section" id="setup-972e73b7a882d0802a4e3a16946a2f94" class="category category-header toggle-minus">Basic</li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=dahdi">DAHDi</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions">Extensions</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=featurecodeadmin">Feature Codes</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=general">General Settings</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=routing">Outbound Routes</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=trunks">Trunks</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=voicemail">Voicemail Admin</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ampusers">Administrators</a></li>
+		<li title="click to expand/collapse section" id="setup-7eec029e6d0d83dcd40bc218cbc04e85" class="category category-header toggle-minus">Inbound Call Control</li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=did">Inbound Routes</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=zapchandids">Zap Channel DIDs</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=announcement">Announcements</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=blacklist">Blacklist</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=superfecta">CID Superfecta</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=daynight">Call Flow Control</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=cidlookup">CallerID Lookup Sources</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=findmefollow">Follow Me</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ivr">IVR</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=queueprio">Queue Priorities</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=queues">Queues</a></li>
+			<li class="menuitem current id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ringgroups">Ring Groups</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=timeconditions">Time Conditions</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=timegroups">Time Groups</a></li>
+		<li title="click to expand/collapse section" id="setup-fcc42e3dc88422b722c17e20c26a39a1" class="category category-header toggle-minus">Internal Options &amp; Configuration</li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=callback">Callback</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=conferences">Conferences</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=disa">DISA</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=languages">Languages</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=miscapps">Misc Applications</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=miscdests">Misc Destinations</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=music">Music on Hold</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=pinsets">PIN Sets</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=paging">Paging and Intercom</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=parking">Parking Lot</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=restart">Phone Restart</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=recordings">System Recordings</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=vmblast">Voicemail Blasting</a></li>
+		<li title="click to expand/collapse section" id="setup-b988b61dd9ca7cbbea7d68b6b24d749f" class="category category-header toggle-minus">Third Party Addon</li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=customcontexts">Custom Contexts</a></li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=googlevoice">Google Voice</a></li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=setcid">Set CallerID</a></li>
+	</ul></div>
+	<div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="nav-tool"><ul>
+		<li title="click to expand/collapse section" id="tool-e3afed0047b08059d0fada10f400c1e5" class="category category-header toggle-minus">Admin</li>
+			<li class="menuitem id-tool-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=index">FreePBX System Status</a></li>
+			<li class="menuitem id-tool-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=modules">Module Admin</a></li>
+		<li title="click to expand/collapse section" id="tool-1c658793ae21708c581ed334ab1e2499" class="category category-header toggle-minus">Advanced Administration</li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=advancedsettings">Advanced Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=iaxsettings">Asterisk IAX Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=sipsettings">Asterisk SIP Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=bulkdids">Bulk DIDs</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=bulkextensions">Bulk Extensions</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customdests">Custom Destinations</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customextens">Custom Extensions</a></li>
+		<li title="click to expand/collapse section" id="tool-e56ae9acc1de553b5a7d70113790e3b9" class="category category-header toggle-minus">End Point Manager</li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_devices">End Point Device List</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_templates">End Point Template Manager</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_config">End Point Configuration</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_advanced">End Point Advanced Settings</a></li>
+		<li title="click to expand/collapse section" id="tool-10d0de28911c5f66463b9c8783f8148a" class="category category-header toggle-minus">Maintenance</li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=configedit">Config Edit</a></li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=sysinfo">Sys Info</a></li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpmyadmin">phpMyAdmin</a></li>
+		<li title="click to expand/collapse section" id="tool-db5eb84117d06047c97c9a0191b5fffe" class="category category-header toggle-minus">Support</li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=logfiles">Asterisk Logfiles</a></li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=irc">Online Support</a></li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://freepbx.org/" target="_blank">FreePBX Support</a></li>
+		<li title="click to expand/collapse section" id="tool-afde5a73d112b230adb0e3b203265409" class="category category-header toggle-minus">System Administration</li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=manager">Asterisk API</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=cli">Asterisk CLI</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=asteriskinfo">Asterisk Info</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phonebook">Asterisk Phonebook</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=backup">Backup &amp; Restore</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customcontextsadmin">Custom Contexts Admin</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=dundicheck">DUNDi Lookup</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=javassh">Java SSH</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpinfo">PHP Info</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpagiconf">PHPAGI Config</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=printextensions">Print Extensions</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=outroutemsg">Route Congestion Messages</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=weakpasswords">Weak Password Detection</a></li>
+		<li title="click to expand/collapse section" id="tool-b988b61dd9ca7cbbea7d68b6b24d749f" class="category category-header toggle-minus">Third Party Addon</li>
+			<li class="menuitem id-tool-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customerdb">Customer DB</a></li>
+			<li class="menuitem id-tool-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=inventorydb">Inventory</a></li>
+	</ul></div>
+</div>
+
+<!-- end menu -->
+
+<div id="wrapper"><div id="background-wrapper">
+
+<div id="left-corner"></div>
+<div id="right-corner"></div>
+
+
+<div id="language">
+	
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select onchange="javascript:changeLang(this.value)">
+		<option value="en_US" selected="selected">English</option>
+		<option value="bg_BG">Bulgarian</option>
+		<option value="zh_CN">Chinese</option>
+		<option value="de_DE">Deutsch</option>
+		<option value="es_ES">Español</option>
+		<option value="fr_FR">Français</option>
+		<option value="he_IL">Hebrew</option>
+		<option value="hu_HU">Hungarian</option>
+		<option value="it_IT">Italiano</option>
+		<option value="pt_PT">Portuguese</option>
+		<option value="pt_BR">Portuguese (Brasil)</option>
+		<option value="ro_RO">Romanian</option>
+		<option value="ru_RU">Russki</option>
+		<option value="sv_SE">Svenska</option>
+		</select>
+
+<script type="text/javascript">
+<!--
+function changeLang(lang) {
+	document.cookie='lang='+lang;
+	window.location.reload();
+}
+//-->
+</script>
+
+	</div>
+	
+	
+<div class="content">
+
+<noscript>
+	<div class="attention"></div>
+</noscript>
+
+<!-- begin generated page content  -->
+</div>
+
+<div class="rnav"><ul>
+    <li><a class="" href="http://10.20.30.42/admin/config.php?display=ringgroups">Add Ring Group</a></li>
+<li><a class="current" href="http://10.20.30.42/admin/config.php?display=ringgroups&amp;extdisplay=GRP-20010">kolmene (20010)</a></li></ul></div>
+
+<div class="content">
+<h2>Ring Group: 20010</h2><p>
+			</p><form name="delete" action="/admin/config.php" method="POST">
+				<input name="display" value="ringgroups" type="hidden">
+				<input name="account" value="20010" type="hidden">
+				<input name="action" value="delGRP" type="hidden">
+				<input value="Delete Group" type="submit">
+			</form><p></p>			<a href="javascript:void(null)" class="info">&nbsp;Used as Destination by 3 Objects:<span>Ring Group: kolmene (20010)<br>IVR: Automaat / Option: 0<br>IVR: Automaat / Option: t<br></span></a>
+					<form name="editGRP" action="" method="post" onsubmit="return checkGRP(editGRP);">
+			<input name="display" value="ringgroups" type="hidden">
+			<input name="action" value="edtGRP" type="hidden">
+			<table>
+			<tbody><tr><td colspan="2"><h5>Edit Ring Group<hr></h5></td></tr>
+			<tr>
+				<input size="5" name="account" value="20010" tabindex="1" type="hidden">
+			</tr>
+
+			<tr>
+		    <td> <a href="javascript:void(null)" class="info">Group Description:<span style="left: -18px;">Provide a descriptive title for this Ring Group.</span></a></td>
+				<td><input size="20" maxlength="35" name="description" value="kolmene" tabindex="2" type="text"></td>
+			</tr>
+
+			<tr>
+				<td> <a href="javascript:void(null)" class="info">Ring Strategy:				<span style="left: -18px;">
+					<b>ringall</b>:  Ring all available channels until one answers (default)<br>
+					<b>hunt</b>: Take turns ringing each available extension<br>
+					<b>memoryhunt</b>: Ring first extension in the list, then ring the 
+1st and 2nd extension, then ring 1st 2nd and 3rd extension in the 
+list.... etc.<br>
+					<b>*-prim</b>:  These modes act as described above. However, if the
+ primary extension (first in list) is occupied, the other extensions 
+will not be rung. If the primary is FreePBX DND, it won't be rung. If 
+the primary is FreePBX CF unconditional, then all will be rung<br>
+					<b>firstavailable</b>:  ring only the first available channel<br>
+					<b>firstnotonphone</b>:  ring only the first channel which is not offhook - ignore CW<br>
+				</span>
+				</a></td>
+				<td>
+					<select name="strategy" tabindex="3">
+					<option value="ringall">ringall</option><option value="ringall-prim">ringall-prim</option><option value="hunt">hunt</option><option value="hunt-prim">hunt-prim</option><option value="memoryhunt" selected="selected">memoryhunt</option><option value="memoryhunt-prim">memoryhunt-prim</option><option value="firstavailable">firstavailable</option><option value="firstnotonphone">firstnotonphone		
+					</option></select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<a href="javascript:void(null)" class="info">Ring Time (max 60 sec)						<span style="left: -18px;">
+							Time in seconds that the phones will ring. For all hunt style 
+ring strategies, this is the time for each iteration of phone(s) that 
+are rung						</span>
+					</a>
+				</td>
+				<td><input size="4" name="grptime" value="10" tabindex="4" type="text"></td>
+			</tr>
+
+			<tr>
+				<td valign="top"><a href="javascript:void(null)" class="info">Extension List:<span><br>List extensions to ring, one per line, or use the Extension Quick Pick below to insert them here.<br><br>You
+ can include an extension on a remote system, or an external number by 
+suffixing a number with a '#'.  ex:  2448089# would dial 2448089 on the 
+appropriate trunk (see Outbound Routing)<br><br>Extensions (without a 
+'#' will not ring a user's Follow-Me. To dial Follow-Me, Queues and 
+other numbers that are not extensions, put a '#' at the end.<br><br></span></a></td>
+				<td valign="top">
+					<textarea id="grplist" cols="15" rows="4" name="grplist" tabindex="5">20002
+20003
+20004</textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+				<a href="javascript:void(null)" class="info">Extension Quick Pick					<span>
+						Choose an extension to append to the end of the extension list above.					</span>
+				</a>
+				</td>
+				<td>
+					<select onchange="insertExten();" id="insexten" tabindex="6">
+						<option selected="selected" value="">(pick extension)</option>
+	<option value="20001">20001 (Esimene)</option>
+<option value="20002">20002 (Teine)</option>
+<option value="20003">20003 (Kolmas)</option>
+<option value="20004">20004 (Neljas)</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Announcement:<span>Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the "System Recordings" MENU to the left</span></a></td>
+				<td>
+					<select name="annmsg_id" tabindex="7">
+					<option selected="selected" value="">None</option><option value="2">Tere</option>
+		
+					</select>		
+				</td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Play Music On Hold?<span>If
+ you select a Music on Hold class to play, instead of 'Ring', they will 
+hear that instead of Ringing while they are waiting for someone to pick 
+up.</span></a></td>
+				<td>
+					<select name="ringing" tabindex="8">
+					<option value="Ring">Ring</option><option value="default" selected="selected">default</option>
+<option value="moh">moh</option>
+<option value="none">none</option>
+		
+					</select>		
+				</td>
+			</tr>
+			
+			<tr>
+				<td><a href="javascript:void(null)" class="info">CID Name Prefix:<span>You
+ can optionally prefix the CallerID name when ringing extensions in this
+ group. ie: If you prefix with "Sales:", a call from John Doe would 
+display as "Sales:John Doe" on the extensions that ring.</span></a></td>
+				<td><input size="4" name="grppre" value="Grupp3" tabindex="9" type="text"></td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Alert Info<span>ALERT_INFO can be used for distinctive ring with SIP devices.</span></a>:</td>
+				<td><input name="alertinfo" size="20" tabindex="10" type="text"></td>
+			</tr>
+
+			<tr>
+		<td><a href="javascript:void(null)" class="info">Ignore CF Settings<span>
+ When checked, agents who attempt to Call Forward will be ignored, this 
+applies to CF, CFU and CFB. Extensions entered with '#' at the end, for 
+example to access the extension's Follow-Me, might not honor this 
+setting .</span></a>:</td>
+				<td>
+					<input name="cfignore" value="CHECKED" tabindex="11" type="checkbox">
+				</td>
+			</tr>
+
+			<tr>
+		<td><a href="javascript:void(null)" class="info">Skip Busy Agent<span style="left: -18px;">
+ When checked, agents who are on an occupied phone will be skipped as if
+ the line were returning busy. This means that Call Waiting or 
+multi-line phones will not be presented with the call and in the various
+ hunt style ring strategies, the next agent will be attempted.</span></a>:</td>
+				<td>
+					<input name="cwignore" value="CHECKED" tabindex="12" type="checkbox">
+				</td>
+			</tr>
+
+			<tr>
+        <td><a href="javascript:void(null)" class="info">Enable Call Pickup<span style="left: -18px;">
+ Checking this will allow calls to the Ring Group to be picked up with 
+the directed call pickup feature using the group number. When not 
+checked, individual extensions that are part of the group can still be 
+picked up by doing a directed call pickup to the ringing extension, 
+which works whether or not this is checked.</span></a>:</td>
+				<td>
+					<input name="cpickup" value="CHECKED" tabindex="13" type="checkbox">
+				</td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Confirm Calls<span style="left: -18px;">Enable
+ this if you're calling external numbers that need confirmation - eg, a 
+mobile phone may go to voicemail which will pick up the call. Enabling 
+this requires the remote side push 1 on their phone before the call is 
+put through. This feature only works with the ringall ring strategy</span></a>:</td>
+				<td>
+					<input name="needsconf" value="CHECKED" tabindex="14" type="checkbox">
+				</td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Remote Announce:<span style="left: -18px;">Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the "System Recordings" MENU to the left</span></a></td>
+				<td>
+					<select name="remotealert_id" tabindex="15">
+					<option selected="selected" value="">Default</option><option value="2">Tere</option>
+		
+					</select>		
+				</td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Too-Late Announce:<span>Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the "System Recordings" MENU to the left</span></a></td>
+				<td>
+					<select name="toolate_id" tabindex="16">
+					<option selected="selected" value="">Default</option><option value="2">Tere</option>
+		
+					</select>		
+				</td>
+			</tr>
+			<tr><td colspan="2"><h5>Change External CID Configuration<hr></h5></td></tr>
+			<tr>
+				<td>
+				<a href="javascript:void(null)" class="info">Mode:
+				<span>
+					<b>Default</b>:  Transmits the Callers CID if allowed by the trunk.<br>
+					<b>Fixed CID Value</b>:  Always transmit the Fixed CID Value below.<br>
+					<b>Outside Calls Fixed CID Value</b>: Transmit the Fixed CID Value 
+below on calls that come in from outside only. Internal extension to 
+extension calls will continue to operate in default mode.<br>
+					<b>Use Dialed Number</b>: Transmit the number that was dialed as 
+the CID for calls coming from outside. Internal extension to extension 
+calls will continue to operate in default mode. There must be a DID on 
+the inbound route for this. This will be BLOCKED on trunks that block 
+foreign CallerID<br>
+					<b>Force Dialed Number</b>: Transmit the number that was dialed as 
+the CID for calls coming from outside. Internal extension to extension 
+calls will continue to operate in default mode. There must be a DID on 
+the inbound route for this. This WILL be transmitted on trunks that 
+block foreign CallerID<br>
+				</span>
+				</a>
+				</td>
+				<td>
+					<select name="changecid" id="changecid" tabindex="17">
+					<option value="default" selected="selected">Default</option><option value="fixed">Fixed CID Value</option><option value="extern">Outside Calls Fixed CID Value</option><option value="did">Use Dialed Number</option><option value="forcedid">Force Dialed Number		
+					</option></select>
+				</td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Fixed CID Value:<span>Fixed
+ value to replace the CID with used with some of the modes above. Should
+ be in a format of digits only with an option of E164 format using a 
+leading "+".</span></a></td>
+        <td><input size="30" name="fixedcid" id="fixedcid" tabindex="18" disabled="disabled" type="text"></td>
+			</tr>
+			
+
+			<tr><td colspan="2"><br><h5>Destination if no answer:<hr></h5></td></tr>
+
+<tr><td colspan="2"><select name="goto0" class="destdropdown" style="background-color:white;" tabindex="19"><option value="" style="background-color:white;">== choose one ==</option><option value="Conferences" style="background-color:white;">Conferences</option><option value="Custom_Contexts" style="background-color:white;">Custom Contexts</option><option value="Extensions" style="background-color:white;">Extensions</option><option value="Feature_Code_Admin" style="background-color:white;">Feature Code Admin</option><option value="IVR" style="background-color:white;">IVR</option><option value="Phonebook_Directory" style="background-color:white;">Phonebook Directory</option><option value="Ring_Groups" selected="selected" style="background-color:white;">Ring Groups</option><option value="Terminate_Call" style="background-color:white;">Terminate Call</option><option value="Trunks" style="background-color:white;">Trunks</option><option value="Voicemail" style="background-color:white;">Voicemail</option></select> <select name="Conferences0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-meetme,20005,1" style="background-color:white;">Avalik &lt;20005&gt;</option><option value="ext-meetme,20006,1" style="background-color:white;">Salajane &lt;20006&gt;</option></select><select name="Custom_Contexts0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="from-internal,${EXTEN},1" style="background-color:white;">Full Internal Access</option></select><select name="Extensions0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="from-did-direct,20001,1" style="background-color:white;"> &lt;20001&gt; Esimene</option><option value="from-did-direct,20002,1" style="background-color:white;"> &lt;20002&gt; Teine</option><option value="from-did-direct,20003,1" style="background-color:white;"> &lt;20003&gt; Kolmas</option><option value="from-did-direct,20004,1" style="background-color:white;"> &lt;20004&gt; Neljas</option></select><select name="Feature_Code_Admin0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-featurecodes,*30,1" style="background-color:white;">Blacklist a number &lt;*30&gt;</option><option value="ext-featurecodes,*31,1" style="background-color:white;">Remove a number from the blacklist &lt;*31&gt;</option><option value="ext-featurecodes,555,1" style="background-color:white;">ChanSpy &lt;555&gt;</option><option value="ext-featurecodes,7777,1" style="background-color:white;">Simulate Incoming Call &lt;7777&gt;</option><option value="ext-featurecodes,888,1" style="background-color:white;">ZapBarge &lt;888&gt;</option><option value="ext-featurecodes,#,1" style="background-color:white;">Directory &lt;#&gt;</option><option value="ext-featurecodes,*43,1" style="background-color:white;">Echo Test &lt;*43&gt;</option><option value="ext-featurecodes,*60,1" style="background-color:white;">Speaking Clock &lt;*60&gt;</option><option value="ext-featurecodes,*85,1" style="background-color:white;">Pickup ParkedCall Any &lt;*85&gt;</option><option value="ext-featurecodes,411,1" style="background-color:white;">Phonebook dial-by-name directory &lt;411&gt;</option><option value="ext-featurecodes,*98,1" style="background-color:white;">Dial Voicemail &lt;*98&gt;</option></select><select name="IVR0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="ivr-2,s,1" style="background-color:white;">Automaat</option></select><select name="Phonebook_Directory0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="app-pbdirectory,pbdirectory,1" style="background-color:white;">Phonebook Directory</option></select><select name="Ring_Groups0" tabindex="20" style="" class="destdropdown2"><option value="ext-group,20010,1" selected="selected" style="background-color:white;">kolmene &lt;20010&gt;</option></select><select name="Terminate_Call0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="app-blackhole,hangup,1" style="background-color:white;">Hangup</option><option value="app-blackhole,congestion,1" style="background-color:white;">Congestion</option><option value="app-blackhole,busy,1" style="background-color:white;">Busy</option><option value="app-blackhole,zapateller,1" style="background-color:white;">Play SIT Tone (Zapateller)</option><option value="app-blackhole,musiconhold,1" style="background-color:white;">Put caller on hold forever</option><option value="app-blackhole,ring,1" style="background-color:white;">Play ringtones to caller until they hangup</option></select><select name="Trunks0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-trunk,1,1" style="background-color:white;">PBX1-PBX2 (sip)</option></select><select name="Voicemail0" tabindex="20" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-local,vmb20001,1" style="background-color:white;">&lt;20001&gt; Esimene (busy)</option><option value="ext-local,vmu20001,1" style="background-color:white;">&lt;20001&gt; Esimene (unavail)</option><option value="ext-local,vms20001,1" style="background-color:white;">&lt;20001&gt; Esimene (no-msg)</option><option value="ext-local,vmb20002,1" style="background-color:white;">&lt;20002&gt; Teine (busy)</option><option value="ext-local,vmu20002,1" style="background-color:white;">&lt;20002&gt; Teine (unavail)</option><option value="ext-local,vms20002,1" style="background-color:white;">&lt;20002&gt; Teine (no-msg)</option><option value="ext-local,vmb20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (busy)</option><option value="ext-local,vmu20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (unavail)</option><option value="ext-local,vms20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (no-msg)</option><option value="ext-local,vmb20004,1" style="background-color:white;">&lt;20004&gt; Neljas (busy)</option><option value="ext-local,vmu20004,1" style="background-color:white;">&lt;20004&gt; Neljas (unavail)</option><option value="ext-local,vms20004,1" style="background-color:white;">&lt;20004&gt; Neljas (no-msg)</option></select></td></tr>			
+			<tr>
+			<td colspan="2"><br><h6><input name="Submit" value="Submit Changes" tabindex="21" type="submit"></h6></td>		
+			
+			</tr>
+			</tbody></table>
+			</form>
+<script language="javascript">
+<!--
+
+$(document).ready(function(){
+	$("#changecid").change(function(){
+    state = (this.value == "fixed" || this.value == "extern") ? "" : "disabled";
+	  $("#fixedcid").attr("disabled",state);
+	});
+});
+
+function insertExten() {
+	exten = document.getElementById('insexten').value;
+
+	grpList=document.getElementById('grplist');
+	if (grpList.value[ grpList.value.length - 1 ] == "\n") {
+		grpList.value = grpList.value + exten;
+	} else {
+		grpList.value = grpList.value + '\n' + exten;
+	}
+
+	// reset element
+	document.getElementById('insexten').value = '';
+}
+
+function checkGRP(theForm) {
+	var msgInvalidGrpNum = "Invalid Group Number specified";
+	var msgInvalidExtList = "Please enter an extension list.";
+	var msgInvalidTime = "Invalid time specified";
+	var msgInvalidGrpTimeRange = "Time must be between 1 and 60 seconds";
+	var msgInvalidDescription = "Please enter a valid Group Description";
+	var msgInvalidRingStrategy = "Only ringall, ringallv2, hunt and the respective -prim versions are supported when confirmation is checked";
+
+	// set up the Destination stuff
+	setDestinations(theForm, 1);
+
+	// form validation
+	defaultEmptyOK = false;
+	if (!isInteger(theForm.account.value)) {
+		return warnInvalid(theForm.account, msgInvalidGrpNum);
+	}
+	
+	defaultEmptyOK = false;	
+	if (!isAlphanumeric(theForm.description.value))
+		return warnInvalid(theForm.description, msgInvalidDescription);
+	
+	if (isEmpty(theForm.grplist.value))
+		return warnInvalid(theForm.grplist, msgInvalidExtList);
+
+  if (!theForm.fixedcid.disabled) {
+    fixedcid = $.trim(theForm.fixedcid.value);
+	  if (!fixedcid.match('^[+]{0,1}[0-9]+$')) {
+		  return warnInvalid(theForm.fixedcid, msgInvalidCID);
+    }
+  }
+
+	defaultEmptyOK = false;
+	if (!isInteger(theForm.grptime.value)) {
+		return warnInvalid(theForm.grptime, msgInvalidTime);
+	} else {
+		var grptimeVal = theForm.grptime.value;
+		if (grptimeVal < 1 || grptimeVal > 60)
+			return warnInvalid(theForm.grptime, msgInvalidGrpTimeRange);
+	}
+
+	if (theForm.needsconf.checked && (theForm.strategy.value.substring(0,7) != "ringall" && theForm.strategy.value.substring(0,4) != "hunt")) {
+		return warnInvalid(theForm.needsconf, msgInvalidRingStrategy);
+	}
+
+	if (!validateDestinations(theForm, 1, true))
+		return false;
+		
+	return true;
+}
+//-->
+</script>
+
+<!-- end generated page content -->
+
+</div> <!-- .content -->
+
+<hr><div id="footer"><span class="footer-float-left"><a target="_blank" href="http://www.freepbx.org/"><img id="footer_logo" src="admin_data/freepbx_small.png" alt="FreePBX®"></a></span><span class="footer-float-left"><h3>Let Freedom Ring<sup>™</sup></h3>		<a href="http://www.freepbx.org/" target="_blank">FreePBX</a> is a registered trademark of <a href="http://www.freepbx.org/copyright.html" target="_blank">Bandwidth.com</a><br>
+		<a href="http://www.freepbx.org/" target="_blank">FreePBX 2.9.0.12</a> is licensed under <a href="http://www.gnu.org/copyleft/gpl.html" target="_blank">GPL</a><br></span></div></div> <!-- content -->
+</div> <!-- page -->
+
+
+</div></div></body></html>

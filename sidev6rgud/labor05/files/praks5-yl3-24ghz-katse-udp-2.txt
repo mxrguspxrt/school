@@ -1,0 +1,40 @@
+bin/iperf.exe -c 10.131.23.194 -u -P 1 -i 1 -p 5001 -f k -b 54.0M -t 25 -T 1
+------------------------------------------------------------
+Client connecting to 10.131.23.194, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size: 8.00 KByte (default)
+------------------------------------------------------------
+[156] local 10.131.23.196 port 52176 connected with 10.131.23.194 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[156]  0.0- 1.0 sec  3655 KBytes  29941 Kbits/sec
+[156]  1.0- 2.0 sec  3346 KBytes  27413 Kbits/sec
+[156]  2.0- 3.0 sec  3451 KBytes  28271 Kbits/sec
+[156]  3.0- 4.0 sec  3349 KBytes  27436 Kbits/sec
+[156]  4.0- 5.0 sec  3408 KBytes  27918 Kbits/sec
+[156]  5.0- 6.0 sec  3375 KBytes  27648 Kbits/sec
+[156]  6.0- 7.0 sec  3363 KBytes  27554 Kbits/sec
+[156]  7.0- 8.0 sec  3348 KBytes  27424 Kbits/sec
+[156]  8.0- 9.0 sec  3343 KBytes  27389 Kbits/sec
+[156]  9.0-10.0 sec  3353 KBytes  27471 Kbits/sec
+[156] 10.0-11.0 sec  3310 KBytes  27119 Kbits/sec
+[156] 11.0-12.0 sec  3353 KBytes  27471 Kbits/sec
+[156] 12.0-13.0 sec  3352 KBytes  27460 Kbits/sec
+[156] 13.0-14.0 sec  3352 KBytes  27460 Kbits/sec
+[156] 14.0-15.0 sec  3353 KBytes  27471 Kbits/sec
+[156] 15.0-16.0 sec  3264 KBytes  26742 Kbits/sec
+[156] 16.0-17.0 sec  3114 KBytes  25507 Kbits/sec
+[156] 17.0-18.0 sec  3353 KBytes  27471 Kbits/sec
+[156] 18.0-19.0 sec  3352 KBytes  27460 Kbits/sec
+[156] 19.0-20.0 sec  3368 KBytes  27589 Kbits/sec
+[ ID] Interval       Transfer     Bandwidth
+[156] 20.0-21.0 sec  3338 KBytes  27342 Kbits/sec
+[156] 21.0-22.0 sec  3244 KBytes  26578 Kbits/sec
+[156] 22.0-23.0 sec  3352 KBytes  27460 Kbits/sec
+[156] 23.0-24.0 sec  3352 KBytes  27460 Kbits/sec
+[156] 24.0-25.0 sec  3249 KBytes  26613 Kbits/sec
+[156]  0.0-25.0 sec  83701 KBytes  27420 Kbits/sec
+[156] Server Report:
+[156]  0.0-25.1 sec  82688 KBytes  27019 Kbits/sec  1.973 ms  706/58306 (1.2%)
+[156] Sent 58306 datagrams
+Done.
+

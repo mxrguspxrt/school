@@ -1,0 +1,22 @@
+10.20.30.42 jaam
+10.20.30.43 jaam2
+
+
+Tutvuda erinevate numbrikombinatsioonidega ("Feature Codes").
+Milliste numbrikombinatsioonidega toimub:
+
+    kõikide kõnede suunamine, -> *72
+    oma telefoninumbri teada saamine, -> *65
+    kaja test ("echo test") -> *43
+    helistajale tagasihelistamine ("call trace"). Testimiseks helistada ühele kasutajale, kes ei vasta sellele kõnele. Kui telefon on helistamise lõpetanud, siis helistada helistajale tagasi, -> *69
+    teenuse "Do-Not-Disturb" aktiveerimine ja deaktiveerimine? -> *78
+    sissetuleva kõne simuleerimine,
+
+Mis vahe on "Dial Voicemail" ja "My Voicemail"? Millisel juhul küsitakse kasutaja PINi, millisel juhul telefoninumbrit ja PINi?
+
+Dial Voicemail -> Kuula kellegi voicemaili
+My Voicemail -> Kuula enda numbri voicemaili
+
+
+NB! Katsetada kõiki numbrikominatsioone (välja arvatud "sissetuleva kõne simuleerimine") telefonidega.
+Soovin näha neid numbreid kõnede logis. Kõnede logi salvestatakse hiljem (tehakse punktis 8) ja praegu seda otsima ei pea. 

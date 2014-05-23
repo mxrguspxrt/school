@@ -1,0 +1,36 @@
+bin/iperf.exe -c 10.131.23.194 -P 1 -i 1 -p 5001 -f k -t 25
+------------------------------------------------------------
+Client connecting to 10.131.23.194, TCP port 5001
+TCP window size: 8.00 KByte (default)
+------------------------------------------------------------
+[156] local 10.131.23.196 port 1176 connected with 10.131.23.194 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[156]  0.0- 1.0 sec  2224 KBytes  18219 Kbits/sec
+[156]  1.0- 2.0 sec  2176 KBytes  17826 Kbits/sec
+[156]  2.0- 3.0 sec  2264 KBytes  18547 Kbits/sec
+[156]  3.0- 4.0 sec  2264 KBytes  18547 Kbits/sec
+[156]  4.0- 5.0 sec  2304 KBytes  18874 Kbits/sec
+[156]  5.0- 6.0 sec  2232 KBytes  18285 Kbits/sec
+[156]  6.0- 7.0 sec  2224 KBytes  18219 Kbits/sec
+[156]  7.0- 8.0 sec  2184 KBytes  17891 Kbits/sec
+[156]  8.0- 9.0 sec  2312 KBytes  18940 Kbits/sec
+[156]  9.0-10.0 sec  2232 KBytes  18285 Kbits/sec
+[156] 10.0-11.0 sec  2072 KBytes  16974 Kbits/sec
+[156] 11.0-12.0 sec  2224 KBytes  18219 Kbits/sec
+[156] 12.0-13.0 sec  2288 KBytes  18743 Kbits/sec
+[156] 13.0-14.0 sec  2344 KBytes  19202 Kbits/sec
+[156] 14.0-15.0 sec  2248 KBytes  18416 Kbits/sec
+[156] 15.0-16.0 sec  2216 KBytes  18153 Kbits/sec
+[156] 16.0-17.0 sec  2256 KBytes  18481 Kbits/sec
+[156] 17.0-18.0 sec  2208 KBytes  18088 Kbits/sec
+[156] 18.0-19.0 sec  2240 KBytes  18350 Kbits/sec
+[156] 19.0-20.0 sec  2168 KBytes  17760 Kbits/sec
+[ ID] Interval       Transfer     Bandwidth
+[156] 20.0-21.0 sec  2168 KBytes  17760 Kbits/sec
+[156] 21.0-22.0 sec  2120 KBytes  17367 Kbits/sec
+[156] 22.0-23.0 sec  2168 KBytes  17760 Kbits/sec
+[156] 23.0-24.0 sec  2152 KBytes  17629 Kbits/sec
+[156] 24.0-25.0 sec  2304 KBytes  18874 Kbits/sec
+[156]  0.0-25.0 sec  55600 KBytes  18214 Kbits/sec
+Done.
+

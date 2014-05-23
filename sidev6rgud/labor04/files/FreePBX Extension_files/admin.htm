@@ -1,0 +1,1378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- should also validate ok with DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/xhtml1-transitional.dtd" -->
+<html><head>
+	<title>FreePBX Administration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<link href="admin_data/mstyle_autogen_1360092071.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		body {
+		background-image: url(images/shadow-side-background.png?load_version=2.9.0.12);
+		background-repeat: repeat-y;
+		background-position: left;
+		}
+	</style>
+	<link rel="shortcut icon" href="http://10.20.30.42/admin/images/favicon.ico">
+	<link href="admin_data/config.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="admin_data/script.js"></script>
+  <script type="text/javascript" src="admin_data/libfreepbx.js" language="javascript"></script>
+	
+<!--[if IE]>
+    <style type="text/css">div.inyourface a{position:absolute;}</style>
+<![endif]-->
+</head>
+
+<body onload="body_loaded();">
+
+<!-- module process box, used by module admin (page.modules.php) - has to be here because of IE6's z-order stupidity -->
+<div id="moduleBox" style="display:none;"></div>
+
+<div id="page">
+	<div id="header">
+		<div id="freepbx"><a href="http://www.freepbx.org/" target="_blank" title="FreePBX"><img src="admin_data/freepbx_large.png" alt="FreePBX"></a></div>
+		<div id="version"><a href="http://www.freepbx.org/" target="_blank">FreePBX</a> 2.9.0.12 on <a href="http://10.20.30.42/">10.20.30.42</a></div>
+		<ul id="metanav">
+		<li class="first-current"><a href="http://10.20.30.42/admin/config.php">Admin</a></li>
+		<li class="noselect"><a href="http://10.20.30.42/admin/reports.php">Reports</a></li>
+		<li class="noselect"><a href="http://10.20.30.42/admin/panel.php">Panel</a></li>
+		<li class="noselect"><a target="ari" href="http://10.20.30.42/recordings/index.php">Recordings</a></li>
+		<li class="noselect"><a target="help" href="http://www.freepbx.org/freepbx-help-system?freepbx_version=2.9.0.12&amp;freepbx_menuitem=extensions">Help</a></li>
+<li class="last"><a>&nbsp;</a></li>		</ul>
+		<div id="logo"><a href="http://www.freepbx.org/" target="_blank" title="FreePBX"><img src="admin_data/custom-logo.gif" alt="FreePBX"></a></div>
+	<div id="login_message">	</div>	</div>
+
+<div id="content">
+
+<!-- begin menu -->
+<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="nav">
+	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" id="nav-tabs">
+		<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#nav-setup"><span>Setup</span></a></li>
+		<li class="ui-state-default ui-corner-top"><a href="#nav-tool"><span>Tools</span></a></li>
+		<li class="last"><a><span>&nbsp;</span></a></li>
+	</ul>
+	<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="nav-setup"><ul>
+		<li title="click to expand/collapse section" id="setup-e3afed0047b08059d0fada10f400c1e5" class="category category-header toggle-minus">Admin</li>
+			<li class="menuitem id-setup-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=index">FreePBX System Status</a></li>
+			<li class="menuitem id-setup-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=modules">Module Admin</a></li>
+		<li title="click to expand/collapse section" id="setup-972e73b7a882d0802a4e3a16946a2f94" class="category category-header toggle-minus">Basic</li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=dahdi">DAHDi</a></li>
+			<li class="menuitem current id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions">Extensions</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=featurecodeadmin">Feature Codes</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=general">General Settings</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=routing">Outbound Routes</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=trunks">Trunks</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=voicemail">Voicemail Admin</a></li>
+			<li class="menuitem id-setup-972e73b7a882d0802a4e3a16946a2f94"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ampusers">Administrators</a></li>
+		<li title="click to expand/collapse section" id="setup-7eec029e6d0d83dcd40bc218cbc04e85" class="category category-header toggle-minus">Inbound Call Control</li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=did">Inbound Routes</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=zapchandids">Zap Channel DIDs</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=announcement">Announcements</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=blacklist">Blacklist</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=superfecta">CID Superfecta</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=daynight">Call Flow Control</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=cidlookup">CallerID Lookup Sources</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=findmefollow">Follow Me</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ivr">IVR</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=queueprio">Queue Priorities</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=queues">Queues</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=ringgroups">Ring Groups</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=timeconditions">Time Conditions</a></li>
+			<li class="menuitem id-setup-7eec029e6d0d83dcd40bc218cbc04e85"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=timegroups">Time Groups</a></li>
+		<li title="click to expand/collapse section" id="setup-fcc42e3dc88422b722c17e20c26a39a1" class="category category-header toggle-minus">Internal Options &amp; Configuration</li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=callback">Callback</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=conferences">Conferences</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=disa">DISA</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=languages">Languages</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=miscapps">Misc Applications</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=miscdests">Misc Destinations</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=music">Music on Hold</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=pinsets">PIN Sets</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=paging">Paging and Intercom</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=parking">Parking Lot</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=restart">Phone Restart</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=recordings">System Recordings</a></li>
+			<li class="menuitem id-setup-fcc42e3dc88422b722c17e20c26a39a1"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=vmblast">Voicemail Blasting</a></li>
+		<li title="click to expand/collapse section" id="setup-b988b61dd9ca7cbbea7d68b6b24d749f" class="category category-header toggle-minus">Third Party Addon</li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=customcontexts">Custom Contexts</a></li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=googlevoice">Google Voice</a></li>
+			<li class="menuitem id-setup-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=setcid">Set CallerID</a></li>
+	</ul></div>
+	<div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="nav-tool"><ul>
+		<li title="click to expand/collapse section" id="tool-e3afed0047b08059d0fada10f400c1e5" class="category category-header toggle-minus">Admin</li>
+			<li class="menuitem id-tool-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=index">FreePBX System Status</a></li>
+			<li class="menuitem id-tool-e3afed0047b08059d0fada10f400c1e5"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=modules">Module Admin</a></li>
+		<li title="click to expand/collapse section" id="tool-1c658793ae21708c581ed334ab1e2499" class="category category-header toggle-minus">Advanced Administration</li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=advancedsettings">Advanced Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=iaxsettings">Asterisk IAX Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=sipsettings">Asterisk SIP Settings</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=bulkdids">Bulk DIDs</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=bulkextensions">Bulk Extensions</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customdests">Custom Destinations</a></li>
+			<li class="menuitem id-tool-1c658793ae21708c581ed334ab1e2499"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customextens">Custom Extensions</a></li>
+		<li title="click to expand/collapse section" id="tool-e56ae9acc1de553b5a7d70113790e3b9" class="category category-header toggle-minus">End Point Manager</li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_devices">End Point Device List</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_templates">End Point Template Manager</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_config">End Point Configuration</a></li>
+			<li class="menuitem id-tool-e56ae9acc1de553b5a7d70113790e3b9"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=epm_advanced">End Point Advanced Settings</a></li>
+		<li title="click to expand/collapse section" id="tool-10d0de28911c5f66463b9c8783f8148a" class="category category-header toggle-minus">Maintenance</li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=configedit">Config Edit</a></li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=sysinfo">Sys Info</a></li>
+			<li class="menuitem id-tool-10d0de28911c5f66463b9c8783f8148a"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpmyadmin">phpMyAdmin</a></li>
+		<li title="click to expand/collapse section" id="tool-db5eb84117d06047c97c9a0191b5fffe" class="category category-header toggle-minus">Support</li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=logfiles">Asterisk Logfiles</a></li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=irc">Online Support</a></li>
+			<li class="menuitem id-tool-db5eb84117d06047c97c9a0191b5fffe"><a href="http://freepbx.org/" target="_blank">FreePBX Support</a></li>
+		<li title="click to expand/collapse section" id="tool-afde5a73d112b230adb0e3b203265409" class="category category-header toggle-minus">System Administration</li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=manager">Asterisk API</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=cli">Asterisk CLI</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=asteriskinfo">Asterisk Info</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phonebook">Asterisk Phonebook</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=backup">Backup &amp; Restore</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customcontextsadmin">Custom Contexts Admin</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=dundicheck">DUNDi Lookup</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=javassh">Java SSH</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpinfo">PHP Info</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=phpagiconf">PHPAGI Config</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=printextensions">Print Extensions</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=outroutemsg">Route Congestion Messages</a></li>
+			<li class="menuitem id-tool-afde5a73d112b230adb0e3b203265409"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=weakpasswords">Weak Password Detection</a></li>
+		<li title="click to expand/collapse section" id="tool-b988b61dd9ca7cbbea7d68b6b24d749f" class="category category-header toggle-minus">Third Party Addon</li>
+			<li class="menuitem id-tool-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=customerdb">Customer DB</a></li>
+			<li class="menuitem id-tool-b988b61dd9ca7cbbea7d68b6b24d749f"><a href="http://10.20.30.42/admin/config.php?type=tool&amp;display=inventorydb">Inventory</a></li>
+	</ul></div>
+</div>
+
+<!-- end menu -->
+
+<div id="wrapper"><div id="background-wrapper">
+
+<div id="left-corner"></div>
+<div id="right-corner"></div>
+
+
+<div id="language">
+	
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select onchange="javascript:changeLang(this.value)">
+		<option value="en_US" selected="selected">English</option>
+		<option value="bg_BG">Bulgarian</option>
+		<option value="zh_CN">Chinese</option>
+		<option value="de_DE">Deutsch</option>
+		<option value="es_ES">Español</option>
+		<option value="fr_FR">Français</option>
+		<option value="he_IL">Hebrew</option>
+		<option value="hu_HU">Hungarian</option>
+		<option value="it_IT">Italiano</option>
+		<option value="pt_PT">Portuguese</option>
+		<option value="pt_BR">Portuguese (Brasil)</option>
+		<option value="ro_RO">Romanian</option>
+		<option value="ru_RU">Russki</option>
+		<option value="sv_SE">Svenska</option>
+		</select>
+
+<script type="text/javascript">
+<!--
+function changeLang(lang) {
+	document.cookie='lang='+lang;
+	window.location.reload();
+}
+//-->
+</script>
+
+	</div>
+	
+	
+<div class="content">
+
+<noscript>
+	<div class="attention"></div>
+</noscript>
+
+<!-- begin generated page content  -->
+
+<div class="rnav">
+<ul>
+	<li><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions">Add Extension</a></li>
+	<li><a class="current" href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions&amp;extdisplay=20001">Esimene &lt;20001&gt;</a></li>
+	<li><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions&amp;extdisplay=20002">Teine &lt;20002&gt;</a></li>
+	<li><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions&amp;extdisplay=20003">Kolmas &lt;20003&gt;</a></li>
+	<li><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions&amp;extdisplay=20004">Neljas &lt;20004&gt;</a></li>
+</ul>
+	<br>
+</div>
+<form name="frm_extensions" action="/admin/config.php" method="post" onsubmit="return frm_extensions_onsubmit();">
+<input name="display" value="extensions" type="hidden">
+<input name="type" value="setup" type="hidden">
+
+<table><!-- start of table frm_extensions -->
+	<tbody><tr>
+		<td colspan="2"><h2 id="title">Extension: 20001</h2></td>
+	</tr>
+	<tr>
+		<td colspan="2"><a href="http://10.20.30.42/admin/config.php?type=setup&amp;display=extensions&amp;extdisplay=20001&amp;action=del" id="del"><span><img title="Delete Extension 20001" alt="" src="admin_data/user_delete.png" height="16" border="0" width="16">&nbsp;Delete Extension 20001</span></a></td>
+	</tr>
+	<tr>
+		<td><input name="action" id="action" value="edit" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><input name="extdisplay" id="extdisplay" value="20001" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><input name="action" id="action" value="edit" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><input name="extdisplay" id="extdisplay" value="20001" type="hidden"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><a href="http://10.20.30.42/admin/config.php?display=findmefollow&amp;extdisplay=GRP-20001" id="findmefollowlink"><span><img title="Add Follow Me Settings" alt="" src="admin_data/user_add.png" height="16" border="0" width="16">&nbsp;Add Follow Me Settings</span></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Edit Extension<hr></h5></td>
+	</tr>
+	<tr>
+		<td><input name="extension" id="extension" value="20001" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Display Name<span style="left: -18px;">The CallerID name for calls from this user will be set to this name. Only enter the name, NOT the number.</span></a></td>
+		<td><input name="name" id="name" size="35" tabindex="1" value="Esimene" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">CID Num Alias<span style="left: -18px;">The
+ CID Number to use for internal calls, if different from the extension 
+number. This is used to masquerade as a different user. A common example
+ is a team of support people who would like their internal CallerID to 
+display the general support number (a ringgroup or queue). There will be
+ no effect on external calls.</span></a></td>
+		<td><input name="cid_masquerade" id="cid_masquerade" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">SIP Alias<span>If you
+ want to support direct sip dialing of users internally or through 
+anonymous sip calls, you can supply a friendly name that can be used in 
+addition to the users extension to call them.</span></a></td>
+		<td><input name="sipname" id="sipname" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Extension Options<hr></h5></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Outbound CID<span>Overrides
+ the CallerID when dialing out a trunk. Any setting here will override 
+the common outbound CallerID set in the Trunks admin.<br><br>Format: <b>"caller name" &lt;#######&gt;</b><br><br>Leave this field blank to disable the outbound CallerID feature for this user.</span></a></td>
+		<td><input name="outboundcid" id="outboundcid" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Ring Time<span>Number
+ of seconds to ring prior to going to voicemail. Default will use the 
+value set in the General Tab. If no voicemail is configured this will be
+ ignored.</span></a></td>
+		<td>
+			<select name="ringtimer" id="ringtimer" tabindex="1">
+				<option value="0" selected="selected">Default</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+				<option value="32">32</option>
+				<option value="33">33</option>
+				<option value="34">34</option>
+				<option value="35">35</option>
+				<option value="36">36</option>
+				<option value="37">37</option>
+				<option value="38">38</option>
+				<option value="39">39</option>
+				<option value="40">40</option>
+				<option value="41">41</option>
+				<option value="42">42</option>
+				<option value="43">43</option>
+				<option value="44">44</option>
+				<option value="45">45</option>
+				<option value="46">46</option>
+				<option value="47">47</option>
+				<option value="48">48</option>
+				<option value="49">49</option>
+				<option value="50">50</option>
+				<option value="51">51</option>
+				<option value="52">52</option>
+				<option value="53">53</option>
+				<option value="54">54</option>
+				<option value="55">55</option>
+				<option value="56">56</option>
+				<option value="57">57</option>
+				<option value="58">58</option>
+				<option value="59">59</option>
+				<option value="60">60</option>
+				<option value="61">61</option>
+				<option value="62">62</option>
+				<option value="63">63</option>
+				<option value="64">64</option>
+				<option value="65">65</option>
+				<option value="66">66</option>
+				<option value="67">67</option>
+				<option value="68">68</option>
+				<option value="69">69</option>
+				<option value="70">70</option>
+				<option value="71">71</option>
+				<option value="72">72</option>
+				<option value="73">73</option>
+				<option value="74">74</option>
+				<option value="75">75</option>
+				<option value="76">76</option>
+				<option value="77">77</option>
+				<option value="78">78</option>
+				<option value="79">79</option>
+				<option value="80">80</option>
+				<option value="81">81</option>
+				<option value="82">82</option>
+				<option value="83">83</option>
+				<option value="84">84</option>
+				<option value="85">85</option>
+				<option value="86">86</option>
+				<option value="87">87</option>
+				<option value="88">88</option>
+				<option value="89">89</option>
+				<option value="90">90</option>
+				<option value="91">91</option>
+				<option value="92">92</option>
+				<option value="93">93</option>
+				<option value="94">94</option>
+				<option value="95">95</option>
+				<option value="96">96</option>
+				<option value="97">97</option>
+				<option value="98">98</option>
+				<option value="99">99</option>
+				<option value="100">100</option>
+				<option value="101">101</option>
+				<option value="102">102</option>
+				<option value="103">103</option>
+				<option value="104">104</option>
+				<option value="105">105</option>
+				<option value="106">106</option>
+				<option value="107">107</option>
+				<option value="108">108</option>
+				<option value="109">109</option>
+				<option value="110">110</option>
+				<option value="111">111</option>
+				<option value="112">112</option>
+				<option value="113">113</option>
+				<option value="114">114</option>
+				<option value="115">115</option>
+				<option value="116">116</option>
+				<option value="117">117</option>
+				<option value="118">118</option>
+				<option value="119">119</option>
+				<option value="120">120</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Call Forward Ring Time<span>Number
+ of seconds to ring during a Call Forward, Call Forward Busy or Call 
+Forward Unavailable call prior to continuing to voicemail or specified 
+destination. Setting to Always will not return, it will just continue to
+ ring. Default will use the current Ring Time. If voicemail is disabled 
+and their is not destination specified, it will be forced into Always 
+mode</span></a></td>
+		<td>
+			<select name="cfringtimer" id="cfringtimer" tabindex="1">
+				<option value="0" selected="selected">Default</option>
+				<option value="-1">Always</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+				<option value="32">32</option>
+				<option value="33">33</option>
+				<option value="34">34</option>
+				<option value="35">35</option>
+				<option value="36">36</option>
+				<option value="37">37</option>
+				<option value="38">38</option>
+				<option value="39">39</option>
+				<option value="40">40</option>
+				<option value="41">41</option>
+				<option value="42">42</option>
+				<option value="43">43</option>
+				<option value="44">44</option>
+				<option value="45">45</option>
+				<option value="46">46</option>
+				<option value="47">47</option>
+				<option value="48">48</option>
+				<option value="49">49</option>
+				<option value="50">50</option>
+				<option value="51">51</option>
+				<option value="52">52</option>
+				<option value="53">53</option>
+				<option value="54">54</option>
+				<option value="55">55</option>
+				<option value="56">56</option>
+				<option value="57">57</option>
+				<option value="58">58</option>
+				<option value="59">59</option>
+				<option value="60">60</option>
+				<option value="61">61</option>
+				<option value="62">62</option>
+				<option value="63">63</option>
+				<option value="64">64</option>
+				<option value="65">65</option>
+				<option value="66">66</option>
+				<option value="67">67</option>
+				<option value="68">68</option>
+				<option value="69">69</option>
+				<option value="70">70</option>
+				<option value="71">71</option>
+				<option value="72">72</option>
+				<option value="73">73</option>
+				<option value="74">74</option>
+				<option value="75">75</option>
+				<option value="76">76</option>
+				<option value="77">77</option>
+				<option value="78">78</option>
+				<option value="79">79</option>
+				<option value="80">80</option>
+				<option value="81">81</option>
+				<option value="82">82</option>
+				<option value="83">83</option>
+				<option value="84">84</option>
+				<option value="85">85</option>
+				<option value="86">86</option>
+				<option value="87">87</option>
+				<option value="88">88</option>
+				<option value="89">89</option>
+				<option value="90">90</option>
+				<option value="91">91</option>
+				<option value="92">92</option>
+				<option value="93">93</option>
+				<option value="94">94</option>
+				<option value="95">95</option>
+				<option value="96">96</option>
+				<option value="97">97</option>
+				<option value="98">98</option>
+				<option value="99">99</option>
+				<option value="100">100</option>
+				<option value="101">101</option>
+				<option value="102">102</option>
+				<option value="103">103</option>
+				<option value="104">104</option>
+				<option value="105">105</option>
+				<option value="106">106</option>
+				<option value="107">107</option>
+				<option value="108">108</option>
+				<option value="109">109</option>
+				<option value="110">110</option>
+				<option value="111">111</option>
+				<option value="112">112</option>
+				<option value="113">113</option>
+				<option value="114">114</option>
+				<option value="115">115</option>
+				<option value="116">116</option>
+				<option value="117">117</option>
+				<option value="118">118</option>
+				<option value="119">119</option>
+				<option value="120">120</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Outbound Concurrency Limit<span>Maximum
+ number of outbound simultaneous calls that an extension can make. This 
+is also very useful as a Security Protection against a system that has 
+been compromised. It will limit the number of simultaneous calls that 
+can be made on the compromised extension.</span></a></td>
+		<td>
+			<select name="concurrency_limit" id="concurrency_limit" tabindex="1">
+				<option value="0" selected="selected">No Limit</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+				<option value="32">32</option>
+				<option value="33">33</option>
+				<option value="34">34</option>
+				<option value="35">35</option>
+				<option value="36">36</option>
+				<option value="37">37</option>
+				<option value="38">38</option>
+				<option value="39">39</option>
+				<option value="40">40</option>
+				<option value="41">41</option>
+				<option value="42">42</option>
+				<option value="43">43</option>
+				<option value="44">44</option>
+				<option value="45">45</option>
+				<option value="46">46</option>
+				<option value="47">47</option>
+				<option value="48">48</option>
+				<option value="49">49</option>
+				<option value="50">50</option>
+				<option value="51">51</option>
+				<option value="52">52</option>
+				<option value="53">53</option>
+				<option value="54">54</option>
+				<option value="55">55</option>
+				<option value="56">56</option>
+				<option value="57">57</option>
+				<option value="58">58</option>
+				<option value="59">59</option>
+				<option value="60">60</option>
+				<option value="61">61</option>
+				<option value="62">62</option>
+				<option value="63">63</option>
+				<option value="64">64</option>
+				<option value="65">65</option>
+				<option value="66">66</option>
+				<option value="67">67</option>
+				<option value="68">68</option>
+				<option value="69">69</option>
+				<option value="70">70</option>
+				<option value="71">71</option>
+				<option value="72">72</option>
+				<option value="73">73</option>
+				<option value="74">74</option>
+				<option value="75">75</option>
+				<option value="76">76</option>
+				<option value="77">77</option>
+				<option value="78">78</option>
+				<option value="79">79</option>
+				<option value="80">80</option>
+				<option value="81">81</option>
+				<option value="82">82</option>
+				<option value="83">83</option>
+				<option value="84">84</option>
+				<option value="85">85</option>
+				<option value="86">86</option>
+				<option value="87">87</option>
+				<option value="88">88</option>
+				<option value="89">89</option>
+				<option value="90">90</option>
+				<option value="91">91</option>
+				<option value="92">92</option>
+				<option value="93">93</option>
+				<option value="94">94</option>
+				<option value="95">95</option>
+				<option value="96">96</option>
+				<option value="97">97</option>
+				<option value="98">98</option>
+				<option value="99">99</option>
+				<option value="100">100</option>
+				<option value="101">101</option>
+				<option value="102">102</option>
+				<option value="103">103</option>
+				<option value="104">104</option>
+				<option value="105">105</option>
+				<option value="106">106</option>
+				<option value="107">107</option>
+				<option value="108">108</option>
+				<option value="109">109</option>
+				<option value="110">110</option>
+				<option value="111">111</option>
+				<option value="112">112</option>
+				<option value="113">113</option>
+				<option value="114">114</option>
+				<option value="115">115</option>
+				<option value="116">116</option>
+				<option value="117">117</option>
+				<option value="118">118</option>
+				<option value="119">119</option>
+				<option value="120">120</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Call Waiting<span>Set the initial/current Call Waiting state for this user's extension</span></a></td>
+		<td>
+			<select name="callwaiting" id="callwaiting" tabindex="1">
+				<option value="enabled" selected="selected">Enable</option>
+				<option value="disabled">Disable</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Internal Auto Answer<span>When
+ set to Intercom, calls to this extension/user from other internal users
+ act as if they were intercom calls meaning they will be auto-answered 
+if the endpoint supports this feature and the system is configured to 
+operate in this mode. All the normal white list and black list settings 
+will be honored if they are set. External calls will still ring as 
+normal, as will certain other circumstances such as blind transfers and 
+when a Follow Me is configured and enabled. If Disabled, the phone rings
+ as a normal phone.</span></a></td>
+		<td>
+			<select name="answermode" id="answermode" tabindex="1">
+				<option value="disabled" selected="selected">Disable</option>
+				<option value="intercom">Intercom</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Call Screening<span>Call
+ Screening requires external callers to say their name, which will be 
+played back to the user and allow the user to accept or reject the call.
+  Screening with memory only verifies a caller for their CallerID once. 
+Screening without memory always requires a caller to say their name. 
+Either mode will always announce the caller based on the last 
+introduction saved with that CallerID. If any user on the system uses 
+the memory option, when that user is called, the caller will be required
+ to re-introduce themselves and all users on the system will have that 
+new introduction associated with the caller's CallerID.</span></a></td>
+		<td>
+			<select name="call_screen" id="call_screen" tabindex="1">
+				<option value="0" selected="selected">Disable</option>
+				<option value="nomemory">Screen Caller: No Memory</option>
+				<option value="memory">Screen Caller: Memory</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Pinless Dialing<span>Enabling Pinless Dialing will allow this extension to bypass any pin codes normally required on outbound calls</span></a></td>
+		<td>
+			<select name="pinless" id="pinless" tabindex="1">
+				<option value="disabled" selected="selected">Disable</option>
+				<option value="enabled">Enable</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Emergency CID<span>This
+ CallerID will always be set when dialing out an Outbound Route flagged 
+as Emergency.  The Emergency CID overrides all other CallerID settings.</span></a></td>
+		<td><input name="emergency_cid" id="emergency_cid" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><input name="tech" id="tech" value="sip" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><input name="hardware" id="hardware" value="" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Queue State Detection<span>If
+ this extension is part of a Queue then the Queue will attempt to use 
+the user's extension state or device state information when determining 
+if this queue member should be called. In some uncommon situations such 
+as a Follow-Me with no physical device, or some virtual extension 
+scenarios, the state information will indicate that this member is not 
+available when they are. Setting this to 'Ignore State' will make the 
+Queue ignore all state information thus always trying to contact this 
+member. Certain side affects can occur when this route is taken due to 
+the nature of how Queues handle Local channels, such as subsequent 
+transfers will continue to show the member as busy until the original 
+call is terminated. In most cases, this SHOULD BE set to 'Use State'.</span></a></td>
+		<td>
+			<select name="qnostate" id="qnostate" tabindex="1">
+				<option value="usestate" selected="selected">Use State</option>
+				<option value="ignorestate">Ignore State</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Assigned DID/CID<hr></h5></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">DID Description<span>A description for this DID, such as "Fax"</span></a></td>
+		<td><input name="newdid_name" id="newdid_name" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Add Inbound DID<span>A
+ direct DID that is associated with this extension. The DID should be in
+ the same format as provided by the provider (e.g. full number, 4 digits
+ for 10x4, etc).<br><br>Format should be: <b>XXXXXXXXXX</b><br><br>.An optional CID can also be associated with this DID by setting the next box</span></a></td>
+		<td><input name="newdid" id="newdid" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Add Inbound CID<span>Add
+ a CID for more specific DID + CID routing. A DID must be specified in 
+the above Add DID box. In addition to standard dial sequences, you can 
+also put Private, Blocked, Unknown, Restricted, Anonymous and 
+Unavailable in order to catch these special cases if the Telco transmits
+ them.</span></a></td>
+		<td><input name="newdidcid" id="newdidcid" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Device Options<hr></h5></td>
+	</tr>
+	<tr>
+		<td colspan="2"><span id="techlabel">This device uses sip technology.</span></td>
+	</tr>
+	<tr>
+		<td><input name="devinfo_secret_origional" id="devinfo_secret_origional" value="EsimeneSecret123" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">secret<span>Password (secret) configured for the device. Should be alphanumeric with at least 2 letters and numbers to keep secure.</span></a></td>
+		<td><input name="devinfo_secret" id="devinfo_secret" size="35" tabindex="1" value="EsimeneSecret123" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">dtmfmode<span>The DTMF signaling mode used by this device, usually rfc2833 for most phones.</span></a></td>
+		<td>
+			<select name="devinfo_dtmfmode" id="devinfo_dtmfmode" tabindex="1" onchange="Please enter the dtmfmode for this device">
+<option value="">&nbsp;</option>				<option value="rfc2833" selected="selected">RFC 2833</option>
+				<option value="inband">In band audio</option>
+				<option value="auto">Auto</option>
+				<option value="info">SIP INFO (application/dtmf-relay</option>
+				<option value="shortinfo">SIP INFO (application/dtmf)</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">canreinvite<span>Re-Invite policy for this device, see Asterisk documentation for details.</span></a></td>
+		<td>
+			<select name="devinfo_canreinvite" id="devinfo_canreinvite" tabindex="1">
+				<option value="no" selected="selected">No</option>
+				<option value="yes">Yes</option>
+				<option value="nonat">nonat</option>
+				<option value="update">update</option>
+			</select>
+		</td>
+	</tr>
+	<tr style="display: none;">
+		<td><a href="javascript:void(null)" class="info">context<span>Asterisk context this device will send calls to. Only change this is you know what you are doing.</span></a></td>
+		<td><input name="devinfo_context" id="devinfo_context" size="35" tabindex="1" value="from-internal" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">host<span>Host settings for this device, almost always dynamic for endpoints.</span></a></td>
+		<td><input name="devinfo_host" id="devinfo_host" size="35" tabindex="1" value="dynamic" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">trustrpid<span>Whether
+ Asterisk should trust the RPID settings from this device. Usually 
+should be yes for CONNECTEDLINE() functionality to work if supported by 
+the endpoint.</span></a></td>
+		<td>
+			<select name="devinfo_trustrpid" id="devinfo_trustrpid" tabindex="1">
+				<option value="no">No</option>
+				<option value="yes" selected="selected">Yes</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">sendrpid<span>Whether
+ Asterisk should send RPID (or PAI) info to the device. Usually should 
+be enabled to the settings used by your device for CONNECTEDLINE() 
+functionality to work if supported by the endpoint.</span></a></td>
+		<td>
+			<select name="devinfo_sendrpid" id="devinfo_sendrpid" tabindex="1">
+				<option value="no" selected="selected">No</option>
+				<option value="yes">Send Remote-Party-ID header</option>
+				<option value="pai">Send P-Asserted-Identity header</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">type<span>Asterisk connection type, usually friend for endpoints.</span></a></td>
+		<td>
+			<select name="devinfo_type" id="devinfo_type" tabindex="1">
+				<option value="friend" selected="selected">friend</option>
+				<option value="peer">peer</option>
+				<option value="user">user</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">nat<span>NAT setting,
+ see Asterisk documentation for details. Yes usually works for both 
+internal and external devices. Set to No if the device will always be 
+internal.</span></a></td>
+		<td>
+			<select name="devinfo_nat" id="devinfo_nat" tabindex="1">
+				<option value="yes">Yes</option>
+				<option value="no" selected="selected">No - RFC3581</option>
+				<option value="never">never - no RFC3581</option>
+				<option value="route">route - NAT no rport</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">port<span>Endpoint port number to use, usually 5060. Some 2 ports devices such as ATA may used 5061 for the second port.</span></a></td>
+		<td><input name="devinfo_port" id="devinfo_port" size="35" tabindex="1" value="5060" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">qualify<span>Setting 
+to yes (equivalent to 2000 msec) will send an OPTIONS packet to the 
+endpoint periodically (default every minute). Used to monitor the health
+ of the endpoint. If delays are longer then the qualify time, the 
+endpoint will be taken offline and considered unreachable. Can be set to
+ a value which is the msec threshhold. Setting to no will turn this off.
+ Can also be helpful to keep NAT pinholes open.</span></a></td>
+		<td><input name="devinfo_qualify" id="devinfo_qualify" size="35" tabindex="1" value="yes" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">qualifyfreq<span>Frequency in seconds to send qualify messages to the endpoint.</span></a></td>
+		<td><input name="devinfo_qualifyfreq" id="devinfo_qualifyfreq" size="35" tabindex="1" value="60" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">transport<span>This 
+sets the allowed transport settings for this device and the default 
+(Primary) transport for outgoing. The default transport is only used for
+ outbound messages until a registration takes place.  During the peer 
+registration the transport type may change to another supported type if 
+the peer requests so. In most common cases, this does not have to be 
+changed as most devices register in conjunction with the host=dynamic 
+setting. If you are using TCP and/or TLS you need to make sure the 
+general SIP Settings are configured for the system to operate in those 
+modes and for TLS, proper certificates have been generated and 
+configured.</span></a></td>
+		<td>
+			<select name="devinfo_transport" id="devinfo_transport" tabindex="1">
+				<option value="udp,tcp,tls">All - UDP Primary</option>
+				<option value="tcp,udp,tls">All - TCP Primary</option>
+				<option value="tls,udp,tcp">All - TLS Primary</option>
+				<option value="udp" selected="selected">UDP Only</option>
+				<option value="tcp">TCP Only</option>
+				<option value="tls">TLS Only</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">encryption<span>Whether
+ to offer SRTP encrypted media (and only SRTP encrypted media) on 
+outgoing calls to a peer. Calls will fail with HANGUPCAUSE=58 if the 
+peer does not support SRTP. Defaults to no.</span></a></td>
+		<td>
+			<select name="devinfo_encryption" id="devinfo_encryption" tabindex="1">
+				<option value="no" selected="selected">No</option>
+				<option value="yes">Yes (SRTP only)</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">callgroup<span>Callgroup(s) that this device is part of, can be one or more callgroups, e.g. '1,3-5' would be in groups 1,3,4,5.</span></a></td>
+		<td><input name="devinfo_callgroup" id="devinfo_callgroup" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">pickupgroup<span>Pickupgroups(s)
+ that this device can pickup calls from, can be one or more groups, e.g.
+ '1,3-5' would be in groups 1,3,4,5. Device does not have to be in a 
+group to be able to pickup calls from that group.</span></a></td>
+		<td><input name="devinfo_pickupgroup" id="devinfo_pickupgroup" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">disallow<span>Disallowed
+ codecs. Set this to all to remove all codecs defined in the general 
+settings and then specify specific codecs separated by '&amp;' on the 
+'allow' setting, or just disallow specific codecs separated by '&amp;'.</span></a></td>
+		<td><input name="devinfo_disallow" id="devinfo_disallow" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">allow<span>Allow 
+specific codecs, separated by the '&amp;' sign and in priority order. 
+E.g. 'ulaw&amp;g729'. Codecs allowed in the general settings will also 
+be allowed unless removed with the 'disallow' directive.</span></a></td>
+		<td><input name="devinfo_allow" id="devinfo_allow" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">dial<span>How to dial this device, this should not be changed unless you know what you are doing.</span></a></td>
+		<td><input name="devinfo_dial" id="devinfo_dial" size="35" tabindex="1" value="SIP/20001" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">accountcode<span>Accountcode for this device.</span></a></td>
+		<td><input name="devinfo_accountcode" id="devinfo_accountcode" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">mailbox<span>Mailbox for this device. This should not be changed unless you know what you are doing.</span></a></td>
+		<td><input name="devinfo_mailbox" id="devinfo_mailbox" size="35" tabindex="1" value="20001@device" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">vmexten<span>Asterisk
+ dialplan extension to reach voicemail for this device. Some devices use
+ this to auto-program the voicemail button on the endpoint. If left 
+blank, the default vmexten setting is automatically configured by the 
+voicemail module. Only change this on devices that may have special 
+needs.</span></a></td>
+		<td><input name="devinfo_vmexten" id="devinfo_vmexten" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">deny<span>IP Address range to deny access to, in the form of network/netmask.</span></a></td>
+		<td><input name="devinfo_deny" id="devinfo_deny" size="35" tabindex="1" value="0.0.0.0/0.0.0.0" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">permit<span>IP 
+Address range to allow access to, in the form of network/netmask. This 
+can be a very useful security option when dealing with remote extensions
+ that are at a known location (such as a branch office) or within a 
+known ISP range for some home office situations.</span></a></td>
+		<td><input name="devinfo_permit" id="devinfo_permit" size="35" tabindex="1" value="0.0.0.0/0.0.0.0" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Custom Context<span>You
+ have the Custom Contexts Module installed! You can select a custom 
+context from this list to limit this user to portions of the dialplan 
+you defined in the Custom Contexts module.</span></a></td>
+		<td>
+			<select name="customcontext" id="customcontext" tabindex="1" onchange="javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}">
+<option value="">&nbsp;</option>				<option value="from-internal" selected="selected">ALLOW ALL (Default)</option>
+			</select>
+		</td>
+	</tr>
+<script type="text/javascript">$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>	<tr>
+		<td colspan="2"><h5><hr></h5></td>
+	</tr>
+	<tr>
+		<td><input name="noanswer_dest" id="noanswer_dest" value="goto0" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><input name="busy_dest" id="busy_dest" value="goto1" type="hidden"></td>
+	</tr>
+	<tr>
+		<td><input name="chanunavail_dest" id="chanunavail_dest" value="goto2" type="hidden"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Dictation Services<hr></h5></td>
+	</tr>
+	<tr>
+		<td>Dictation Service</td>
+		<td>
+			<select name="dictenabled" id="dictenabled" tabindex="1">
+				<option value="enabled">Enabled</option>
+				<option value="disabled" selected="selected">Disabled</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Dictation Format</td>
+		<td>
+			<select name="dictformat" id="dictformat" tabindex="1">
+				<option value="ogg" selected="selected">Ogg Vorbis</option>
+				<option value="gsm">GSM</option>
+				<option value="wav">WAV</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Email Address<span>The email address that completed dictations are sent to.</span></a></td>
+		<td><input name="dictemail" id="dictemail" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Language<hr></h5></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Language Code<span>This will cause all messages and voice prompts to use the selected language if installed.</span></a></td>
+		<td><input name="langcode" id="langcode" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Recording Options<hr></h5></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Record Incoming<span>Record all inbound calls received at this extension.</span></a></td>
+		<td>
+			<select name="record_in" id="record_in" tabindex="1">
+				<option value="Adhoc" selected="selected">On Demand</option>
+				<option value="Always">Always</option>
+				<option value="Never">Never</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Record Outgoing<span>Record all outbound calls received at this extension.</span></a></td>
+		<td>
+			<select name="record_out" id="record_out" tabindex="1">
+				<option value="Adhoc" selected="selected">On Demand</option>
+				<option value="Always">Always</option>
+				<option value="Never">Never</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>Voicemail &amp; Directory<hr></h5></td>
+	</tr>
+	<tr>
+		<td>Status</td>
+		<td>
+			<select name="vm" id="vm" tabindex="1" onchange="frm_extensions_voicemailEnabled() &amp;&amp; frm_extensions_vmx_disable_fields()">
+				<option value="enabled" selected="selected">Enabled</option>
+				<option value="disabled">Disabled</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Voicemail Password<span>This is the password used to access the Voicemail system.<br><br>This password can only contain numbers.<br><br>A user can change the password you enter here after logging into the Voicemail system (*98) with a phone.</span></a></td>
+		<td><input name="vmpwd" id="vmpwd" size="35" tabindex="1" value="20001123" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Email Address<span>The email address that Voicemails are sent to.</span></a></td>
+		<td><input name="email" id="email" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Pager Email Address<span>Pager/mobile email address that short Voicemail notifications are sent to.</span></a></td>
+		<td><input name="pager" id="pager" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Email Attachment<span>Option to attach Voicemails to email.</span></a></td>
+		<td><span class="radioset"><input name="attach" id="attach0" tabindex="1" value="attach=yes" type="radio"><label for="attach0">yes</label>
+<input name="attach" id="attach1" tabindex="1" value="attach=no" checked="checked" type="radio"><label for="attach1">no</label>
+</span></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Play CID<span>Read 
+back caller's telephone number prior to playing the incoming message, 
+and just after announcing the date and time the message was left.</span></a></td>
+		<td><span class="radioset"><input name="saycid" id="saycid0" tabindex="1" value="saycid=yes" type="radio"><label for="saycid0">yes</label>
+<input name="saycid" id="saycid1" tabindex="1" value="saycid=no" checked="checked" type="radio"><label for="saycid1">no</label>
+</span></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Play Envelope<span>Envelope
+ controls whether or not the Voicemail system will play the message 
+envelope (date/time) before playing the Voicemail message. This setting 
+does not affect the operation of the envelope option in the advanced 
+Voicemail menu.</span></a></td>
+		<td><span class="radioset"><input name="envelope" id="envelope0" tabindex="1" value="envelope=yes" type="radio"><label for="envelope0">yes</label>
+<input name="envelope" id="envelope1" tabindex="1" value="envelope=no" checked="checked" type="radio"><label for="envelope1">no</label>
+</span></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Delete Voicemail<span>If
+ set to "yes" the message will be deleted from the Voicemailbox (after 
+having been emailed). Provides functionality that allows a user to 
+receive their Voicemail via email alone, rather than having the 
+Voicemail able to be retrieved from the Webinterface or the Extension 
+handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES 
+OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER.</span></a></td>
+		<td><span class="radioset"><input name="delete" id="delete0" tabindex="1" value="delete=yes" type="radio"><label for="delete0">yes</label>
+<input name="delete" id="delete1" tabindex="1" value="delete=no" checked="checked" type="radio"><label for="delete1">no</label>
+</span></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">VM Options<span>Separate options with pipe ( | )<br><br>ie: review=yes|maxmessage=60</span></a></td>
+		<td><input name="options" id="options" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">VM Context<span>This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications.</span></a></td>
+		<td><input name="vmcontext" id="vmcontext" size="35" tabindex="1" value="default" type="text"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h5>VmX Locater<hr></h5></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">VmX Locater™<span>Enable/Disable
+ the VmX Locater feature for this user. When enabled all settings are 
+controlled by the user in the User Portal (ARI). Disabling will not 
+delete any existing user settings but will disable access to the feature</span></a></td>
+		<td>
+			<select name="vmx_state" id="vmx_state" tabindex="1" onchange="frm_extensions_vmx_disable_fields()">
+				<option value="" selected="selected">Disabled</option>
+				<option value="checked">Enabled</option>
+			</select>
+		</td>
+	</tr>
+<tr><td colspan="2"><table>
+			<tbody><tr>
+				<td><a href="javascript:void(null)" class="info">Use When:<span>Menu options below are available during your personal Voicemail greeting playback. <br><br>Check both to use at all times.<br></span></a></td> <td>
+					<input tabindex="1" disabled="true" name="vmx_unavail_enabled" id="vmx_unavail_enabled" value="checked" type="checkbox">
+					<small>unavailable</small>&nbsp;&nbsp;
+					<input tabindex="1" disabled="true" name="vmx_busy_enabled" id="vmx_busy_enabled" value="checked" type="checkbox">
+					<small>busy</small>
+				</td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Voicemail Instructions:<span>Uncheck to play a beep after your personal Voicemail greeting.<br></span></a></td>
+				<td>
+					<input tabindex="1" disabled="true" checked="checked" name="vmx_play_instructions" id="vmx_play_instructions" value="checked" type="checkbox">
+					<small>Standard Voicemail prompts.</small>
+				</td>
+			</tr>
+		</tbody></table>
+		<br>
+		<br>
+		<table class="settings">
+			<tbody><tr>
+				<td><a href="javascript:void(null)" class="info">Press 0:<span>Pressing
+ 0 during your personal Voicemail greeting goes to the Operator. Uncheck
+ to enter another destination here. This feature can be used while still
+ disabling VmX to allow an alternative Operator extension without 
+requiring the VmX feature for the user.<br></span></a>
+				</td>
+				<td>
+					<input tabindex="1" disabled="true" name="vmx_option_0_number" id="vmx_option_0_number" size="24" type="text">
+				</td>
+				<td>
+					<input tabindex="1" checked="checked" name="vmx_option_0_system_default" id="vmx_option_0_system_default" value="checked" onclick="frm_extensions_vmx_disable_fields();" type="checkbox">
+					<small>Go To Operator</small>
+				</td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Press 1:<span>The 
+remaining options can have internal extensions, ringgroups, queues and 
+external numbers that may be rung. It is often used to include your cell
+ phone. You should run a test to make sure that the number is functional
+ any time a change is made so you don't leave a caller stranded or 
+receiving invalid number messages.			<br></span></a>
+				</td>
+				<td>
+					<input tabindex="1" disabled="true" name="vmx_option_1_number" id="vmx_option_1_number" size="24" type="text">
+				</td>
+				<td>	
+				</td>
+			</tr>
+			<tr>
+				<td><a href="javascript:void(null)" class="info">Press 2:<span>Use any extensions, ringgroups, queues or external numbers. <br><br>Remember
+ to re-record your personal Voicemail greeting and include instructions.
+ Run a test to make sure that the number is functional.<br></span></a></td>
+				<td>
+					<input tabindex="1" disabled="true" name="vmx_option_2_number" id="vmx_option_2_number" size="24" type="text">
+				</td>
+			</tr>
+		</tbody></table></td></tr>	<tr>
+		<td colspan="2"><h5>Optional Destinations<hr></h5></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">No Answer<span>Optional
+ destination call is routed to when the call is not answered on an 
+otherwise idle phone. If the phone is in use and the call is simply 
+ignored, then the busy destination will be used.</span></a></td>
+		<td><select name="goto0" class="destdropdown" style="background-color:white;" tabindex="1"><option selected="selected" value="" style="background-color:white;">Unavail Voicemail if Enabled</option><option value="Conferences" style="background-color:white;">Conferences</option><option value="Custom_Contexts" style="background-color:white;">Custom Contexts</option><option value="Extensions" style="background-color:white;">Extensions</option><option value="Feature_Code_Admin" style="background-color:white;">Feature Code Admin</option><option value="IVR" style="background-color:white;">IVR</option><option value="Phonebook_Directory" style="background-color:white;">Phonebook Directory</option><option value="Ring_Groups" style="background-color:white;">Ring Groups</option><option value="Terminate_Call" style="background-color:white;">Terminate Call</option><option value="Trunks" style="background-color:white;">Trunks</option><option value="Voicemail" style="background-color:white;">Voicemail</option></select> <select name="Conferences0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-meetme,20005,1" style="background-color:white;">Avalik &lt;20005&gt;</option><option value="ext-meetme,20006,1" style="background-color:white;">Salajane &lt;20006&gt;</option></select><select name="Custom_Contexts0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="from-internal,${EXTEN},1" style="background-color:white;">Full Internal Access</option></select><select name="Extensions0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="from-did-direct,20001,1" style="background-color:white;"> &lt;20001&gt; Esimene</option><option value="from-did-direct,20002,1" style="background-color:white;"> &lt;20002&gt; Teine</option><option value="from-did-direct,20003,1" style="background-color:white;"> &lt;20003&gt; Kolmas</option><option value="from-did-direct,20004,1" style="background-color:white;"> &lt;20004&gt; Neljas</option></select><select name="Feature_Code_Admin0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-featurecodes,*30,1" style="background-color:white;">Blacklist a number &lt;*30&gt;</option><option value="ext-featurecodes,*31,1" style="background-color:white;">Remove a number from the blacklist &lt;*31&gt;</option><option value="ext-featurecodes,555,1" style="background-color:white;">ChanSpy &lt;555&gt;</option><option value="ext-featurecodes,7777,1" style="background-color:white;">Simulate Incoming Call &lt;7777&gt;</option><option value="ext-featurecodes,888,1" style="background-color:white;">ZapBarge &lt;888&gt;</option><option value="ext-featurecodes,#,1" style="background-color:white;">Directory &lt;#&gt;</option><option value="ext-featurecodes,*43,1" style="background-color:white;">Echo Test &lt;*43&gt;</option><option value="ext-featurecodes,*60,1" style="background-color:white;">Speaking Clock &lt;*60&gt;</option><option value="ext-featurecodes,*85,1" style="background-color:white;">Pickup ParkedCall Any &lt;*85&gt;</option><option value="ext-featurecodes,411,1" style="background-color:white;">Phonebook dial-by-name directory &lt;411&gt;</option><option value="ext-featurecodes,*98,1" style="background-color:white;">Dial Voicemail &lt;*98&gt;</option></select><select name="IVR0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="ivr-2,s,1" style="background-color:white;">Automaat</option></select><select name="Phonebook_Directory0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="app-pbdirectory,pbdirectory,1" style="background-color:white;">Phonebook Directory</option></select><select name="Ring_Groups0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-group,20010,1" style="background-color:white;">kolmene &lt;20010&gt;</option></select><select name="Terminate_Call0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="app-blackhole,hangup,1" style="background-color:white;">Hangup</option><option value="app-blackhole,congestion,1" style="background-color:white;">Congestion</option><option value="app-blackhole,busy,1" style="background-color:white;">Busy</option><option value="app-blackhole,zapateller,1" style="background-color:white;">Play SIT Tone (Zapateller)</option><option value="app-blackhole,musiconhold,1" style="background-color:white;">Put caller on hold forever</option><option value="app-blackhole,ring,1" style="background-color:white;">Play ringtones to caller until they hangup</option></select><select name="Trunks0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-trunk,1,1" style="background-color:white;">PBX1-PBX2 (sip)</option></select><select name="Voicemail0" tabindex="2" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-local,vmb20001,1" style="background-color:white;">&lt;20001&gt; Esimene (busy)</option><option value="ext-local,vmu20001,1" style="background-color:white;">&lt;20001&gt; Esimene (unavail)</option><option value="ext-local,vms20001,1" style="background-color:white;">&lt;20001&gt; Esimene (no-msg)</option><option value="ext-local,vmb20002,1" style="background-color:white;">&lt;20002&gt; Teine (busy)</option><option value="ext-local,vmu20002,1" style="background-color:white;">&lt;20002&gt; Teine (unavail)</option><option value="ext-local,vms20002,1" style="background-color:white;">&lt;20002&gt; Teine (no-msg)</option><option value="ext-local,vmb20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (busy)</option><option value="ext-local,vmu20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (unavail)</option><option value="ext-local,vms20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (no-msg)</option><option value="ext-local,vmb20004,1" style="background-color:white;">&lt;20004&gt; Neljas (busy)</option><option value="ext-local,vmu20004,1" style="background-color:white;">&lt;20004&gt; Neljas (unavail)</option><option value="ext-local,vms20004,1" style="background-color:white;">&lt;20004&gt; Neljas (no-msg)</option></select></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">&nbsp;&nbsp;CID Prefix<span>Optional CID Prefix to add before sending to this no answer destination.</span></a></td>
+		<td><input name="noanswer_cid" id="noanswer_cid" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Busy<span>Optional 
+destination the call is routed to when the phone is busy or the call is 
+rejected by the user. This destination is also used on an unanswered 
+call if the phone is in use and the user chooses not to pickup the 
+second call.</span></a></td>
+		<td><select name="goto1" class="destdropdown" style="background-color:white;" tabindex="3"><option selected="selected" value="" style="background-color:white;">Busy Voicemail if Enabled</option><option value="Conferences" style="background-color:white;">Conferences</option><option value="Custom_Contexts" style="background-color:white;">Custom Contexts</option><option value="Extensions" style="background-color:white;">Extensions</option><option value="Feature_Code_Admin" style="background-color:white;">Feature Code Admin</option><option value="IVR" style="background-color:white;">IVR</option><option value="Phonebook_Directory" style="background-color:white;">Phonebook Directory</option><option value="Ring_Groups" style="background-color:white;">Ring Groups</option><option value="Terminate_Call" style="background-color:white;">Terminate Call</option><option value="Trunks" style="background-color:white;">Trunks</option><option value="Voicemail" style="background-color:white;">Voicemail</option></select> <select name="Conferences1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-meetme,20005,1" style="background-color:white;">Avalik &lt;20005&gt;</option><option value="ext-meetme,20006,1" style="background-color:white;">Salajane &lt;20006&gt;</option></select><select name="Custom_Contexts1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="from-internal,${EXTEN},1" style="background-color:white;">Full Internal Access</option></select><select name="Extensions1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="from-did-direct,20001,1" style="background-color:white;"> &lt;20001&gt; Esimene</option><option value="from-did-direct,20002,1" style="background-color:white;"> &lt;20002&gt; Teine</option><option value="from-did-direct,20003,1" style="background-color:white;"> &lt;20003&gt; Kolmas</option><option value="from-did-direct,20004,1" style="background-color:white;"> &lt;20004&gt; Neljas</option></select><select name="Feature_Code_Admin1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-featurecodes,*30,1" style="background-color:white;">Blacklist a number &lt;*30&gt;</option><option value="ext-featurecodes,*31,1" style="background-color:white;">Remove a number from the blacklist &lt;*31&gt;</option><option value="ext-featurecodes,555,1" style="background-color:white;">ChanSpy &lt;555&gt;</option><option value="ext-featurecodes,7777,1" style="background-color:white;">Simulate Incoming Call &lt;7777&gt;</option><option value="ext-featurecodes,888,1" style="background-color:white;">ZapBarge &lt;888&gt;</option><option value="ext-featurecodes,#,1" style="background-color:white;">Directory &lt;#&gt;</option><option value="ext-featurecodes,*43,1" style="background-color:white;">Echo Test &lt;*43&gt;</option><option value="ext-featurecodes,*60,1" style="background-color:white;">Speaking Clock &lt;*60&gt;</option><option value="ext-featurecodes,*85,1" style="background-color:white;">Pickup ParkedCall Any &lt;*85&gt;</option><option value="ext-featurecodes,411,1" style="background-color:white;">Phonebook dial-by-name directory &lt;411&gt;</option><option value="ext-featurecodes,*98,1" style="background-color:white;">Dial Voicemail &lt;*98&gt;</option></select><select name="IVR1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="ivr-2,s,1" style="background-color:white;">Automaat</option></select><select name="Phonebook_Directory1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="app-pbdirectory,pbdirectory,1" style="background-color:white;">Phonebook Directory</option></select><select name="Ring_Groups1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-group,20010,1" style="background-color:white;">kolmene &lt;20010&gt;</option></select><select name="Terminate_Call1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="app-blackhole,hangup,1" style="background-color:white;">Hangup</option><option value="app-blackhole,congestion,1" style="background-color:white;">Congestion</option><option value="app-blackhole,busy,1" style="background-color:white;">Busy</option><option value="app-blackhole,zapateller,1" style="background-color:white;">Play SIT Tone (Zapateller)</option><option value="app-blackhole,musiconhold,1" style="background-color:white;">Put caller on hold forever</option><option value="app-blackhole,ring,1" style="background-color:white;">Play ringtones to caller until they hangup</option></select><select name="Trunks1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-trunk,1,1" style="background-color:white;">PBX1-PBX2 (sip)</option></select><select name="Voicemail1" tabindex="4" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-local,vmb20001,1" style="background-color:white;">&lt;20001&gt; Esimene (busy)</option><option value="ext-local,vmu20001,1" style="background-color:white;">&lt;20001&gt; Esimene (unavail)</option><option value="ext-local,vms20001,1" style="background-color:white;">&lt;20001&gt; Esimene (no-msg)</option><option value="ext-local,vmb20002,1" style="background-color:white;">&lt;20002&gt; Teine (busy)</option><option value="ext-local,vmu20002,1" style="background-color:white;">&lt;20002&gt; Teine (unavail)</option><option value="ext-local,vms20002,1" style="background-color:white;">&lt;20002&gt; Teine (no-msg)</option><option value="ext-local,vmb20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (busy)</option><option value="ext-local,vmu20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (unavail)</option><option value="ext-local,vms20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (no-msg)</option><option value="ext-local,vmb20004,1" style="background-color:white;">&lt;20004&gt; Neljas (busy)</option><option value="ext-local,vmu20004,1" style="background-color:white;">&lt;20004&gt; Neljas (unavail)</option><option value="ext-local,vms20004,1" style="background-color:white;">&lt;20004&gt; Neljas (no-msg)</option></select></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">&nbsp;&nbsp;CID Prefix<span>Optional CID Prefix to add before sending to this busy destination.</span></a></td>
+		<td><input name="busy_cid" id="busy_cid" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">Not Reachable<span>Optional destination the call is routed to when the phone is offline, such as a softphone currently off or a phone unplugged.</span></a></td>
+		<td><select name="goto2" class="destdropdown" style="background-color:white;" tabindex="5"><option selected="selected" value="" style="background-color:white;">Unavail Voicemail if Enabled</option><option value="Conferences" style="background-color:white;">Conferences</option><option value="Custom_Contexts" style="background-color:white;">Custom Contexts</option><option value="Extensions" style="background-color:white;">Extensions</option><option value="Feature_Code_Admin" style="background-color:white;">Feature Code Admin</option><option value="IVR" style="background-color:white;">IVR</option><option value="Phonebook_Directory" style="background-color:white;">Phonebook Directory</option><option value="Ring_Groups" style="background-color:white;">Ring Groups</option><option value="Terminate_Call" style="background-color:white;">Terminate Call</option><option value="Trunks" style="background-color:white;">Trunks</option><option value="Voicemail" style="background-color:white;">Voicemail</option></select> <select name="Conferences2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-meetme,20005,1" style="background-color:white;">Avalik &lt;20005&gt;</option><option value="ext-meetme,20006,1" style="background-color:white;">Salajane &lt;20006&gt;</option></select><select name="Custom_Contexts2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="from-internal,${EXTEN},1" style="background-color:white;">Full Internal Access</option></select><select name="Extensions2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="from-did-direct,20001,1" style="background-color:white;"> &lt;20001&gt; Esimene</option><option value="from-did-direct,20002,1" style="background-color:white;"> &lt;20002&gt; Teine</option><option value="from-did-direct,20003,1" style="background-color:white;"> &lt;20003&gt; Kolmas</option><option value="from-did-direct,20004,1" style="background-color:white;"> &lt;20004&gt; Neljas</option></select><select name="Feature_Code_Admin2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-featurecodes,*30,1" style="background-color:white;">Blacklist a number &lt;*30&gt;</option><option value="ext-featurecodes,*31,1" style="background-color:white;">Remove a number from the blacklist &lt;*31&gt;</option><option value="ext-featurecodes,555,1" style="background-color:white;">ChanSpy &lt;555&gt;</option><option value="ext-featurecodes,7777,1" style="background-color:white;">Simulate Incoming Call &lt;7777&gt;</option><option value="ext-featurecodes,888,1" style="background-color:white;">ZapBarge &lt;888&gt;</option><option value="ext-featurecodes,#,1" style="background-color:white;">Directory &lt;#&gt;</option><option value="ext-featurecodes,*43,1" style="background-color:white;">Echo Test &lt;*43&gt;</option><option value="ext-featurecodes,*60,1" style="background-color:white;">Speaking Clock &lt;*60&gt;</option><option value="ext-featurecodes,*85,1" style="background-color:white;">Pickup ParkedCall Any &lt;*85&gt;</option><option value="ext-featurecodes,411,1" style="background-color:white;">Phonebook dial-by-name directory &lt;411&gt;</option><option value="ext-featurecodes,*98,1" style="background-color:white;">Dial Voicemail &lt;*98&gt;</option></select><select name="IVR2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="ivr-2,s,1" style="background-color:white;">Automaat</option></select><select name="Phonebook_Directory2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="app-pbdirectory,pbdirectory,1" style="background-color:white;">Phonebook Directory</option></select><select name="Ring_Groups2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-group,20010,1" style="background-color:white;">kolmene &lt;20010&gt;</option></select><select name="Terminate_Call2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="app-blackhole,hangup,1" style="background-color:white;">Hangup</option><option value="app-blackhole,congestion,1" style="background-color:white;">Congestion</option><option value="app-blackhole,busy,1" style="background-color:white;">Busy</option><option value="app-blackhole,zapateller,1" style="background-color:white;">Play SIT Tone (Zapateller)</option><option value="app-blackhole,musiconhold,1" style="background-color:white;">Put caller on hold forever</option><option value="app-blackhole,ring,1" style="background-color:white;">Play ringtones to caller until they hangup</option></select><select name="Trunks2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-trunk,1,1" style="background-color:white;">PBX1-PBX2 (sip)</option></select><select name="Voicemail2" tabindex="6" style="display:none;" class="destdropdown2"><option selected="selected" value="ext-local,vmb20001,1" style="background-color:white;">&lt;20001&gt; Esimene (busy)</option><option value="ext-local,vmu20001,1" style="background-color:white;">&lt;20001&gt; Esimene (unavail)</option><option value="ext-local,vms20001,1" style="background-color:white;">&lt;20001&gt; Esimene (no-msg)</option><option value="ext-local,vmb20002,1" style="background-color:white;">&lt;20002&gt; Teine (busy)</option><option value="ext-local,vmu20002,1" style="background-color:white;">&lt;20002&gt; Teine (unavail)</option><option value="ext-local,vms20002,1" style="background-color:white;">&lt;20002&gt; Teine (no-msg)</option><option value="ext-local,vmb20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (busy)</option><option value="ext-local,vmu20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (unavail)</option><option value="ext-local,vms20003,1" style="background-color:white;">&lt;20003&gt; Kolmas (no-msg)</option><option value="ext-local,vmb20004,1" style="background-color:white;">&lt;20004&gt; Neljas (busy)</option><option value="ext-local,vmu20004,1" style="background-color:white;">&lt;20004&gt; Neljas (unavail)</option><option value="ext-local,vms20004,1" style="background-color:white;">&lt;20004&gt; Neljas (no-msg)</option></select></td>
+	</tr>
+	<tr>
+		<td><a href="javascript:void(null)" class="info">&nbsp;&nbsp;CID Prefix<span>Optional CID Prefix to add before sending to this not reachable destination.</span></a></td>
+		<td><input name="chanunavail_cid" id="chanunavail_cid" size="35" tabindex="1" type="text"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><h6><input name="Submit" tabindex="1" value="Submit" type="submit"></h6></td>
+	</tr>
+</tbody></table><!-- end of table frm_extensions -->
+
+<script type="text/javascript">
+<!--
+var theForm = document.frm_extensions;
+
+function frm_extensions_isValidCID(thiscid) {
+var mycid = thiscid.toLowerCase();
+		if (isDialpattern(thiscid) || mycid.substring(0,4) == "priv" || mycid.substring(0,5) == "block" || mycid == "unknown" || mycid.substring(0,8) == "restrict" || mycid.substring(0,7) == "unavail" || mycid.substring(0,6) == "anonym") { return true } else { return false };
+		}
+function frm_extensions_isVoiceMailEnabled(notused) {
+return (theForm.vm.value == "enabled");}
+function frm_extensions_onsubmit() {
+	defaultEmptyOK = false;
+	if (!isAlphanumeric(theForm.name.value) || isWhitespace(theForm.name.value)) 
+		return warnInvalid(theForm.name, "Please enter a valid Display Name");
+
+	defaultEmptyOK = false;
+	if (!isWhitespace(theForm.cid_masquerade.value) && !isInteger(theForm.cid_masquerade.value)) 
+		return warnInvalid(theForm.cid_masquerade, "Please enter a valid CID Num Alias (must be a valid number).");
+
+	defaultEmptyOK = true;
+	if (!isCallerID(theForm.outboundcid.value)) 
+		return warnInvalid(theForm.outboundcid, "Please enter a valid Outbound CID");
+
+	defaultEmptyOK = true;
+	if (!isCallerID(theForm.emergency_cid.value)) 
+		return warnInvalid(theForm.emergency_cid, "Please enter a valid Emergency CID");
+
+	defaultEmptyOK = true;
+	if (!isDialpattern(theForm.newdid.value)) 
+		return warnInvalid(theForm.newdid, "You have entered a non-standard dialpattern for your DID. You can only enter standard dialpatterns. You must use the inbound routing form to enter non-standard patterns");
+
+	defaultEmptyOK = true;
+	if (!frm_extensions_isValidCID(theForm.newdidcid.value)) 
+		return warnInvalid(theForm.newdidcid, "Please enter a valid CallerID Number or leave it blank for your Assigned DID/CID pair");
+
+	defaultEmptyOK = true;
+	if ((isEmpty(theForm.devinfo_secret.value) && !confirm("You have not entered a Secret for this device, although this is possible it is generally bad practice to not assign a Secret to a device. Are you sure you want to leave the Secret empty?")) || (!isEmpty(theForm.devinfo_secret.value) && weakSecret(theForm.devinfo_secret.value))) 
+		return warnInvalid(theForm.devinfo_secret, "Please enter a Secret for this device");
+
+	defaultEmptyOK = true;
+	if (!isEmail(theForm.dictemail.value)) 
+		return warnInvalid(theForm.dictemail, "Please enter a valid Email Address");
+
+	defaultEmptyOK = true;
+	if (!isFilename(theForm.langcode.value)) 
+		return warnInvalid(theForm.langcode, "Please enter a valid Language Code");
+
+	defaultEmptyOK = false;
+	if (frm_extensions_isVoiceMailEnabled(theForm.vmpwd.value) && !frm_extensions_verifyEmptyVoiceMailPassword(theForm.vmpwd.value) && !isInteger(theForm.vmpwd.value)) 
+		return warnInvalid(theForm.vmpwd, "Please enter a valid Voicemail Password, using digits only");
+
+	defaultEmptyOK = true;
+	if (frm_extensions_isVoiceMailEnabled(theForm.email.value) && !isEmail(theForm.email.value)) 
+		return warnInvalid(theForm.email, "Please enter a valid Email Address");
+
+	defaultEmptyOK = true;
+	if (frm_extensions_isVoiceMailEnabled(theForm.pager.value) && !isEmail(theForm.pager.value)) 
+		return warnInvalid(theForm.pager, "Please enter a valid Email Address");
+
+	defaultEmptyOK = false;
+	if (frm_extensions_isVoiceMailEnabled(theForm.vmcontext.value) && isEmpty(theForm.vmcontext.value)) 
+		return warnInvalid(theForm.vmcontext, "VM Context cannot be blank");
+
+
+		defaultEmptyOK = true;
+		if (!theForm.vmx_option_0_system_default.checked && !isInteger(theForm.vmx_option_0_number.value)) 
+			return warnInvalid(theForm.vmx_option_0_number, 'Please enter a valid phone number using number digits only');
+		if (theForm.vmx_option_1_system_default != undefined && !theForm.vmx_option_1_system_default.checked && !isInteger(theForm.vmx_option_1_number.value)) 
+			return warnInvalid(theForm.vmx_option_1_number, 'Please enter a valid phone number using number digits only');
+		if (!isInteger(theForm.vmx_option_2_number.value)) 
+			return warnInvalid(theForm.vmx_option_2_number, 'Please enter a valid phone number using number digits only');
+			return true;
+}
+function frm_extensions_verifyEmptyVoiceMailPassword(notused) {
+if (theForm.vmpwd.value == "") { if(confirm("Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?")) { return true; } else { return false; }  };}
+function frm_extensions_vmx_disable_fields(notused) {
+
+			if (document.getElementById('vmx_state').value == 'checked') {
+				var dval=false;
+			} else {
+				var dval=true;
+			}
+			document.getElementById('vmx_unavail_enabled').disabled=dval;
+			document.getElementById('vmx_busy_enabled').disabled=dval;
+			document.getElementById('vmx_play_instructions').disabled=dval;
+		
+			document.getElementById('vmx_option_1_number').disabled=dval;
+			document.getElementById('vmx_option_2_number').disabled=dval;
+	
+			if (document.getElementById('vm').value == 'disabled') {
+				document.getElementById('vmx_option_0_number').disabled = true;
+				document.getElementById('vmx_option_0_system_default').disabled=true;
+			} else {
+				document.getElementById('vmx_option_0_system_default').disabled=false;
+				if (document.getElementById('vmx_option_0_system_default').checked) {
+					document.getElementById('vmx_option_0_number').disabled = true;
+				} else {
+					document.getElementById('vmx_option_0_number').disabled = false;
+				}
+			}
+		
+			return true;
+		}
+function frm_extensions_voicemailEnabled(notused) {
+
+		if (document.getElementById('vm').value == 'disabled') {
+			var dval=true;
+			document.getElementById('vmx_state').value='';
+			$('.radioset').buttonset('refresh');
+		} else {
+			var dval=false;
+		}
+		document.getElementById('vmpwd').disabled=dval;
+		document.getElementById('email').disabled=dval;
+		document.getElementById('pager').disabled=dval;
+		document.getElementById('attach0').disabled=dval;
+		document.getElementById('attach1').disabled=dval;
+		document.getElementById('saycid0').disabled=dval;
+		document.getElementById('saycid1').disabled=dval;
+		document.getElementById('envelope0').disabled=dval;
+		document.getElementById('envelope1').disabled=dval;
+		document.getElementById('delete0').disabled=dval;
+		document.getElementById('delete1').disabled=dval;
+		
+		document.getElementById('options').disabled=dval;
+		document.getElementById('vmcontext').disabled=dval;
+		document.getElementById('vmx_state').disabled=dval;
+		$('.radioset').buttonset('refresh');
+		return true;
+		}
+//-->
+</script>
+</form>
+
+<!-- end generated page content -->
+
+</div> <!-- .content -->
+
+<hr><div id="footer"><span class="footer-float-left"><a target="_blank" href="http://www.freepbx.org/"><img id="footer_logo" src="admin_data/freepbx_small.png" alt="FreePBX®"></a></span><span class="footer-float-left"><h3>Let Freedom Ring<sup>™</sup></h3>		<a href="http://www.freepbx.org/" target="_blank">FreePBX</a> is a registered trademark of <a href="http://www.freepbx.org/copyright.html" target="_blank">Bandwidth.com</a><br>
+		<a href="http://www.freepbx.org/" target="_blank">FreePBX 2.9.0.12</a> is licensed under <a href="http://www.gnu.org/copyleft/gpl.html" target="_blank">GPL</a><br></span></div></div> <!-- content -->
+</div> <!-- page -->
+
+
+</div></div></body></html>

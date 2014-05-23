@@ -1,0 +1,637 @@
+/* ------------------------------------------------------------------------- CSS RESET ----- */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,  footer, header, hgroup, 
+menu, nav, section, summary, time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+    display:block;
+}
+nav ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+table { border-collapse:collapse; border-spacing:0; }
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+input, select { vertical-align:middle; }
+
+/* ------------------------------------------------------------------------ FONT RESET ----- */
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+select, input, textarea, button { font:99% sans-serif; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+/* --------------------------------------------------------------------- GENERAL RESET ----- */
+html { overflow-y: scroll; } /* always force a scrollbar in non-IE */
+
+body, select, input, textarea { 
+  color: #444; 
+  font-family: Arial, sans serif;
+}
+
+h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+
+a:hover, a:active { outline: none; }  /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
+
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
+
+nav ul, nav li { margin: 0; } /* Remove margins for navigation lists */
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; }
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+pre { 
+  padding: 15px;  
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+ 
+textarea { overflow: auto; } /* IE remove scroll from textarea */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; }
+
+/* align checkboxes, radios, text inputs with their label */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+ 
+/* webkit browsers add a 2px margin outside the chrome of form elements */  
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301 
+   Also: hot pink. */
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; } 
+
+/*  j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; } 
+
+/* make buttons play nice in IE */
+button {  width: auto; overflow: visible; }
+ 
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/* MISC */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; } /* for image replacement */
+
+.hidden { display: none; visibility: hidden; } /* Complete hides */
+.invisible { visibility: hidden; } /* Hide visually and from screenreaders, but maintain layout */
+
+/* Screenreader friendly, visual hides */
+.visuallyhidden { position: absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/* --------------------------------------------------------------------------- GENERAL ----- */
+body {
+	font-family: arial, helvetica, sans serif;
+	font-size: 12px;
+	padding: 10px;
+}
+
+a { font-family: arial, helvetica; color: #000000; text-decoration: none; font-weight:bold;}
+a:hover { color: #000000; text-decoration: underline;}
+a:link { color: #000000; text-decoration: none;}
+a:visited { color:#000000; text-decoration: none;}
+a:hover { color: #000000; text-decoration: underline;}
+
+.block {
+	display: block;
+}
+
+.block_hr {
+	display: block;
+	height: 11px;
+}
+
+/* ------------------------------------------------------------------------------ PAGE ----- */
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 772px;
+	height: 604px;
+	background: url(../m_bg.png);
+	_position: static;
+	_background-image: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='welcome/m_bg.png');
+}
+
+#left {
+	width: 185px;
+	height: 604px;
+	float: left;
+	_display: inline; /* IE6 float fix */
+	_position: relative;
+}
+
+#right {
+	position: relative;
+	width: 587px;
+	height: 604px;
+	float: left;
+	_display: inline; /* IE6 float fix */
+	_position: relative;
+}
+
+a.credits, a.credits:visited {
+	float: right;
+	color: #dddddd;
+	font-size: 9px;
+	padding-right: 10px;
+	margin-top: -5px;
+	_display: inline; /* IE6 float fix */
+}
+
+a.credits:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+/* LEFT COLUMN SETTINGS */
+
+#logo {
+	margin: 20px 0 10px 17px;
+}
+
+#logo a img {
+	background: url(../m_logo.png);
+	background-position: top;
+	_background-image: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='welcome/m_logo.png');
+}
+#logo a:hover img {
+	background-position: bottom;
+	_background-image: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='welcome/m_logo_o.png');
+}
+
+#rss {
+	margin-left: 22px;
+	width: 150px;
+	height: 389px;
+	background: url(../m_rss.png);
+	_position: static;
+	_background-image: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='welcome/m_rss.png');
+}
+
+#scroller {
+	width: 122px;
+	height: 359px;
+	padding: 10px;
+	overflow: auto;
+}
+
+#content {
+	width: 120px;
+	height: 359px;
+	float: left;
+	overflow: hidden;
+}
+
+#scrollarea {
+	width: 9px;
+	height: 359px;
+	float: left;
+	cursor: pointer;
+	border-left: 1px solid #cccccc;
+}
+
+#scrollBarContainer {
+	height: 331px;
+	_height: 321px;
+}
+
+#scrollKnob {
+	width: 5px;
+	min-height: 10px;
+	margin: 1px;
+	border: 1px solid #999;
+	background: #ccc;
+}
+
+#scrollForward, #scrollBack {
+	width: 5px;
+	height: 10px;
+	margin: 1px;
+	border: 1px solid #999;
+	background: #ccc;
+}
+
+#scrollKnob:hover, #scrollForward:hover, #scrollBack:hover {
+	background: #ff9933;
+}
+
+/* RIGHT COLUMN SETTINGS */
+
+#admin {
+	display: none;
+	position: absolute;
+	top: 37px;
+	margin: 0 auto 0 auto;
+}
+
+#users {
+	display: none;
+	position: absolute;
+	top: 37px;
+	margin: 0 auto 0 auto;
+}
+
+#branding {
+	position: absolute;
+	top: 527px;
+	width: 550px;
+	height: 48px;
+	padding: 5px 0 0 15px;
+	margin: 0 auto 0 auto;
+}
+
+#brand_users, #brand_admin {
+	display: none;
+	width: 450px; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+#login {
+	position: absolute;
+	top: 215px;
+	left: 185px;
+	padding: 20px;
+	text-align: right;
+	border-bottom: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	background-color: #eeeeee;
+}
+
+#config {
+	position: absolute;
+	top: 48px;
+	left: 165px;
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	background-color: #eeeeee;
+	_top: 52px;
+	_padding: 10px 20px 10px 20px;
+}
+
+#buttons {
+	width: 557px;
+	height: 542px;
+	padding: 7px 5px 5px 6px;
+}
+
+#buttons div.spacer {
+	height: 117px;
+}
+
+#buttons span.hr {
+	display: block;
+	height: 1px;
+	width: 542px;
+	line-height: 1px;
+	padding: 0px;
+	margin: 5px 0 5px 5px;
+	background-color: #cccccc;
+}
+
+#buttons br {
+	display: block;
+	clear: both;
+	line-height: 0px;
+}
+
+#buttons a {
+	display: block;
+	_display: inline;
+	float: left;
+	width: 97px;
+	height: 97px;
+	padding: 10px;
+	margin-left: -6px;
+	text-align: center;
+	background: url(../m_button.png);
+	background-position: top;
+	_cursor: hand;
+	_margin-left: -8px;
+	_background-image: none; 
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='welcome/m_button.png');
+}
+
+#buttons a:hover {
+	background-position: bottom;
+	_background-image: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='welcome/m_button_o.png');
+}
+
+#buttons a img {
+	display: block;
+	width: 48px;
+	height: 48px;
+	margin: 10px auto 0px auto;
+	padding: 0px;
+	border: 0px;
+	*margin-top: 20px;
+}
+
+/* WRAPPER SETTINGS */
+
+#wrap_bg {
+	height: 27px;
+	background-image: url(../m_wrap_bg.png);
+}
+
+#wrap_logo {
+	float: left;
+	width: 104px;
+	height: 27px;
+	margin-left: 2px;
+	background-image: url(../m_wrap_logo.png);
+	/* IE6 workaround */
+	_background-image: none; 
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop src='welcome/m_wrap_logo.png');
+}
+
+#wrap_menu {
+	float: right;
+	padding-top: 5px;
+}
+
+#wrap_menu a {
+	margin: 0px 10px 0px 10px;
+}
+
+#wrap_menuswitch {
+	margin: 5px 0 0 35px;
+}
+
+/* --------------------------------------------------------------------------- WIDGETS ----- */
+/* iPhone Toggle Button */
+.ibutton-container {
+  position: relative;
+  height: 27px;
+  cursor: pointer;
+  overflow: hidden;
+	/* set max width to that of sprite */
+	max-width: 400px;
+	/* prevent text selection */
+	-khtml-user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-moz-user-focus: ignore; 
+	-moz-user-input: disabled;
+	/* set default width based on ON/OFF labels */
+	width: 89px;
+}
+
+.ibutton-container input {
+  position: absolute;
+	top: 0;
+	left: 0;
+
+	/* hide the element */
+	filter:alpha(opacity=0);
+	-moz-opacity: 0.0; 
+	opacity: 0.0;
+
+	/* allow checking of input if visible */
+	-moz-user-input: enabled  !important;
+}
+
+.ibutton-handle {
+  display: block;
+  height: 27px;
+  cursor: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  background: transparent url(../ibutton-slider-default.png) no-repeat scroll 0 -27px;
+  z-index: 3;
+  padding-left: 3px;
+	/* set default width based on ON/OFF labels */
+	width: 33px;
+}
+
+.ibutton-handle-right {
+  height: 100%;
+  width: 100%;
+  padding-right: 3px;
+  background: transparent url(../ibutton-slider-default.png) no-repeat scroll 100% -27px;
+  z-index: 3; 
+}
+
+.ibutton-handle-middle {
+  height: 100%;
+  width: 100%;
+  background: transparent url(../ibutton-slider-default.png) no-repeat scroll 50% -27px;
+  z-index: 3; 
+}
+
+div.ibutton-label-on, div.ibutton-label-off {
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: bold;
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  cursor: inherit;
+  display: block;
+  height: 22px;
+  position: absolute;
+  width: auto;
+  top: 0;
+  padding-top: 5px;
+  overflow: hidden; 
+  background: transparent url(../ibutton-slider-default.png) no-repeat scroll 0 0;
+}
+
+div.ibutton-label-on {
+  color: #fff;
+  text-shadow: 0 -1px 2px rgba(0, 0, 0, 0.4);
+  left: 0;
+  padding-top: 5px;
+  z-index: 1; 
+}
+
+div.ibutton-label-on span {
+  padding-left: 8px;
+}
+
+div.ibutton-label-off {
+  color: #7c7c7c;
+  background-position: 100% 0;
+  text-shadow: 0 -1px 2px rgba(153, 153, 153, 0.4);
+  text-align: right;
+  right: 0;
+	/* the off label needs to near the left edge (ideally just 5px away) 
+	 * it just needs to be close enough that it won't show under the handle if dragged to the left  
+	 */
+	width: 95%;
+}
+
+div.ibutton-label-off span {
+  padding-right: 8px; 
+}
+
+/* create an outline when button gets focus via keyboard */
+.ibutton-container label {
+	cursor: inherit;
+	border: 1px dotted transparent;
+}
+
+.ibutton-focus label {
+	/* we must use border, since outline doesn't work in IE */
+	border: 1px dotted #666 !important;
+}
+
+.ibutton-focus div.ibutton-label-on span label {
+	/* use white for more contrast */
+	border-color: #fff !important;
+}
+
+/* add padding to right/left so that text gets clipped before absolute edge */
+.ibutton-padding-left, .ibutton-padding-right {
+	position: absolute; 
+	top: 4px;
+	z-index: 2; 
+	background: transparent url(../ibutton-slider-default.png) no-repeat scroll 0 -4px; 
+	width: 3px;
+	height: 20px;
+}
+	
+.ibutton-padding-left {
+	left: 0; 
+}
+
+.ibutton-padding-right {
+	right: 0; 
+	background-position: 100% -4px;
+}
+
+/* change the styles of the handle when being dragged */
+.ibutton-active-handle .ibutton-handle {
+	background-position: 0 -108px;
+}
+
+.ibutton-active-handle .ibutton-handle-right {
+	background-position: 100% -108px;
+}
+
+.ibutton-active-handle .ibutton-handle-middle {
+	background-position: 50% -108px;
+}
+
+/* styles to use when the button is disabled */
+.ibutton-disabled {
+	cursor: not-allowed !important; /* cursor options: default or not-allowed */
+}
+
+.ibutton-disabled .ibutton-handle {
+	background-position: 0 -81px;
+}
+
+.ibutton-disabled .ibutton-handle-right {
+	background-position: 100% -81px;
+}
+
+.ibutton-disabled .ibutton-handle-middle {
+	background-position: 50% -81px;
+}
+
+.ibutton-disabled div.ibutton-label-on {
+	background-position: 0 -54px;
+}
+
+.ibutton-disabled div.ibutton-label-off {
+	background-position: 100% -54px;
+}
+
+.ibutton-disabled .ibutton-padding-left {
+	background-position: 0 -54px;
+}
+
+.ibutton-disabled .ibutton-padding-right {
+	background-position: 100% -54px;
+}
+
+.ibutton-disabled div.ibutton-label-on {
+	color: #fff;
+}
+
+.ibutton-disabled div.ibutton-label-off {
+	color: #cbcbcb;
+}
+
+/* ------------------------------------------------------------------------- OVERRIDES ----- */
+@media all and (orientation:portrait) { 
+}
+
+@media all and (orientation:landscape) { 
+}
+
+@media screen and (max-device-width: 480px) {
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you -- j.mp/textsizeadjust 
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; } 
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}

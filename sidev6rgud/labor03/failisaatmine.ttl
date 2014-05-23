@@ -1,0 +1,33 @@
+; side labor RS makro Tera Term kaudu faili saatmiseks ja saatmise aja mõõtmiseks.
+
+testlink
+
+if result=2 then
+
+filenamebox 'Vali fail saatmiseks' 0
+ gettime varstart "%H:%M:%S"
+ sendfile inputstr 1
+ gettime varend "%H:%M:%S"
+
+ strmatch varstart '(\d+):(\d+):(\d+)'
+
+ str2int ihour groupmatchstr1
+ str2int imin groupmatchstr2
+ str2int isec groupmatchstr3
+ istart = isec * 1 + imin * 60 + ihour * 3600
+
+ strmatch varend '(\d+):(\d+):(\d+)'
+
+ str2int ihour groupmatchstr1
+ str2int imin groupmatchstr2
+ str2int isec groupmatchstr3
+ iend = isec * 1 + imin * 60 + ihour * 3600
+
+ diff = iend - istart
+ filestat inputstr size
+
+ sprintf2 message "Saadetud faili nimi: %s, \nSaadetud faili suurus: %d baiti, \nFaili saatmise aeg: %d sekundit" inputstr size diff
+ strspecial message
+ messagebox message "Katsetulemused"
+
+endif
