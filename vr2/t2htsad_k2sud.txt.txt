@@ -1,0 +1,3 @@
+Tools -> Library Package Manager -> Package Manager Console
+Enable-Migrations
+Update-Database

@@ -14,13 +14,14 @@ namespace TankServer.Controllers
         // GET api/games
         public List<Game> Get()
         {
+
             return Game.All();
         }
 
         // GET api/games/5
-        public string Get(int id)
+        public Game Get(int id)
         {
-            return "value";
+            return Game.Find(id);
         }
 
         // POST api/games

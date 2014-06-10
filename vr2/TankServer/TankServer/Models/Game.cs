@@ -10,7 +10,7 @@ namespace TankServer.Models
 {
     public class Game : BaseModel<Game>
     {
-        public int Id { get; set; }
+        public string Name { get; set; }
         public virtual List<User> Users { get; set; }
         public virtual Map Map { get; set; }
     }
