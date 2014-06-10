@@ -70,4 +70,3 @@ C:\Users\dte\Desktop\vr2\TankServer\TankServer\obj\Debug\TankServer.dll
 C:\Users\dte\Desktop\vr2\TankServer\TankServer\obj\Debug\TankServer.pdb
 C:\Users\dte\Desktop\vr2\TankServer\TankServer\bin\EntityFramework.SqlServer.dll
 C:\Users\dte\Desktop\vr2\TankServer\TankServer\bin\EntityFramework.SqlServer.xml
-C:\Users\dte\Desktop\vr2\TankServer\TankServer\obj\Debug\TankServer.csprojResolveAssemblyReference.cache

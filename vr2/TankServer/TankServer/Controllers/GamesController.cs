@@ -14,7 +14,10 @@ namespace TankServer.Controllers
         // GET api/games
         public List<Game> Get()
         {
-
+            new Game() { Name = "Test" }.Save();
+            Game first = Game.Find(1);
+            first.Name = "changed";
+            first.Save();
             return Game.All();
         }
 
