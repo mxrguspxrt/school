@@ -1,0 +1,40 @@
+Mai 19 - motivatsioonikõne + praktikumide kaitsmise jutt
+--------------------------------------------------------
+
+Tehke enda asjad nii hästi kui oskate ja kindlasti esitage ära - parem kehv tulemus kui võlgnevused järgmises aastas või uuesti deklareerimine ülejärgmisel.
+
+Kui võtate kooli kui kohustust, mitte kohta, kus on fun ja saate ennast arendada, siis tuleb a.) muuta suhtumist, nautida ja teha asju, b.) piinelda ja teha asju, c.) vahetada eriala, d.) läbikukkumine on igav
+
+26 mai tuleks hakata enda projekte kaitsma, ärge jätke viimasele päeval enne eksamit - kõik ei jõua kaitsta. Eksamile praksi mittekaitsenud tüübid ei saa.
+
+Valides Poska praktikajuhendajaks, jälgib ta hoolega, et erinevates etappides oleksid tulemused olemas. Range vend. :)
+
+
+29.03.2014
+----------
+
+Inverse of control & Dependency injection (me feels like writing Java already, I am sad)
+
+
+08.03.2014
+----------
+
+https://echo360.e-ope.ee/ess/echo/presentation/c1608d46-14b8-48f0-a6d2-89adf2ca7bbf?ec=true
+ASP.NET MVC 4 WEB app, WEB API, JSON, mudeli tegemine 
+
+https://echo360.e-ope.ee/ess/echo/presentation/1117eab9-50fb-4265-89a9-adb0ba095d80?ec=true
+Andmebaasi tegemine mudelist
+
+
+
+
+
+Veebruar 3 - mida vaja teha
+---------------------------
+
+25. main veebiteenustele: 6 olemit, kasutajate haldus, kasutada WCF ja WEB API, ANALÜÜS ja RETSENSIOON (klientrakenduse võib teha mõnel muul tehnoloogial)
+
+Eksam koosneb kahest osast. Teooria ja praktika.
+
+
+
