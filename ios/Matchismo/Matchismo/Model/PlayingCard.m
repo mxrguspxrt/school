@@ -10,6 +10,22 @@
 
 @implementation PlayingCard
 
+- (int)match:(NSArray *)otherCards {
+    int score = 0;
+    
+    PlayingCard *otherCard = [otherCards firstObject];
+
+    if (otherCard.rank==self.rank) {
+        score = 4;
+    }
+    
+    if (otherCard.suit==self.suit) {
+        score = 1;
+    }
+    
+    return score;
+}
+
 - (NSString *) contents {
     return [self.rank stringByAppendingString:self.suit];
 }
@@ -33,6 +49,5 @@
 - (NSString *)suit {
     return _suit ? _suit : @"?";
 }
-
 
 @end
