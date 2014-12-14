@@ -16,8 +16,6 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-
-
 @end
 
 @implementation CardGameViewController
@@ -31,6 +29,7 @@
 
 - (IBAction)touchCardButton:(UIButton *)sender {
     int chosenButtonIndex = [self.cardButtons indexOfObject:sender];
+    NSLog(@"Pressed putton at index: %i", chosenButtonIndex);
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
 }

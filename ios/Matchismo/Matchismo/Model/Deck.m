@@ -36,10 +36,11 @@
     
     if ([self.cards count]) {
         NSUInteger index = arc4random() % [self.cards count];
-        randomCard = self.cards[index];
+        randomCard = [self.cards objectAtIndex:index];
         [self.cards removeObjectAtIndex:index];
     }
     
+    NSLog(@"Deck#drawRandomCard drawed: %@", randomCard.contents);
     return randomCard;
 }
 

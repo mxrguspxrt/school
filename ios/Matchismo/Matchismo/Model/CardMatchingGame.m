@@ -18,7 +18,7 @@
 
 - (NSMutableArray *)cards
 {
-    if (_cards) _cards = [[NSMutableArray alloc] init];
+    if (!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
 }
 
@@ -30,7 +30,11 @@
         for (int i=0; i<count; i++) {
             Card *card = [deck drawRandomCard];
             if (card) {
+                NSLog(@"Added card to cards: %@", card.contents);
                 [self.cards addObject:card];
+                for (Card *card in self.cards) {
+                    NSLog(@"Cards contains: %@", card.contents);
+                }
             } else {
                 self = nil;
                 break;
@@ -42,7 +46,9 @@
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index {
-    return self.cards[index];
+    Card *card = [self.cards objectAtIndex:index];
+    NSLog(@"GardMatchingGame#cardAtIndex %@", card.contents);
+    return card;
 }
 
 static const int MISMATCH_PENALTY = 2;
@@ -52,8 +58,7 @@ static const int COST_TO_CHOOSE = 1;
 - (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
-    NSLog(@"Pask");
-    NSLog(card.contents);
+    NSLog(@"CardMatchingGame#chooseCardAtIndex %i has contents: %@", index, card.contents);
     
     if (!card.isMatched) {
         if (card.isChosen) {
