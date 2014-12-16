@@ -17,6 +17,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic) NSInteger matchCardsCount;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+
 @end
 
 @implementation CardGameViewController
@@ -52,6 +54,7 @@
         cardButton.enabled = !card.isMatched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.infoLabel.text = self.game.message;
 }
 
 - (NSString *)titleForCard:(Card *)card {
