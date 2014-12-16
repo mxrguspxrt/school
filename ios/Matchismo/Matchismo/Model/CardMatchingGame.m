@@ -23,7 +23,8 @@
 }
 
 - (instancetype)initWithCardCount:(NSUInteger)count
-                        usingDeck:(Deck *)deck {
+                        usingDeck:(Deck *)deck
+                  matchCardsCount:(NSInteger)matchCardsCount {
     self = [super init];
     
     if (self) {
@@ -35,6 +36,7 @@
                 for (Card *card in self.cards) {
                     NSLog(@"Cards contains: %@", card.contents);
                 }
+                self.matchCardsCount = matchCardsCount;
             } else {
                 self = nil;
                 break;
@@ -55,34 +57,56 @@ static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 
+- (NSArray *)chosenCards {
+    NSMutableArray *chosenCards = [[NSMutableArray alloc]init];
+    for (Card *card in self.cards) {
+        if (card.isChosen && !card.isMatched) {
+            [chosenCards addObject:card];
+        }
+    }
+    return chosenCards;
+}
+
 - (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
     NSLog(@"CardMatchingGame#chooseCardAtIndex %i has contents: %@", index, card.contents);
     
-    if (!card.isMatched) {
-        if (card.isChosen) {
-            card.isChosen = NO;
-        } else {
-            for (Card *otherCard in self.cards) {
-                if (otherCard.isChosen && !otherCard.isMatched) {
-                    int matchScore = [card match:@[otherCard]];
-                    if (matchScore) {
-                        self.score += matchScore * MATCH_BONUS;
-                        card.isMatched = otherCard.isMatched = YES;
-                    } else {
-                        self.score -= MISMATCH_PENALTY;
-                        otherCard.isChosen = NO;
-                    }
-                    break;
-                }
-            }
-            self.score -= COST_TO_CHOOSE;
-            card.isChosen = YES;
-        }
-    } else {
-        
+    if (card.isMatched) {
+        return;
     }
+    
+    if (card.isChosen) {
+        card.isChosen = NO;
+        return;
+    }
+    
+    self.score -= COST_TO_CHOOSE;
+    
+    NSArray *chosenCards = [self chosenCards];
+    NSInteger matchCardsCount = self.matchCardsCount ? self.matchCardsCount : 2;
+    NSInteger chosenCardsCount = [chosenCards count];
+    
+    if (matchCardsCount == chosenCardsCount+1) {
+        
+        NSInteger points = [card match:chosenCards];
+        
+        if (points) {
+            self.score += points * MATCH_BONUS;
+            for (Card *card in chosenCards) {
+                card.isMatched = YES;
+            }
+            card.isMatched = YES;
+        } else {
+            self.score -= MISMATCH_PENALTY;
+            for (Card *card in chosenCards) {
+                card.isChosen = NO;
+            }
+        }
+    }
+    
+    card.isChosen = YES;
+    
 }
 
 @end

@@ -13,16 +13,16 @@
 - (int)match:(NSArray *)otherCards {
     int score = 0;
     
-    PlayingCard *otherCard = [otherCards firstObject];
+    for (PlayingCard *otherCard in otherCards) {
+        if (otherCard.rank==self.rank) {
+            score += 4;
+        }
+        
+        if (otherCard.suit==self.suit) {
+            score += 1;
+        }
+    }
 
-    if (otherCard.rank==self.rank) {
-        score = 4;
-    }
-    
-    if (otherCard.suit==self.suit) {
-        score = 1;
-    }
-    
     return score;
 }
 
