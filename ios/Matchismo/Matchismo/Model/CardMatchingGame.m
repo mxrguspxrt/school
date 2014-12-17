@@ -13,7 +13,7 @@
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards;
 @property (nonatomic, readwrite) NSString *info;
-@property (nonatomic, readwrite) NSString *message;
+@property (nonatomic, readwrite) NSString *messageText;
 @end
 
 @implementation CardMatchingGame
@@ -59,16 +59,6 @@ static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 
-- (NSArray *)chosenCards {
-    NSMutableArray *chosenCards = [[NSMutableArray alloc]init];
-    for (Card *card in self.cards) {
-        if (card.isChosen && !card.isMatched) {
-            [chosenCards addObject:card];
-        }
-    }
-    return chosenCards;
-}
-
 - (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
@@ -90,7 +80,7 @@ static const int COST_TO_CHOOSE = 1;
 
     [self setMessage:[NSString stringWithFormat:@"Selected card %@", card.contents]];
     
-    NSArray *chosenCards = [self chosenCards];
+    NSMutableArray *chosenCards = [self chosenCards];
     NSInteger matchCardsCount = self.matchCardsCount ? self.matchCardsCount : 2;
     NSInteger chosenCardsCount = [chosenCards count];
     
@@ -105,55 +95,67 @@ static const int COST_TO_CHOOSE = 1;
             }
             card.isMatched = YES;
             
-            // message text
-            NSMutableArray *matchedCards = [self matchedCards:chosenCards];
-            NSMutableArray *matchedCardsContents = [[NSMutableArray alloc]init];
-            for (Card *card in matchedCards) {
-                [matchedCardsContents addObject:card.contents];
-            }
-            NSString *matchedCardTexts = [matchedCardsContents componentsJoinedByString:@", "];
-            [self appendMessage:[NSString stringWithFormat:@"matched %@ and got %i points", matchedCardTexts, points]];
-
+            [self afterMatchCallback:chosenCards points:points];
         } else {
             self.score -= MISMATCH_PENALTY;
             for (Card *chosenCard in chosenCards) {
                 chosenCard.isChosen = NO;
             }
             
-            // message text
-            [self appendMessage:[NSString stringWithFormat:@"did not match and got %i points penalty", MISMATCH_PENALTY]];
+            [self afterNoMatchCallback:chosenCards penalty:MISMATCH_PENALTY];
         }
     }
     
     card.isChosen = YES;
 }
 
-- (void)appendMessage:message {
-    //self.message = [self.message stringByAppendingString:message];
+- (NSMutableArray *)chosenCards {
+    NSMutableArray *chosenCards = [[NSMutableArray alloc]init];
+    for (Card *card in self.cards) {
+        if (card.isChosen && !card.isMatched) {
+            [chosenCards addObject:card];
+        }
+    }
+    return chosenCards;
 }
 
-- (void)setMessage:message {
-    //self.message = message;
+- (void)afterMatchCallback:(NSMutableArray*)chosenCards points:(NSInteger)points {
+    NSMutableArray *matchedCards = [self matchedCards:chosenCards];
+    NSMutableArray *matchedCardsContents = [[NSMutableArray alloc]init];
+    for (Card *card in matchedCards) {
+        [matchedCardsContents addObject:card.contents];
+    }
+    NSString *matchedCardTexts = [matchedCardsContents componentsJoinedByString:@", "];
+    [self setMessage:[NSString stringWithFormat:@"Matched %@ and got %i points", matchedCardTexts, points]];
 }
 
-- (NSInteger)matchingPoints:chosenCards {
+- (void)afterNoMatchCallback:(NSMutableArray*)chosenCards penalty:(NSInteger)penalty {
+    NSMutableArray *notMatchedCardsContents = [[NSMutableArray alloc]init];
+    for (Card *card in chosenCards) {
+        [notMatchedCardsContents addObject:card.contents];
+    }
+    NSString *notMatchedCardTexts = [notMatchedCardsContents componentsJoinedByString:@", "];
+    [self setMessage:[NSString stringWithFormat:@"%@ did not match and got %i points penalty", notMatchedCardTexts, penalty]];
+}
+
+- (void)setMessage:(NSString*)message {
+    self.messageText = message;
+}
+
+- (NSInteger)matchingPoints:(NSMutableArray*)chosenCards {
     NSInteger points = 0;
-    NSMutableArray *checkedCards = [[NSMutableArray alloc]init];
     for(Card *chosenCard in chosenCards) {
-        points += [chosenCard match:checkedCards];
-        [checkedCards addObject:chosenCard];
+        points += [chosenCard match:chosenCards];
     }
     return points;
 }
 
-- (NSMutableArray*)matchedCards:chosenCards {
-    NSMutableArray *checkedCards = [[NSMutableArray alloc]init];
+- (NSMutableArray*)matchedCards:(NSMutableArray*)chosenCards {
     NSMutableArray *matchedCards = [[NSMutableArray alloc]init];
     for(Card *chosenCard in chosenCards) {
-        if ([chosenCard match:checkedCards]) {
+        if ([chosenCard match:chosenCards]) {
             [matchedCards addObject:chosenCard];
         }
-        [checkedCards addObject:chosenCard];
     }
     return matchedCards;
 }

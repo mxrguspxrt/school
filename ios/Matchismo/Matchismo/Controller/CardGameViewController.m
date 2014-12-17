@@ -17,8 +17,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic) NSInteger matchCardsCount;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-
+@property (weak, nonatomic) IBOutlet UITextView *infoLabel;
 @end
 
 @implementation CardGameViewController
@@ -54,7 +53,14 @@
         cardButton.enabled = !card.isMatched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    self.infoLabel.text = self.game.message;
+
+    if (self.game.messageText) {
+        UIColor *color = [UIColor whiteColor];
+        self.infoLabel.attributedText = [[NSAttributedString alloc] initWithString:self.game.messageText attributes:@{NSForegroundColorAttributeName: color}];
+    } else {
+        UIColor *color = [UIColor whiteColor];
+        self.infoLabel.attributedText = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName: color}];
+    }
 }
 
 - (NSString *)titleForCard:(Card *)card {

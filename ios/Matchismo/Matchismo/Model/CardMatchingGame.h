@@ -22,7 +22,7 @@
 - (Card *)cardAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readonly) NSInteger score;
-@property (nonatomic, readonly) NSString* message;
+@property (nonatomic, readonly) NSString *messageText;
 @property (nonatomic) NSInteger matchCardsCount;
 
 @end
