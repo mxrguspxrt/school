@@ -69,7 +69,7 @@ static const int COST_TO_CHOOSE = 1;
     }
     
     if (card.isChosen) {
-        [self setMessage:[NSString stringWithFormat:@"Unselected card %@", card.contents]];
+        self.messageText = [NSString stringWithFormat:@"Unselected card %@", card.contents];
 
         card.isChosen = NO;
         return;
@@ -78,7 +78,7 @@ static const int COST_TO_CHOOSE = 1;
     self.score -= COST_TO_CHOOSE;
     card.isChosen = YES;
 
-    [self setMessage:[NSString stringWithFormat:@"Selected card %@", card.contents]];
+    self.messageText = [NSString stringWithFormat:@"Selected card %@", card.contents];
     
     NSMutableArray *chosenCards = [self chosenCards];
     NSInteger matchCardsCount = self.matchCardsCount ? self.matchCardsCount : 2;
@@ -126,7 +126,7 @@ static const int COST_TO_CHOOSE = 1;
         [matchedCardsContents addObject:card.contents];
     }
     NSString *matchedCardTexts = [matchedCardsContents componentsJoinedByString:@", "];
-    [self setMessage:[NSString stringWithFormat:@"Matched %@ and got %i points", matchedCardTexts, points]];
+    self.messageText = [NSString stringWithFormat:@"Matched %@ and got %i points", matchedCardTexts, points];
 }
 
 - (void)afterNoMatchCallback:(NSMutableArray*)chosenCards penalty:(NSInteger)penalty {
@@ -135,11 +135,7 @@ static const int COST_TO_CHOOSE = 1;
         [notMatchedCardsContents addObject:card.contents];
     }
     NSString *notMatchedCardTexts = [notMatchedCardsContents componentsJoinedByString:@", "];
-    [self setMessage:[NSString stringWithFormat:@"%@ did not match and got %i points penalty", notMatchedCardTexts, penalty]];
-}
-
-- (void)setMessage:(NSString*)message {
-    self.messageText = message;
+    self.messageText = [NSString stringWithFormat:@"%@ did not match and got %i points penalty", notMatchedCardTexts, penalty];
 }
 
 - (NSInteger)matchingPoints:(NSMutableArray*)chosenCards {
