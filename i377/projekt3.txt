@@ -1,0 +1,32 @@
+Projekti 2. osa (Tähtaeg 12. oktoober 22:00)
+
+Luua 3 servletist koosnev rakendus.
+
+Esimene servlet (nimega HomePage) näitab kasutaja sessiooni id-d ja sessiooni pandud atribuudi väärtust.
+See võimaldab ka sessiooni atribuuti seada. Seadmiseks on servleti parameeter nimega "param" (?param=väärtus).
+Näide: http://mkalmo-hw2.appspot.com/HomePage
+
+Teine servlet (nimega SessionCount) näitab avatud sessioonide arvu.
+Sessioonide lugemiseks kasutada listener-i. Näide loengu slaididelt.
+Näide: http://mkalmo-hw2.appspot.com/SessionCount
+
+Kolmas servlet (nimega LogOut) võimaldab sessiooni lõpetada.
+Näide: http://mkalmo-hw2.appspot.com/LogOut
+
+Loodud projekt peab olema BitBucket-ist nähtav vaid kasutajale mkalmo.
+
+Rakendus kompileerida Java versioonile 1.6.
+Eclipse: parem klikk projektil -> Properties -> Project Facets -> Java -> 1.6
+
+Projekt tuleb paigaldada kooli serversisse kasutades rakendust: 
+http://ci.itcollege.ee/manager/ (user: manager, password: ooVeel2o).
+War faili nimeks pange <BitBucket-i kasutajatunnus>.war. War faili nimi mõjutab teie rakenduse aadressi.
+
+Projekt peab läbima järgmisd testid:
+https://bitbucket.org/mkalmo/jeeprojecttester/src/master/src/tests/Homework2Test.java
+
+Testide kasutamise juhend:
+https://moodle.e-ope.ee/mod/page/view.php?id=466633
+Juhendis kasutatakse teekide tõmbamiseks Ant-i. Testide projekt on uuenenud ja 
+enam pole vaja teeke käsitsi tõmmata: teegid tõmmatakse automaatselt.
+

@@ -1,0 +1,15 @@
+<!DOCTYPE project>
+<ivy-module version="2.0">
+  <info organisation="" module=""/>
+  <configurations defaultconf="default" />
+  <dependencies>
+
+    <dependency org="jstl" name="jstl" rev="1.2"/>
+    <dependency org="org.hsqldb" name="hsqldb" rev="2.3.2"/>
+    <dependency org="commons-dbutils" name="commons-dbutils" rev="1.5"/>
+    <dependency org="commons-io" name="commons-io" rev="2.4"/>
+    <dependency org="org.apache.ant" name="ant" rev="1.9.4"/>
+
+
+  </dependencies>
+</ivy-module>

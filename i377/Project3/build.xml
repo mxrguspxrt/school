@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project basedir="." name="jeeProject" default="retrieve"
+    xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <property name="dir.lib" value="WebContent/WEB-INF/lib" />
+    <property name="ivy.retrieve.pattern"
+        value="WebContent/WEB-INF/lib/[artifact]-[type]-[revision].[ext]" />
+
+    <path id="classpath">
+        <fileset dir="WebContent/WEB-INF/lib/" />
+    </path>
+
+    <target name="retrieve" description="retreive dependencies">
+        <taskdef resource="org/apache/ivy/ant/antlib.xml"
+            uri="antlib:org.apache.ivy.ant"
+            classpathref="classpath" />
+
+        <ivy:resolve file="${basedir}/ivy.xml" log="download-only" />
+
+        <ivy:retrieve pattern="${ivy.retrieve.pattern}" conf="default" />
+    </target>
+
+</project>

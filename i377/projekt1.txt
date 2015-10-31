@@ -1,0 +1,32 @@
+Projekti 1. osa (Tähtaeg 5. oktoober 22:00)
+
+1. Luua Java veebiprojekt (nt Eclipse-iga).
+2. Lisada projekti klass nimega Hello.
+   Paketi võite ise valida või tegemata jätta.
+3. Luua kohalik repositoorium (git init).
+4. Luua .gitignore, mis viitab genereeritud failidele (nt. sisu allpool).
+5. Commit-ida loodud projekt.
+6. Luua BitBucket-i konto.
+7. Luua sinna repositoorium nimega i377.
+8. Teha see repositoorium nähtavaks kasutajale mkalmo. 
+8. Push-ida oma kohalik repositoorium BitBucket-isse.
+9. BitBucket-i kasutajatunus saata mart.kalmo@itcollege.ee.
+   (kui kasutajanimest nime välja ei loe ja te konto registreerimisel nime ei kirjutanud)
+
+
+Nüüd peaks BitBucket-ist näha olema teie projekti struktuur 
+ning selles ei tohi olla genereeritud faile (nt. *.class faile).
+Failid peavad olema loodud repositooriumi juurikas. Nt. ei tohi olla nii,
+et projekti juurikas on kataloog X, kus sees on kõik ülejäänu.
+
+Näide:
+http://youtu.be/k37LGTSCaZg NB! Selles näites tehakse tavaline Java projekt. 
+Teie peaksite Java veebiprojekti (Dynamic Web Project) tegema.
+
+.gitignore sisu:
+/build
+/bin
+/WebContent/WEB-INF/lib
+*.class
+*.war
+
